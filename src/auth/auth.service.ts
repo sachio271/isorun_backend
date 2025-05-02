@@ -54,12 +54,21 @@ export class AuthService {
 
   async register(registerDto: RegisterDto): Promise<users> {
     console.log('registerDto', registerDto);
+
+    const checkUser = await this.prismaService.users_ref.findFirst({
+      where: { EKTP: registerDto.ektp },
+    });
+
+    if(!checkUser) {
+      throw new UnauthorizedException('EKTP not found');
+    }
+
     const existingUser = await this.prismaService.users.findFirst({
       where: { username: registerDto.username },
     });
 
     if (existingUser) {
-      throw new UnauthorizedException('User already exists');
+      throw new UnauthorizedException('Username already exists');
     }
 
     const hashedPassword = await bcrypt.hash(registerDto.password, 10);
@@ -71,6 +80,7 @@ export class AuthService {
         password: hashedPassword,
         role: registerDto.role,
         status: 0,
+        users_refId: checkUser.EKTP,
       },
     });
   }
@@ -107,5 +117,88 @@ export class AuthService {
     });
 
     return { message: 'Password changed successfully' };
+  }
+
+  async getUserById(id: number) {
+    const user = await this.prismaService.users.findUnique({
+      where: { id },
+    });
+
+    if (!user) {
+      throw new UnauthorizedException('User not found');
+    }
+    const userRef = await this.prismaService.users_ref.findUnique({
+      where: { EKTP: user.users_refId ?? undefined },
+      include: {
+        family_ref: true,
+      },
+    });
+    const userResponse: {
+      ektp: string;
+      type: string;
+      name: string;
+      birthPlace: string;
+      birthDate: Date | string;
+      address: string;
+      subDistrict: string;
+      district: string;
+      city: string;
+      phone: string;
+      email: string;
+      gender: string;
+      weight: number | string;
+      height: number | string;
+      bloodType: string;
+      religion: string;
+      status: string;
+    }[] = [];
+    if (userRef) {
+      const user = {
+        ektp: userRef.EKTP ?? '',
+        type: userRef.type ?? '',
+        name: userRef.name ?? '',
+        birthPlace: userRef.birthplace ?? '',
+        birthDate: userRef.birthdate ?? '',
+        address: userRef.address ?? '',
+        subDistrict: userRef.subdistrict ?? '',
+        district: userRef.district ?? '',
+        city: userRef.city ?? '',
+        phone: userRef.phone ?? '',
+        email: userRef.email ?? '',
+        gender: userRef.gender ?? '',
+        weight: userRef.weight ?? '',
+        height: userRef.height ?? '',
+        bloodType: userRef.bloodType ?? '', 
+        religion: userRef.religion ?? '',
+        status: 'employee'
+      }
+      userResponse.push(user)
+
+      if (userRef.family_ref) {
+        userRef.family_ref.forEach((family) => {
+          const familyData = {
+            ektp: family.EKTP ?? '',
+            type: family.type ?? '',
+            name: family.name ?? '',
+            birthPlace: family.birthplace ?? '',
+            birthDate: family.birthdate ?? '',
+            address: family.address ?? '',
+            subDistrict: family.subdistrict ?? '',
+            district: family.district ?? '',
+            city: family.city ?? '',
+            phone: '',
+            email: '',
+            gender: '',
+            weight: '',
+            height: '',
+            bloodType: '',
+            religion: '',
+            status: 'family'
+          }
+          userResponse.push(familyData)
+        })
+      }
+    }
+    return userResponse;
   }
 }

@@ -1,4 +1,4 @@
-import { Body, Controller, Post, Put } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
 import { users } from 'generated/prisma';
 import { CurrentUser } from 'src/current-user/current-user.decorator';
 import { AuthWithRoles } from './auth.decorator';
@@ -34,5 +34,11 @@ export class AuthController {
     @Body() changePasswordDto: ChangePasswordDto,
   ) {
     return this.authService.changePassword(user, changePasswordDto);
+  }
+
+  @Get(':id')
+  // @AuthWithRoles()
+  getMe(@Param('id') id: string) {
+    return this.authService.getUserById(+id);
   }
 }

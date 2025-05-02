@@ -1,9 +1,9 @@
 import {
-    IsNotEmpty,
-    IsString,
-    Matches,
-    MaxLength,
-    MinLength,
+  IsNotEmpty,
+  IsString,
+  Matches,
+  MaxLength,
+  MinLength,
 } from 'class-validator';
 
 export class RegisterDto {
@@ -29,12 +29,13 @@ export class RegisterDto {
   @Matches(/(?=.*\d)/, {
     message: 'Password must contain at least one number',
   })
-  @Matches(/(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?])/, {
-    message: 'Password must contain at least one special character',
-  })
   password: string;
 
   @IsNotEmpty()
   @IsString()
   role: string;
+
+  @IsNotEmpty() 
+  @IsString()
+  ektp: string;
 }

@@ -15,12 +15,105 @@ datasource db {
 }
 
 model users {
-  id        Int      @id @default(autoincrement())
-  name      String
-  username  String   @unique
-  password  String   @default("123456")
-  role      String   @default("user")
-  status    Int      @default(1) @db.TinyInt
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id            Int           @id @default(autoincrement())
+  name          String
+  username      String        @unique
+  password      String        @default("123456")
+  role          String        @default("user")
+  status        Int           @default(1) @db.TinyInt
+  users_refId   String?       @unique
+  transactionId String?       @unique
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+  users_ref     users_ref?    @relation(fields: [users_refId], references: [EKTP])
+  transactions  transactions? @relation(fields: [transactionId], references: [id])
+}
+
+model users_ref {
+  EKTP        String    @id @unique
+  type        String
+  name        String
+  birthplace  String?
+  birthdate   DateTime?
+  address     String?
+  subdistrict String?
+  district    String?
+  city        String?
+  phone       String?
+  email       String?
+  gender      String?
+  weight      Int?
+  height      Int?
+  bloodType   String?
+  religion    String?
+  struct      String?
+
+  family_ref family_ref[]
+  users      users?
+}
+
+model family_ref {
+  id           Int        @id @default(autoincrement())
+  users_refKtp String
+  name         String
+  EKTP         String?
+  type         String
+  relation     String
+  birthplace   String?
+  birthdate    DateTime?
+  address      String?
+  subdistrict  String?
+  district     String?
+  city         String?
+  phone        String?
+  email        String
+  users_ref    users_ref? @relation(fields: [users_refKtp], references: [EKTP])
+}
+
+model participants {
+  id                Int              @id @default(autoincrement())
+  fname             String
+  lname             String
+  bibname           String
+  email             String
+  identityId        String
+  birthplace        String
+  birthdate         DateTime
+  phone             String
+  address           String
+  zipcode           String
+  country           String
+  city              String
+  bloodType         String
+  master_categoryId Int?
+  transactionsId    String?
+  createdAt         DateTime         @default(now())
+  updatedAt         DateTime         @updatedAt
+  transactions      transactions?    @relation(fields: [transactionsId], references: [id])
+  master_category   master_category? @relation(fields: [master_categoryId], references: [id])
+}
+
+model transactions {
+  id             String         @id
+  pt             String
+  divisi         String
+  emergencyName  String
+  emergencyPhone String
+  transferProof  String?
+  total          Int
+  status         Int            @default(0) @db.TinyInt
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+  users          users?
+  participants   participants[]
+}
+
+model master_category {
+  id           Int            @id @default(autoincrement())
+  name         String
+  type         String
+  price        Int
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+  participants participants[]
 }

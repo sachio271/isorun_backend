@@ -124,6 +124,88 @@ exports.Prisma.UsersScalarFieldEnum = {
   password: 'password',
   role: 'role',
   status: 'status',
+  users_refId: 'users_refId',
+  transactionId: 'transactionId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.Users_refScalarFieldEnum = {
+  EKTP: 'EKTP',
+  type: 'type',
+  name: 'name',
+  birthplace: 'birthplace',
+  birthdate: 'birthdate',
+  address: 'address',
+  subdistrict: 'subdistrict',
+  district: 'district',
+  city: 'city',
+  phone: 'phone',
+  email: 'email',
+  gender: 'gender',
+  weight: 'weight',
+  height: 'height',
+  bloodType: 'bloodType',
+  religion: 'religion',
+  struct: 'struct'
+};
+
+exports.Prisma.Family_refScalarFieldEnum = {
+  id: 'id',
+  users_refKtp: 'users_refKtp',
+  name: 'name',
+  EKTP: 'EKTP',
+  type: 'type',
+  relation: 'relation',
+  birthplace: 'birthplace',
+  birthdate: 'birthdate',
+  address: 'address',
+  subdistrict: 'subdistrict',
+  district: 'district',
+  city: 'city',
+  phone: 'phone',
+  email: 'email'
+};
+
+exports.Prisma.ParticipantsScalarFieldEnum = {
+  id: 'id',
+  fname: 'fname',
+  lname: 'lname',
+  bibname: 'bibname',
+  email: 'email',
+  identityId: 'identityId',
+  birthplace: 'birthplace',
+  birthdate: 'birthdate',
+  phone: 'phone',
+  address: 'address',
+  zipcode: 'zipcode',
+  country: 'country',
+  city: 'city',
+  bloodType: 'bloodType',
+  master_categoryId: 'master_categoryId',
+  transactionsId: 'transactionsId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.TransactionsScalarFieldEnum = {
+  id: 'id',
+  pt: 'pt',
+  divisi: 'divisi',
+  emergencyName: 'emergencyName',
+  emergencyPhone: 'emergencyPhone',
+  transferProof: 'transferProof',
+  total: 'total',
+  status: 'status',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.Master_categoryScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  type: 'type',
+  price: 'price',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -133,16 +215,90 @@ exports.Prisma.SortOrder = {
   desc: 'desc'
 };
 
+exports.Prisma.NullsOrder = {
+  first: 'first',
+  last: 'last'
+};
+
 exports.Prisma.usersOrderByRelevanceFieldEnum = {
   name: 'name',
   username: 'username',
   password: 'password',
-  role: 'role'
+  role: 'role',
+  users_refId: 'users_refId',
+  transactionId: 'transactionId'
+};
+
+exports.Prisma.users_refOrderByRelevanceFieldEnum = {
+  EKTP: 'EKTP',
+  type: 'type',
+  name: 'name',
+  birthplace: 'birthplace',
+  address: 'address',
+  subdistrict: 'subdistrict',
+  district: 'district',
+  city: 'city',
+  phone: 'phone',
+  email: 'email',
+  gender: 'gender',
+  bloodType: 'bloodType',
+  religion: 'religion',
+  struct: 'struct'
+};
+
+exports.Prisma.family_refOrderByRelevanceFieldEnum = {
+  users_refKtp: 'users_refKtp',
+  name: 'name',
+  EKTP: 'EKTP',
+  type: 'type',
+  relation: 'relation',
+  birthplace: 'birthplace',
+  address: 'address',
+  subdistrict: 'subdistrict',
+  district: 'district',
+  city: 'city',
+  phone: 'phone',
+  email: 'email'
+};
+
+exports.Prisma.participantsOrderByRelevanceFieldEnum = {
+  fname: 'fname',
+  lname: 'lname',
+  bibname: 'bibname',
+  email: 'email',
+  identityId: 'identityId',
+  birthplace: 'birthplace',
+  phone: 'phone',
+  address: 'address',
+  zipcode: 'zipcode',
+  country: 'country',
+  city: 'city',
+  bloodType: 'bloodType',
+  transactionsId: 'transactionsId'
+};
+
+exports.Prisma.transactionsOrderByRelevanceFieldEnum = {
+  id: 'id',
+  pt: 'pt',
+  divisi: 'divisi',
+  emergencyName: 'emergencyName',
+  emergencyPhone: 'emergencyPhone',
+  transferProof: 'transferProof'
+};
+
+exports.Prisma.master_categoryOrderByRelevanceFieldEnum = {
+  name: 'name',
+  type: 'type'
 };
 
 
 exports.Prisma.ModelName = {
-  users: 'users'
+  users: 'users',
+  users_ref: 'users_ref',
+  family_ref: 'family_ref',
+  participants: 'participants',
+  transactions: 'transactions',
+  master_category: 'master_category'
 };
 
 /**
