@@ -42,4 +42,7 @@ export class CreateParticipantDto {
 
     @IsString()
     category: number;
+
+    @IsString()
+    size: string;
 }

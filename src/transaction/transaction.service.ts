@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { existsSync, mkdirSync, writeFileSync } from 'fs';
 import { users } from 'generated/prisma';
 import { PrismaService } from 'src/prisma/prisma.service';
@@ -45,6 +45,7 @@ export class TransactionService {
   }
 
   async createParticipant(createParticipantDto: CreateParticipantDto, id: string) {
+    // console.log(createParticipantDto)
     const dataTransaction = await this.prismaService.transactions.findUnique({
       where: { id },
     });
@@ -68,6 +69,7 @@ export class TransactionService {
         city: createParticipantDto.city,
         bloodType: createParticipantDto.bloodType,
         master_categoryId: +createParticipantDto.category,
+        size: createParticipantDto.size,
       },
     });
   }
@@ -107,7 +109,7 @@ export class TransactionService {
       },
     });
     if (!data) {
-      throw new Error('Transaction not found');
+      return new BadRequestException('Transaction not found');
     }
     if (data?.transferProof === null) {
       return {
@@ -128,10 +130,10 @@ export class TransactionService {
       where: { id: user.id },
     });
     if(!userData) {
-      throw new Error('User not found');
+      return new Error('User not found');
     }
     if(!userData.transactionId) {
-      throw new Error('Transaction not found');
+      return new Error('Transaction not found');
     }
     const data = await this.prismaService.transactions.findUnique({
       where: { id: userData.transactionId },

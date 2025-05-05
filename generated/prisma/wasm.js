@@ -182,6 +182,7 @@ exports.Prisma.ParticipantsScalarFieldEnum = {
   country: 'country',
   city: 'city',
   bloodType: 'bloodType',
+  size: 'size',
   master_categoryId: 'master_categoryId',
   transactionsId: 'transactionsId',
   createdAt: 'createdAt',
@@ -274,6 +275,7 @@ exports.Prisma.participantsOrderByRelevanceFieldEnum = {
   country: 'country',
   city: 'city',
   bloodType: 'bloodType',
+  size: 'size',
   transactionsId: 'transactionsId'
 };
 

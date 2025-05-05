@@ -85,6 +85,7 @@ model participants {
   country           String
   city              String
   bloodType         String
+  size              String?
   master_categoryId Int?
   transactionsId    String?
   createdAt         DateTime         @default(now())

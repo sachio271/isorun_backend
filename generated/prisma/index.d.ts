@@ -4698,6 +4698,7 @@ export namespace Prisma {
     country: string | null
     city: string | null
     bloodType: string | null
+    size: string | null
     master_categoryId: number | null
     transactionsId: string | null
     createdAt: Date | null
@@ -4719,6 +4720,7 @@ export namespace Prisma {
     country: string | null
     city: string | null
     bloodType: string | null
+    size: string | null
     master_categoryId: number | null
     transactionsId: string | null
     createdAt: Date | null
@@ -4740,6 +4742,7 @@ export namespace Prisma {
     country: number
     city: number
     bloodType: number
+    size: number
     master_categoryId: number
     transactionsId: number
     createdAt: number
@@ -4773,6 +4776,7 @@ export namespace Prisma {
     country?: true
     city?: true
     bloodType?: true
+    size?: true
     master_categoryId?: true
     transactionsId?: true
     createdAt?: true
@@ -4794,6 +4798,7 @@ export namespace Prisma {
     country?: true
     city?: true
     bloodType?: true
+    size?: true
     master_categoryId?: true
     transactionsId?: true
     createdAt?: true
@@ -4815,6 +4820,7 @@ export namespace Prisma {
     country?: true
     city?: true
     bloodType?: true
+    size?: true
     master_categoryId?: true
     transactionsId?: true
     createdAt?: true
@@ -4923,6 +4929,7 @@ export namespace Prisma {
     country: string
     city: string
     bloodType: string
+    size: string | null
     master_categoryId: number | null
     transactionsId: string | null
     createdAt: Date
@@ -4963,6 +4970,7 @@ export namespace Prisma {
     country?: boolean
     city?: boolean
     bloodType?: boolean
+    size?: boolean
     master_categoryId?: boolean
     transactionsId?: boolean
     createdAt?: boolean
@@ -4988,13 +4996,14 @@ export namespace Prisma {
     country?: boolean
     city?: boolean
     bloodType?: boolean
+    size?: boolean
     master_categoryId?: boolean
     transactionsId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type participantsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "fname" | "lname" | "bibname" | "email" | "identityId" | "birthplace" | "birthdate" | "phone" | "address" | "zipcode" | "country" | "city" | "bloodType" | "master_categoryId" | "transactionsId" | "createdAt" | "updatedAt", ExtArgs["result"]["participants"]>
+  export type participantsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "fname" | "lname" | "bibname" | "email" | "identityId" | "birthplace" | "birthdate" | "phone" | "address" | "zipcode" | "country" | "city" | "bloodType" | "size" | "master_categoryId" | "transactionsId" | "createdAt" | "updatedAt", ExtArgs["result"]["participants"]>
   export type participantsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     transactions?: boolean | participants$transactionsArgs<ExtArgs>
     master_category?: boolean | participants$master_categoryArgs<ExtArgs>
@@ -5021,6 +5030,7 @@ export namespace Prisma {
       country: string
       city: string
       bloodType: string
+      size: string | null
       master_categoryId: number | null
       transactionsId: string | null
       createdAt: Date
@@ -5410,6 +5420,7 @@ export namespace Prisma {
     readonly country: FieldRef<"participants", 'String'>
     readonly city: FieldRef<"participants", 'String'>
     readonly bloodType: FieldRef<"participants", 'String'>
+    readonly size: FieldRef<"participants", 'String'>
     readonly master_categoryId: FieldRef<"participants", 'Int'>
     readonly transactionsId: FieldRef<"participants", 'String'>
     readonly createdAt: FieldRef<"participants", 'DateTime'>
@@ -7976,6 +7987,7 @@ export namespace Prisma {
     country: 'country',
     city: 'city',
     bloodType: 'bloodType',
+    size: 'size',
     master_categoryId: 'master_categoryId',
     transactionsId: 'transactionsId',
     createdAt: 'createdAt',
@@ -8092,6 +8104,7 @@ export namespace Prisma {
     country: 'country',
     city: 'city',
     bloodType: 'bloodType',
+    size: 'size',
     transactionsId: 'transactionsId'
   };
 
@@ -8482,6 +8495,7 @@ export namespace Prisma {
     country?: StringFilter<"participants"> | string
     city?: StringFilter<"participants"> | string
     bloodType?: StringFilter<"participants"> | string
+    size?: StringNullableFilter<"participants"> | string | null
     master_categoryId?: IntNullableFilter<"participants"> | number | null
     transactionsId?: StringNullableFilter<"participants"> | string | null
     createdAt?: DateTimeFilter<"participants"> | Date | string
@@ -8505,6 +8519,7 @@ export namespace Prisma {
     country?: SortOrder
     city?: SortOrder
     bloodType?: SortOrder
+    size?: SortOrderInput | SortOrder
     master_categoryId?: SortOrderInput | SortOrder
     transactionsId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
@@ -8532,6 +8547,7 @@ export namespace Prisma {
     country?: StringFilter<"participants"> | string
     city?: StringFilter<"participants"> | string
     bloodType?: StringFilter<"participants"> | string
+    size?: StringNullableFilter<"participants"> | string | null
     master_categoryId?: IntNullableFilter<"participants"> | number | null
     transactionsId?: StringNullableFilter<"participants"> | string | null
     createdAt?: DateTimeFilter<"participants"> | Date | string
@@ -8555,6 +8571,7 @@ export namespace Prisma {
     country?: SortOrder
     city?: SortOrder
     bloodType?: SortOrder
+    size?: SortOrderInput | SortOrder
     master_categoryId?: SortOrderInput | SortOrder
     transactionsId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
@@ -8584,6 +8601,7 @@ export namespace Prisma {
     country?: StringWithAggregatesFilter<"participants"> | string
     city?: StringWithAggregatesFilter<"participants"> | string
     bloodType?: StringWithAggregatesFilter<"participants"> | string
+    size?: StringNullableWithAggregatesFilter<"participants"> | string | null
     master_categoryId?: IntNullableWithAggregatesFilter<"participants"> | number | null
     transactionsId?: StringNullableWithAggregatesFilter<"participants"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"participants"> | Date | string
@@ -9102,6 +9120,7 @@ export namespace Prisma {
     country: string
     city: string
     bloodType: string
+    size?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     transactions?: transactionsCreateNestedOneWithoutParticipantsInput
@@ -9123,6 +9142,7 @@ export namespace Prisma {
     country: string
     city: string
     bloodType: string
+    size?: string | null
     master_categoryId?: number | null
     transactionsId?: string | null
     createdAt?: Date | string
@@ -9143,6 +9163,7 @@ export namespace Prisma {
     country?: StringFieldUpdateOperationsInput | string
     city?: StringFieldUpdateOperationsInput | string
     bloodType?: StringFieldUpdateOperationsInput | string
+    size?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     transactions?: transactionsUpdateOneWithoutParticipantsNestedInput
@@ -9164,6 +9185,7 @@ export namespace Prisma {
     country?: StringFieldUpdateOperationsInput | string
     city?: StringFieldUpdateOperationsInput | string
     bloodType?: StringFieldUpdateOperationsInput | string
+    size?: NullableStringFieldUpdateOperationsInput | string | null
     master_categoryId?: NullableIntFieldUpdateOperationsInput | number | null
     transactionsId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -9185,6 +9207,7 @@ export namespace Prisma {
     country: string
     city: string
     bloodType: string
+    size?: string | null
     master_categoryId?: number | null
     transactionsId?: string | null
     createdAt?: Date | string
@@ -9205,6 +9228,7 @@ export namespace Prisma {
     country?: StringFieldUpdateOperationsInput | string
     city?: StringFieldUpdateOperationsInput | string
     bloodType?: StringFieldUpdateOperationsInput | string
+    size?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -9224,6 +9248,7 @@ export namespace Prisma {
     country?: StringFieldUpdateOperationsInput | string
     city?: StringFieldUpdateOperationsInput | string
     bloodType?: StringFieldUpdateOperationsInput | string
+    size?: NullableStringFieldUpdateOperationsInput | string | null
     master_categoryId?: NullableIntFieldUpdateOperationsInput | number | null
     transactionsId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -9815,6 +9840,7 @@ export namespace Prisma {
     country?: SortOrder
     city?: SortOrder
     bloodType?: SortOrder
+    size?: SortOrder
     master_categoryId?: SortOrder
     transactionsId?: SortOrder
     createdAt?: SortOrder
@@ -9841,6 +9867,7 @@ export namespace Prisma {
     country?: SortOrder
     city?: SortOrder
     bloodType?: SortOrder
+    size?: SortOrder
     master_categoryId?: SortOrder
     transactionsId?: SortOrder
     createdAt?: SortOrder
@@ -9862,6 +9889,7 @@ export namespace Prisma {
     country?: SortOrder
     city?: SortOrder
     bloodType?: SortOrder
+    size?: SortOrder
     master_categoryId?: SortOrder
     transactionsId?: SortOrder
     createdAt?: SortOrder
@@ -11050,6 +11078,7 @@ export namespace Prisma {
     country: string
     city: string
     bloodType: string
+    size?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     master_category?: master_categoryCreateNestedOneWithoutParticipantsInput
@@ -11070,6 +11099,7 @@ export namespace Prisma {
     country: string
     city: string
     bloodType: string
+    size?: string | null
     master_categoryId?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -11153,6 +11183,7 @@ export namespace Prisma {
     country?: StringFilter<"participants"> | string
     city?: StringFilter<"participants"> | string
     bloodType?: StringFilter<"participants"> | string
+    size?: StringNullableFilter<"participants"> | string | null
     master_categoryId?: IntNullableFilter<"participants"> | number | null
     transactionsId?: StringNullableFilter<"participants"> | string | null
     createdAt?: DateTimeFilter<"participants"> | Date | string
@@ -11173,6 +11204,7 @@ export namespace Prisma {
     country: string
     city: string
     bloodType: string
+    size?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     transactions?: transactionsCreateNestedOneWithoutParticipantsInput
@@ -11193,6 +11225,7 @@ export namespace Prisma {
     country: string
     city: string
     bloodType: string
+    size?: string | null
     transactionsId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -11302,6 +11335,7 @@ export namespace Prisma {
     country: string
     city: string
     bloodType: string
+    size?: string | null
     master_categoryId?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -11321,6 +11355,7 @@ export namespace Prisma {
     country?: StringFieldUpdateOperationsInput | string
     city?: StringFieldUpdateOperationsInput | string
     bloodType?: StringFieldUpdateOperationsInput | string
+    size?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     master_category?: master_categoryUpdateOneWithoutParticipantsNestedInput
@@ -11341,6 +11376,7 @@ export namespace Prisma {
     country?: StringFieldUpdateOperationsInput | string
     city?: StringFieldUpdateOperationsInput | string
     bloodType?: StringFieldUpdateOperationsInput | string
+    size?: NullableStringFieldUpdateOperationsInput | string | null
     master_categoryId?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11361,6 +11397,7 @@ export namespace Prisma {
     country?: StringFieldUpdateOperationsInput | string
     city?: StringFieldUpdateOperationsInput | string
     bloodType?: StringFieldUpdateOperationsInput | string
+    size?: NullableStringFieldUpdateOperationsInput | string | null
     master_categoryId?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11381,6 +11418,7 @@ export namespace Prisma {
     country: string
     city: string
     bloodType: string
+    size?: string | null
     transactionsId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -11400,6 +11438,7 @@ export namespace Prisma {
     country?: StringFieldUpdateOperationsInput | string
     city?: StringFieldUpdateOperationsInput | string
     bloodType?: StringFieldUpdateOperationsInput | string
+    size?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     transactions?: transactionsUpdateOneWithoutParticipantsNestedInput
@@ -11420,6 +11459,7 @@ export namespace Prisma {
     country?: StringFieldUpdateOperationsInput | string
     city?: StringFieldUpdateOperationsInput | string
     bloodType?: StringFieldUpdateOperationsInput | string
+    size?: NullableStringFieldUpdateOperationsInput | string | null
     transactionsId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11440,6 +11480,7 @@ export namespace Prisma {
     country?: StringFieldUpdateOperationsInput | string
     city?: StringFieldUpdateOperationsInput | string
     bloodType?: StringFieldUpdateOperationsInput | string
+    size?: NullableStringFieldUpdateOperationsInput | string | null
     transactionsId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
