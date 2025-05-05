@@ -10,7 +10,7 @@ import { UpdateTransactionDto } from './dto/update-transaction.dto';
 export class TransactionService {
   constructor(private readonly prismaService: PrismaService) {}
   link = 'http://localhost:8000/api/file/';
-  linkProd = 'http://isoplusrun.wingssurya.com/api/file/';
+  linkProd = 'http://isoplusrun.wingssurya.com/apis/file/';
   async create(createTransactionDto: CreateTransactionDto, user: users) {
     const { pt, divisi, emergencyName, emergencyPhone } = createTransactionDto;
     const dataTransaction = {
