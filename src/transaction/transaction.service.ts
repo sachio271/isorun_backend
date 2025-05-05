@@ -9,6 +9,8 @@ import { UpdateTransactionDto } from './dto/update-transaction.dto';
 @Injectable()
 export class TransactionService {
   constructor(private readonly prismaService: PrismaService) {}
+  link = 'http://localhost:8000/api/file/';
+  linkProd = 'http://172.24.21.45:8000/api/file/';
   async create(createTransactionDto: CreateTransactionDto, user: users) {
     const { pt, divisi, emergencyName, emergencyPhone } = createTransactionDto;
     const dataTransaction = {
@@ -120,7 +122,7 @@ export class TransactionService {
     return {
       ...data,
       transferProof:
-        'http://localhost:8000/api/file/' +
+        this.linkProd +
         data?.transferProof.split('/').pop() ,
     }
   }
@@ -157,7 +159,7 @@ export class TransactionService {
     return {
       ...data,
       src:
-        'http://localhost:8000/api/file/' +
+        this.linkProd +
         data?.transferProof.split('/').pop() ,
     }
   }
