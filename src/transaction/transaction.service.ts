@@ -1,6 +1,7 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
-import { existsSync, mkdirSync, writeFileSync } from 'fs';
+import { existsSync, mkdirSync, unlinkSync, writeFileSync } from 'fs';
 import { users } from 'generated/prisma';
+import { join } from 'path';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { CreateParticipantDto } from './dto/create-participant.dto';
 import { CreateTransactionDto } from './dto/create-transaction.dto';
@@ -10,7 +11,7 @@ import { UpdateTransactionDto } from './dto/update-transaction.dto';
 export class TransactionService {
   constructor(private readonly prismaService: PrismaService) {}
   link = 'http://localhost:8000/api/file/';
-  linkProd = 'http://isoplusrun.wingssurya.com/apis/file/';
+  linkProd = 'https://isoplusrun.wingssurya.com/apis/file/';
   async create(createTransactionDto: CreateTransactionDto, user: users) {
     const { pt, divisi, emergencyName, emergencyPhone } = createTransactionDto;
     const dataTransaction = {
@@ -47,7 +48,6 @@ export class TransactionService {
   }
 
   async createParticipant(createParticipantDto: CreateParticipantDto, id: string) {
-    // console.log(createParticipantDto)
     const dataTransaction = await this.prismaService.transactions.findUnique({
       where: { id },
     });
@@ -72,6 +72,10 @@ export class TransactionService {
         bloodType: createParticipantDto.bloodType,
         master_categoryId: +createParticipantDto.category,
         size: createParticipantDto.size,
+        gender: createParticipantDto.gender,
+        province: createParticipantDto.province,
+        price: +createParticipantDto.price,
+        condition: createParticipantDto.condition,
       },
     });
   }
@@ -137,8 +141,11 @@ export class TransactionService {
     if(!userData.transactionId) {
       return new Error('Transaction not found');
     }
-    const data = await this.prismaService.transactions.findUnique({
-      where: { id: userData.transactionId },
+    const data = await this.prismaService.transactions.findFirst({
+      where: {
+        id: userData.transactionId,
+        status: { not: -1 },
+      },
       include: {
         participants: {
           include: {
@@ -166,30 +173,39 @@ export class TransactionService {
 
   async uploadFile(id: string, file: Express.Multer.File) {
     console.log(file);
+
     const dataTransaction = await this.prismaService.transactions.findUnique({
       where: { id },
     });
+
     if (!dataTransaction) {
       throw new Error('Transaction not found');
     }
-    const name =
-      'bukti-' +
-      dataTransaction.id +
-      '.' +
-      file.originalname.split('.').pop();
-    const fileName = `./uploads/${name}`;
-    if (!existsSync('./uploads')) {
-      mkdirSync('./uploads');
+
+    const uploadDir = './uploads';
+    const extension = file.originalname.split('.').pop();
+    const name = `bukti-${dataTransaction.id}.${extension}`;
+    const filePath = join(uploadDir, name);
+
+    if (!existsSync(uploadDir)) {
+      mkdirSync(uploadDir);
     }
-    writeFileSync(fileName, file.buffer);
+
+    if (existsSync(filePath)) {
+      unlinkSync(filePath);
+    }
+
+    writeFileSync(filePath, file.buffer);
+
     return await this.prismaService.transactions.update({
       where: { id },
       data: {
-        transferProof: fileName,
-        status: 3
+        transferProof: filePath,
+        status: 3,
       },
     });
   }
+
 
   async updateStatus(id: string, updateStatusDto: UpdateTransactionDto) {
     const dataTransaction = await this.prismaService.transactions.findUnique({
@@ -208,7 +224,12 @@ export class TransactionService {
     return `This action updates a #${id} transaction`;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} transaction`;
+  async remove(id: string) {
+    await this.prismaService.participants.deleteMany({
+      where: { transactionsId: id },
+    });
+    return await this.prismaService.transactions.delete({
+      where: { id },
+    });
   }
 }

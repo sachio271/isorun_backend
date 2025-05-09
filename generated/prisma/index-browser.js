@@ -147,7 +147,9 @@ exports.Prisma.Users_refScalarFieldEnum = {
   height: 'height',
   bloodType: 'bloodType',
   religion: 'religion',
-  struct: 'struct'
+  struct: 'struct',
+  company: 'company',
+  kabag: 'kabag'
 };
 
 exports.Prisma.Family_refScalarFieldEnum = {
@@ -176,13 +178,17 @@ exports.Prisma.ParticipantsScalarFieldEnum = {
   identityId: 'identityId',
   birthplace: 'birthplace',
   birthdate: 'birthdate',
+  gender: 'gender',
   phone: 'phone',
   address: 'address',
   zipcode: 'zipcode',
   country: 'country',
+  province: 'province',
   city: 'city',
   bloodType: 'bloodType',
   size: 'size',
+  price: 'price',
+  condition: 'condition',
   master_categoryId: 'master_categoryId',
   transactionsId: 'transactionsId',
   createdAt: 'createdAt',
@@ -244,7 +250,8 @@ exports.Prisma.users_refOrderByRelevanceFieldEnum = {
   gender: 'gender',
   bloodType: 'bloodType',
   religion: 'religion',
-  struct: 'struct'
+  struct: 'struct',
+  company: 'company'
 };
 
 exports.Prisma.family_refOrderByRelevanceFieldEnum = {
@@ -269,13 +276,16 @@ exports.Prisma.participantsOrderByRelevanceFieldEnum = {
   email: 'email',
   identityId: 'identityId',
   birthplace: 'birthplace',
+  gender: 'gender',
   phone: 'phone',
   address: 'address',
   zipcode: 'zipcode',
   country: 'country',
+  province: 'province',
   city: 'city',
   bloodType: 'bloodType',
   size: 'size',
+  condition: 'condition',
   transactionsId: 'transactionsId'
 };
 

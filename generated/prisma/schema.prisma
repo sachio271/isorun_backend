@@ -47,6 +47,8 @@ model users_ref {
   bloodType   String?
   religion    String?
   struct      String?
+  company     String?
+  kabag       Boolean?  @default(false)
 
   family_ref family_ref[]
   users      users?
@@ -79,13 +81,17 @@ model participants {
   identityId        String
   birthplace        String
   birthdate         DateTime
+  gender            String
   phone             String
   address           String
   zipcode           String
   country           String
+  province          String
   city              String
   bloodType         String
   size              String?
+  price             Int?
+  condition         String?          @db.LongText
   master_categoryId Int?
   transactionsId    String?
   createdAt         DateTime         @default(now())

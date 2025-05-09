@@ -73,6 +73,19 @@ export class AuthService {
 
     const hashedPassword = await bcrypt.hash(registerDto.password, 10);
 
+    if(checkUser.kabag === true) {
+      return await this.prismaService.users.create({
+        data: {
+          name: registerDto.name,
+          username: registerDto.username,
+          password: hashedPassword,
+          role: 'KABAG',
+          status: 0,
+          users_refId: checkUser.EKTP,
+        },
+      });
+    }
+
     return await this.prismaService.users.create({
       data: {
         name: registerDto.name,

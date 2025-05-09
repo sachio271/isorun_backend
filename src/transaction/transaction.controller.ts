@@ -54,7 +54,7 @@ export class TransactionController {
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.transactionService.remove(+id);
+    return this.transactionService.remove(id);
   }
 
   @Patch('status/:id')

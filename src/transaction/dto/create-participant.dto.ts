@@ -45,4 +45,16 @@ export class CreateParticipantDto {
 
     @IsString()
     size: string;
+
+    @IsString()
+    gender: string;
+
+    @IsString()
+    province: string;
+
+    @IsString()
+    price: string;
+
+    @IsString()
+    condition: string;
 }
