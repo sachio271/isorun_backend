@@ -30,7 +30,7 @@ export class AuthService {
   async login(loginDto: LoginDto): Promise<LoginResponseDto> {
     console.log('loginDto', loginDto);
     const user = await this.prismaService.users.findFirst({
-      where: { username: loginDto.username },
+      where: { users_refId: loginDto.username },
     });
 
     if (!user) {
@@ -64,12 +64,14 @@ export class AuthService {
     }
 
     const existingUser = await this.prismaService.users.findFirst({
-      where: { username: registerDto.username },
+      where: { users_refId: registerDto.ektp },
     });
 
     if (existingUser) {
-      throw new UnauthorizedException('Username already exists');
+      throw new UnauthorizedException('User already exists');
     }
+
+    const username = 'user' + Math.floor(Math.random() * 1000);
 
     const hashedPassword = await bcrypt.hash(registerDto.password, 10);
 
@@ -77,7 +79,7 @@ export class AuthService {
       return await this.prismaService.users.create({
         data: {
           name: registerDto.name,
-          username: registerDto.username,
+          username: username,
           password: hashedPassword,
           role: 'KABAG',
           status: 0,
@@ -89,7 +91,7 @@ export class AuthService {
     return await this.prismaService.users.create({
       data: {
         name: registerDto.name,
-        username: registerDto.username,
+        username: username,
         password: hashedPassword,
         role: registerDto.role,
         status: 0,
