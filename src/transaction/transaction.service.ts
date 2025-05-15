@@ -106,24 +106,37 @@ export class TransactionService {
       ],
     });
     let total_participant = 0;
-    // Calculate total participants for each category
-    const total = {};
-    trans.forEach((transaction) => {
-      transaction.participants.forEach((participant) => {
+
+    const categories: Record<string, { count: number; participants: any[] }> = {};
+    for (const transaction of trans) {
+      for (const participant of transaction.participants) {
         const category = participant.master_category?.name || 'Unknown';
-        if (!total[category]) {
-          total[category] = 0;
+
+        const enrichedParticipant = {
+          ...participant,
+          pt: transaction.pt,
+          divisi: transaction.divisi,
+        };
+
+        if (!categories[category]) {
+          categories[category] = {
+            count: 0,
+            participants: [],
+          };
         }
-        total[category]++;
+
+        categories[category].count++;
+        categories[category].participants.push(enrichedParticipant);
         total_participant++;
-      });
-    });
+      }
+    }
+
     return {
       trans,
       total_transaction: trans.length,
       total_participant,
-      total,
-    }
+      categories,
+    };
   }
 
   async findOne(id: string) {
@@ -237,7 +250,13 @@ export class TransactionService {
     if (!dataTransaction) {
       throw new Error('Transaction not found');
     }
-    await this.prismaService.transactions.update({
+    if(updateStatusDto.status === "2" && dataTransaction.total === 0) {
+      return await this.prismaService.transactions.update({
+        where: { id },
+        data: { status: 4 },
+      });
+    }
+    return await this.prismaService.transactions.update({
       where: { id },
       data: { status: +updateStatusDto.status },
     });
