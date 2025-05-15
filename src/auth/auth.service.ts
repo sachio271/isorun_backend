@@ -134,6 +134,25 @@ export class AuthService {
     return { message: 'Password changed successfully' };
   }
 
+  async resetPassword(id: number) {
+    const user = await this.prismaService.users.findFirst({
+      where: { id },
+    });
+
+    if (!user) {
+      throw new UnauthorizedException('User not found');
+    }
+
+    const hashedPassword = await bcrypt.hash('12345678', 10);
+
+    await this.prismaService.users.update({
+      where: { id },
+      data: { password: hashedPassword },
+    });
+
+    return { message: 'Password reset successfully' };
+  }
+
   async getUserById(id: number) {
     const user = await this.prismaService.users.findUnique({
       where: { id },
