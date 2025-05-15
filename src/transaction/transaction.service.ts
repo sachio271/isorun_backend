@@ -91,7 +91,7 @@ export class TransactionService {
   }
 
   async findAll() {
-    return await this.prismaService.transactions.findMany({
+    const trans = await this.prismaService.transactions.findMany({
       include: {
         participants: {
           include: {
@@ -100,7 +100,30 @@ export class TransactionService {
         },
         users: true,
       },
+      orderBy: [
+        { createdAt: 'desc' }, 
+        { status: 'asc' },  
+      ],
     });
+    let total_participant = 0;
+    // Calculate total participants for each category
+    const total = {};
+    trans.forEach((transaction) => {
+      transaction.participants.forEach((participant) => {
+        const category = participant.master_category?.name || 'Unknown';
+        if (!total[category]) {
+          total[category] = 0;
+        }
+        total[category]++;
+        total_participant++;
+      });
+    });
+    return {
+      trans,
+      total_transaction: trans.length,
+      total_participant,
+      total,
+    }
   }
 
   async findOne(id: string) {
