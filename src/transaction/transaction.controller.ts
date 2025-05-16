@@ -61,4 +61,9 @@ export class TransactionController {
   updateStatus(@Param('id') id: string, @Body() updateStatusDto: UpdateTransactionDto) {
     return this.transactionService.updateStatus(id, updateStatusDto);
   }
+
+  @Delete('participant/user/:id')
+  removeParticipant(@Param('id') id: string) {
+    return this.transactionService.removeParticipant(+id);
+  }
 }

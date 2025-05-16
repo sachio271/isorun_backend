@@ -274,4 +274,31 @@ export class TransactionService {
       where: { id },
     });
   }
+
+  async removeParticipant(id: number) {
+    console.log(id);
+    const dataParticipant = await this.prismaService.participants.findUnique({
+      where: { id },
+      include: {
+        transactions: true,
+      },
+    });
+    if (!dataParticipant) {
+      throw new Error('Participant not found');
+    }
+    if(!dataParticipant.price) {
+      throw new Error('Transaction not found');
+    }
+    await this.prismaService.transactions.update({
+      where: { id: dataParticipant.transactionsId || "" },
+      data: {
+        total: {
+          decrement: +dataParticipant.price,
+        },
+      },
+    });
+    return await this.prismaService.participants.delete({
+      where: { id },
+    });
+  }
 }
