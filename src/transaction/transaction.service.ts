@@ -90,6 +90,21 @@ export class TransactionService {
     return result;
   }
 
+  calculateAge(tanggalLahir: string): number {
+    const birthDate = new Date(tanggalLahir);
+    const today = new Date();
+
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDiff = today.getMonth() - birthDate.getMonth();
+    const dayDiff = today.getDate() - birthDate.getDate();
+
+    if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
+      age--;
+    }
+
+    return age;
+  }
+
   async findAll() {
     const trans = await this.prismaService.transactions.findMany({
       include: {
@@ -153,14 +168,20 @@ export class TransactionService {
     if (!data) {
       return new BadRequestException('Transaction not found');
     }
+    const participantsWithAge = data.participants.map((participant) => ({
+      ...participant,
+      umur: participant.birthdate ? this.calculateAge(participant.birthdate.toString()) : null,
+    }));
     if (data?.transferProof === null) {
       return {
         ...data,
+        participants: participantsWithAge,
         transferProof: '-',
       };
     }
     return {
       ...data,
+      participants: participantsWithAge,
       transferProof:
         this.linkProd +
         data?.transferProof.split('/').pop() ,
