@@ -94,6 +94,8 @@ model participants {
   condition         String?          @db.LongText
   master_categoryId Int?
   transactionsId    String?
+  racePack          Boolean?         @default(false)
+  registrationDate  DateTime?
   createdAt         DateTime         @default(now())
   updatedAt         DateTime         @updatedAt
   transactions      transactions?    @relation(fields: [transactionsId], references: [id])

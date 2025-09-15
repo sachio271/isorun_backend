@@ -4729,6 +4729,8 @@ export namespace Prisma {
     condition: string | null
     master_categoryId: number | null
     transactionsId: string | null
+    racePack: boolean | null
+    registrationDate: Date | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -4755,6 +4757,8 @@ export namespace Prisma {
     condition: string | null
     master_categoryId: number | null
     transactionsId: string | null
+    racePack: boolean | null
+    registrationDate: Date | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -4781,6 +4785,8 @@ export namespace Prisma {
     condition: number
     master_categoryId: number
     transactionsId: number
+    racePack: number
+    registrationDate: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -4821,6 +4827,8 @@ export namespace Prisma {
     condition?: true
     master_categoryId?: true
     transactionsId?: true
+    racePack?: true
+    registrationDate?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -4847,6 +4855,8 @@ export namespace Prisma {
     condition?: true
     master_categoryId?: true
     transactionsId?: true
+    racePack?: true
+    registrationDate?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -4873,6 +4883,8 @@ export namespace Prisma {
     condition?: true
     master_categoryId?: true
     transactionsId?: true
+    racePack?: true
+    registrationDate?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -4986,6 +4998,8 @@ export namespace Prisma {
     condition: string | null
     master_categoryId: number | null
     transactionsId: string | null
+    racePack: boolean | null
+    registrationDate: Date | null
     createdAt: Date
     updatedAt: Date
     _count: ParticipantsCountAggregateOutputType | null
@@ -5031,6 +5045,8 @@ export namespace Prisma {
     condition?: boolean
     master_categoryId?: boolean
     transactionsId?: boolean
+    racePack?: boolean
+    registrationDate?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     transactions?: boolean | participants$transactionsArgs<ExtArgs>
@@ -5061,11 +5077,13 @@ export namespace Prisma {
     condition?: boolean
     master_categoryId?: boolean
     transactionsId?: boolean
+    racePack?: boolean
+    registrationDate?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type participantsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "fname" | "lname" | "bibname" | "email" | "identityId" | "birthplace" | "birthdate" | "gender" | "phone" | "address" | "zipcode" | "country" | "province" | "city" | "bloodType" | "size" | "price" | "condition" | "master_categoryId" | "transactionsId" | "createdAt" | "updatedAt", ExtArgs["result"]["participants"]>
+  export type participantsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "fname" | "lname" | "bibname" | "email" | "identityId" | "birthplace" | "birthdate" | "gender" | "phone" | "address" | "zipcode" | "country" | "province" | "city" | "bloodType" | "size" | "price" | "condition" | "master_categoryId" | "transactionsId" | "racePack" | "registrationDate" | "createdAt" | "updatedAt", ExtArgs["result"]["participants"]>
   export type participantsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     transactions?: boolean | participants$transactionsArgs<ExtArgs>
     master_category?: boolean | participants$master_categoryArgs<ExtArgs>
@@ -5099,6 +5117,8 @@ export namespace Prisma {
       condition: string | null
       master_categoryId: number | null
       transactionsId: string | null
+      racePack: boolean | null
+      registrationDate: Date | null
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["participants"]>
@@ -5493,6 +5513,8 @@ export namespace Prisma {
     readonly condition: FieldRef<"participants", 'String'>
     readonly master_categoryId: FieldRef<"participants", 'Int'>
     readonly transactionsId: FieldRef<"participants", 'String'>
+    readonly racePack: FieldRef<"participants", 'Boolean'>
+    readonly registrationDate: FieldRef<"participants", 'DateTime'>
     readonly createdAt: FieldRef<"participants", 'DateTime'>
     readonly updatedAt: FieldRef<"participants", 'DateTime'>
   }
@@ -8066,6 +8088,8 @@ export namespace Prisma {
     condition: 'condition',
     master_categoryId: 'master_categoryId',
     transactionsId: 'transactionsId',
+    racePack: 'racePack',
+    registrationDate: 'registrationDate',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -8599,6 +8623,8 @@ export namespace Prisma {
     condition?: StringNullableFilter<"participants"> | string | null
     master_categoryId?: IntNullableFilter<"participants"> | number | null
     transactionsId?: StringNullableFilter<"participants"> | string | null
+    racePack?: BoolNullableFilter<"participants"> | boolean | null
+    registrationDate?: DateTimeNullableFilter<"participants"> | Date | string | null
     createdAt?: DateTimeFilter<"participants"> | Date | string
     updatedAt?: DateTimeFilter<"participants"> | Date | string
     transactions?: XOR<TransactionsNullableScalarRelationFilter, transactionsWhereInput> | null
@@ -8627,6 +8653,8 @@ export namespace Prisma {
     condition?: SortOrderInput | SortOrder
     master_categoryId?: SortOrderInput | SortOrder
     transactionsId?: SortOrderInput | SortOrder
+    racePack?: SortOrderInput | SortOrder
+    registrationDate?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     transactions?: transactionsOrderByWithRelationInput
@@ -8659,6 +8687,8 @@ export namespace Prisma {
     condition?: StringNullableFilter<"participants"> | string | null
     master_categoryId?: IntNullableFilter<"participants"> | number | null
     transactionsId?: StringNullableFilter<"participants"> | string | null
+    racePack?: BoolNullableFilter<"participants"> | boolean | null
+    registrationDate?: DateTimeNullableFilter<"participants"> | Date | string | null
     createdAt?: DateTimeFilter<"participants"> | Date | string
     updatedAt?: DateTimeFilter<"participants"> | Date | string
     transactions?: XOR<TransactionsNullableScalarRelationFilter, transactionsWhereInput> | null
@@ -8687,6 +8717,8 @@ export namespace Prisma {
     condition?: SortOrderInput | SortOrder
     master_categoryId?: SortOrderInput | SortOrder
     transactionsId?: SortOrderInput | SortOrder
+    racePack?: SortOrderInput | SortOrder
+    registrationDate?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: participantsCountOrderByAggregateInput
@@ -8721,6 +8753,8 @@ export namespace Prisma {
     condition?: StringNullableWithAggregatesFilter<"participants"> | string | null
     master_categoryId?: IntNullableWithAggregatesFilter<"participants"> | number | null
     transactionsId?: StringNullableWithAggregatesFilter<"participants"> | string | null
+    racePack?: BoolNullableWithAggregatesFilter<"participants"> | boolean | null
+    registrationDate?: DateTimeNullableWithAggregatesFilter<"participants"> | Date | string | null
     createdAt?: DateTimeWithAggregatesFilter<"participants"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"participants"> | Date | string
   }
@@ -9256,6 +9290,8 @@ export namespace Prisma {
     size?: string | null
     price?: number | null
     condition?: string | null
+    racePack?: boolean | null
+    registrationDate?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     transactions?: transactionsCreateNestedOneWithoutParticipantsInput
@@ -9284,6 +9320,8 @@ export namespace Prisma {
     condition?: string | null
     master_categoryId?: number | null
     transactionsId?: string | null
+    racePack?: boolean | null
+    registrationDate?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -9307,6 +9345,8 @@ export namespace Prisma {
     size?: NullableStringFieldUpdateOperationsInput | string | null
     price?: NullableIntFieldUpdateOperationsInput | number | null
     condition?: NullableStringFieldUpdateOperationsInput | string | null
+    racePack?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    registrationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     transactions?: transactionsUpdateOneWithoutParticipantsNestedInput
@@ -9335,6 +9375,8 @@ export namespace Prisma {
     condition?: NullableStringFieldUpdateOperationsInput | string | null
     master_categoryId?: NullableIntFieldUpdateOperationsInput | number | null
     transactionsId?: NullableStringFieldUpdateOperationsInput | string | null
+    racePack?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    registrationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -9361,6 +9403,8 @@ export namespace Prisma {
     condition?: string | null
     master_categoryId?: number | null
     transactionsId?: string | null
+    racePack?: boolean | null
+    registrationDate?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -9384,6 +9428,8 @@ export namespace Prisma {
     size?: NullableStringFieldUpdateOperationsInput | string | null
     price?: NullableIntFieldUpdateOperationsInput | number | null
     condition?: NullableStringFieldUpdateOperationsInput | string | null
+    racePack?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    registrationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -9410,6 +9456,8 @@ export namespace Prisma {
     condition?: NullableStringFieldUpdateOperationsInput | string | null
     master_categoryId?: NullableIntFieldUpdateOperationsInput | number | null
     transactionsId?: NullableStringFieldUpdateOperationsInput | string | null
+    racePack?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    registrationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -10025,6 +10073,8 @@ export namespace Prisma {
     condition?: SortOrder
     master_categoryId?: SortOrder
     transactionsId?: SortOrder
+    racePack?: SortOrder
+    registrationDate?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -10057,6 +10107,8 @@ export namespace Prisma {
     condition?: SortOrder
     master_categoryId?: SortOrder
     transactionsId?: SortOrder
+    racePack?: SortOrder
+    registrationDate?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -10083,6 +10135,8 @@ export namespace Prisma {
     condition?: SortOrder
     master_categoryId?: SortOrder
     transactionsId?: SortOrder
+    racePack?: SortOrder
+    registrationDate?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -11308,6 +11362,8 @@ export namespace Prisma {
     size?: string | null
     price?: number | null
     condition?: string | null
+    racePack?: boolean | null
+    registrationDate?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     master_category?: master_categoryCreateNestedOneWithoutParticipantsInput
@@ -11334,6 +11390,8 @@ export namespace Prisma {
     price?: number | null
     condition?: string | null
     master_categoryId?: number | null
+    racePack?: boolean | null
+    registrationDate?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -11423,6 +11481,8 @@ export namespace Prisma {
     condition?: StringNullableFilter<"participants"> | string | null
     master_categoryId?: IntNullableFilter<"participants"> | number | null
     transactionsId?: StringNullableFilter<"participants"> | string | null
+    racePack?: BoolNullableFilter<"participants"> | boolean | null
+    registrationDate?: DateTimeNullableFilter<"participants"> | Date | string | null
     createdAt?: DateTimeFilter<"participants"> | Date | string
     updatedAt?: DateTimeFilter<"participants"> | Date | string
   }
@@ -11446,6 +11506,8 @@ export namespace Prisma {
     size?: string | null
     price?: number | null
     condition?: string | null
+    racePack?: boolean | null
+    registrationDate?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     transactions?: transactionsCreateNestedOneWithoutParticipantsInput
@@ -11472,6 +11534,8 @@ export namespace Prisma {
     price?: number | null
     condition?: string | null
     transactionsId?: string | null
+    racePack?: boolean | null
+    registrationDate?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -11586,6 +11650,8 @@ export namespace Prisma {
     price?: number | null
     condition?: string | null
     master_categoryId?: number | null
+    racePack?: boolean | null
+    registrationDate?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -11609,6 +11675,8 @@ export namespace Prisma {
     size?: NullableStringFieldUpdateOperationsInput | string | null
     price?: NullableIntFieldUpdateOperationsInput | number | null
     condition?: NullableStringFieldUpdateOperationsInput | string | null
+    racePack?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    registrationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     master_category?: master_categoryUpdateOneWithoutParticipantsNestedInput
@@ -11635,6 +11703,8 @@ export namespace Prisma {
     price?: NullableIntFieldUpdateOperationsInput | number | null
     condition?: NullableStringFieldUpdateOperationsInput | string | null
     master_categoryId?: NullableIntFieldUpdateOperationsInput | number | null
+    racePack?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    registrationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -11660,6 +11730,8 @@ export namespace Prisma {
     price?: NullableIntFieldUpdateOperationsInput | number | null
     condition?: NullableStringFieldUpdateOperationsInput | string | null
     master_categoryId?: NullableIntFieldUpdateOperationsInput | number | null
+    racePack?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    registrationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -11685,6 +11757,8 @@ export namespace Prisma {
     price?: number | null
     condition?: string | null
     transactionsId?: string | null
+    racePack?: boolean | null
+    registrationDate?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -11708,6 +11782,8 @@ export namespace Prisma {
     size?: NullableStringFieldUpdateOperationsInput | string | null
     price?: NullableIntFieldUpdateOperationsInput | number | null
     condition?: NullableStringFieldUpdateOperationsInput | string | null
+    racePack?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    registrationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     transactions?: transactionsUpdateOneWithoutParticipantsNestedInput
@@ -11734,6 +11810,8 @@ export namespace Prisma {
     price?: NullableIntFieldUpdateOperationsInput | number | null
     condition?: NullableStringFieldUpdateOperationsInput | string | null
     transactionsId?: NullableStringFieldUpdateOperationsInput | string | null
+    racePack?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    registrationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -11759,6 +11837,8 @@ export namespace Prisma {
     price?: NullableIntFieldUpdateOperationsInput | number | null
     condition?: NullableStringFieldUpdateOperationsInput | string | null
     transactionsId?: NullableStringFieldUpdateOperationsInput | string | null
+    racePack?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    registrationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }

@@ -5,9 +5,10 @@ import { TransactionModule } from './transaction/transaction.module';
 import { FileModule } from './file/file.module';
 import { CategoryModule } from './category/category.module';
 import { UserModule } from './user/user.module';
+import { ParticipantModule } from './participant/participant.module';
 
 @Module({
-  imports: [AuthModule, TransactionModule, FileModule, CategoryModule, UserModule],
+  imports: [AuthModule, TransactionModule, FileModule, CategoryModule, UserModule, ParticipantModule],
   controllers: [],
   providers: [PrismaService],
 })

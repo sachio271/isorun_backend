@@ -191,6 +191,8 @@ exports.Prisma.ParticipantsScalarFieldEnum = {
   condition: 'condition',
   master_categoryId: 'master_categoryId',
   transactionsId: 'transactionsId',
+  racePack: 'racePack',
+  registrationDate: 'registrationDate',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
