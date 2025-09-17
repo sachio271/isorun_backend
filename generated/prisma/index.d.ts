@@ -1397,10 +1397,10 @@ export namespace Prisma {
     password: string | null
     role: string | null
     status: number | null
-    users_refId: string | null
-    transactionId: string | null
     createdAt: Date | null
     updatedAt: Date | null
+    users_refId: string | null
+    transactionId: string | null
   }
 
   export type UsersMaxAggregateOutputType = {
@@ -1410,10 +1410,10 @@ export namespace Prisma {
     password: string | null
     role: string | null
     status: number | null
-    users_refId: string | null
-    transactionId: string | null
     createdAt: Date | null
     updatedAt: Date | null
+    users_refId: string | null
+    transactionId: string | null
   }
 
   export type UsersCountAggregateOutputType = {
@@ -1423,10 +1423,10 @@ export namespace Prisma {
     password: number
     role: number
     status: number
-    users_refId: number
-    transactionId: number
     createdAt: number
     updatedAt: number
+    users_refId: number
+    transactionId: number
     _all: number
   }
 
@@ -1448,10 +1448,10 @@ export namespace Prisma {
     password?: true
     role?: true
     status?: true
-    users_refId?: true
-    transactionId?: true
     createdAt?: true
     updatedAt?: true
+    users_refId?: true
+    transactionId?: true
   }
 
   export type UsersMaxAggregateInputType = {
@@ -1461,10 +1461,10 @@ export namespace Prisma {
     password?: true
     role?: true
     status?: true
-    users_refId?: true
-    transactionId?: true
     createdAt?: true
     updatedAt?: true
+    users_refId?: true
+    transactionId?: true
   }
 
   export type UsersCountAggregateInputType = {
@@ -1474,10 +1474,10 @@ export namespace Prisma {
     password?: true
     role?: true
     status?: true
-    users_refId?: true
-    transactionId?: true
     createdAt?: true
     updatedAt?: true
+    users_refId?: true
+    transactionId?: true
     _all?: true
   }
 
@@ -1574,10 +1574,10 @@ export namespace Prisma {
     password: string
     role: string
     status: number
-    users_refId: string | null
-    transactionId: string | null
     createdAt: Date
     updatedAt: Date
+    users_refId: string | null
+    transactionId: string | null
     _count: UsersCountAggregateOutputType | null
     _avg: UsersAvgAggregateOutputType | null
     _sum: UsersSumAggregateOutputType | null
@@ -1606,12 +1606,12 @@ export namespace Prisma {
     password?: boolean
     role?: boolean
     status?: boolean
-    users_refId?: boolean
-    transactionId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    users_ref?: boolean | users$users_refArgs<ExtArgs>
+    users_refId?: boolean
+    transactionId?: boolean
     transactions?: boolean | users$transactionsArgs<ExtArgs>
+    users_ref?: boolean | users$users_refArgs<ExtArgs>
   }, ExtArgs["result"]["users"]>
 
 
@@ -1623,23 +1623,23 @@ export namespace Prisma {
     password?: boolean
     role?: boolean
     status?: boolean
-    users_refId?: boolean
-    transactionId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    users_refId?: boolean
+    transactionId?: boolean
   }
 
-  export type usersOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "username" | "password" | "role" | "status" | "users_refId" | "transactionId" | "createdAt" | "updatedAt", ExtArgs["result"]["users"]>
+  export type usersOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "username" | "password" | "role" | "status" | "createdAt" | "updatedAt" | "users_refId" | "transactionId", ExtArgs["result"]["users"]>
   export type usersInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    users_ref?: boolean | users$users_refArgs<ExtArgs>
     transactions?: boolean | users$transactionsArgs<ExtArgs>
+    users_ref?: boolean | users$users_refArgs<ExtArgs>
   }
 
   export type $usersPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "users"
     objects: {
-      users_ref: Prisma.$users_refPayload<ExtArgs> | null
       transactions: Prisma.$transactionsPayload<ExtArgs> | null
+      users_ref: Prisma.$users_refPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -1648,10 +1648,10 @@ export namespace Prisma {
       password: string
       role: string
       status: number
-      users_refId: string | null
-      transactionId: string | null
       createdAt: Date
       updatedAt: Date
+      users_refId: string | null
+      transactionId: string | null
     }, ExtArgs["result"]["users"]>
     composites: {}
   }
@@ -1992,8 +1992,8 @@ export namespace Prisma {
    */
   export interface Prisma__usersClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    users_ref<T extends users$users_refArgs<ExtArgs> = {}>(args?: Subset<T, users$users_refArgs<ExtArgs>>): Prisma__users_refClient<$Result.GetResult<Prisma.$users_refPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     transactions<T extends users$transactionsArgs<ExtArgs> = {}>(args?: Subset<T, users$transactionsArgs<ExtArgs>>): Prisma__transactionsClient<$Result.GetResult<Prisma.$transactionsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    users_ref<T extends users$users_refArgs<ExtArgs> = {}>(args?: Subset<T, users$users_refArgs<ExtArgs>>): Prisma__users_refClient<$Result.GetResult<Prisma.$users_refPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2029,10 +2029,10 @@ export namespace Prisma {
     readonly password: FieldRef<"users", 'String'>
     readonly role: FieldRef<"users", 'String'>
     readonly status: FieldRef<"users", 'Int'>
-    readonly users_refId: FieldRef<"users", 'String'>
-    readonly transactionId: FieldRef<"users", 'String'>
     readonly createdAt: FieldRef<"users", 'DateTime'>
     readonly updatedAt: FieldRef<"users", 'DateTime'>
+    readonly users_refId: FieldRef<"users", 'String'>
+    readonly transactionId: FieldRef<"users", 'String'>
   }
     
 
@@ -2376,25 +2376,6 @@ export namespace Prisma {
   }
 
   /**
-   * users.users_ref
-   */
-  export type users$users_refArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the users_ref
-     */
-    select?: users_refSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the users_ref
-     */
-    omit?: users_refOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: users_refInclude<ExtArgs> | null
-    where?: users_refWhereInput
-  }
-
-  /**
    * users.transactions
    */
   export type users$transactionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2411,6 +2392,25 @@ export namespace Prisma {
      */
     include?: transactionsInclude<ExtArgs> | null
     where?: transactionsWhereInput
+  }
+
+  /**
+   * users.users_ref
+   */
+  export type users$users_refArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the users_ref
+     */
+    select?: users_refSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the users_ref
+     */
+    omit?: users_refOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: users_refInclude<ExtArgs> | null
+    where?: users_refWhereInput
   }
 
   /**
@@ -3872,7 +3872,7 @@ export namespace Prisma {
     city?: boolean
     phone?: boolean
     email?: boolean
-    users_ref?: boolean | family_ref$users_refArgs<ExtArgs>
+    users_ref?: boolean | users_refDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["family_ref"]>
 
 
@@ -3896,13 +3896,13 @@ export namespace Prisma {
 
   export type family_refOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "users_refKtp" | "name" | "EKTP" | "type" | "relation" | "birthplace" | "birthdate" | "address" | "subdistrict" | "district" | "city" | "phone" | "email", ExtArgs["result"]["family_ref"]>
   export type family_refInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    users_ref?: boolean | family_ref$users_refArgs<ExtArgs>
+    users_ref?: boolean | users_refDefaultArgs<ExtArgs>
   }
 
   export type $family_refPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "family_ref"
     objects: {
-      users_ref: Prisma.$users_refPayload<ExtArgs> | null
+      users_ref: Prisma.$users_refPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -4259,7 +4259,7 @@ export namespace Prisma {
    */
   export interface Prisma__family_refClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    users_ref<T extends family_ref$users_refArgs<ExtArgs> = {}>(args?: Subset<T, family_ref$users_refArgs<ExtArgs>>): Prisma__users_refClient<$Result.GetResult<Prisma.$users_refPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    users_ref<T extends users_refDefaultArgs<ExtArgs> = {}>(args?: Subset<T, users_refDefaultArgs<ExtArgs>>): Prisma__users_refClient<$Result.GetResult<Prisma.$users_refPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4646,25 +4646,6 @@ export namespace Prisma {
   }
 
   /**
-   * family_ref.users_ref
-   */
-  export type family_ref$users_refArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the users_ref
-     */
-    select?: users_refSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the users_ref
-     */
-    omit?: users_refOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: users_refInclude<ExtArgs> | null
-    where?: users_refWhereInput
-  }
-
-  /**
    * family_ref without action
    */
   export type family_refDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -4697,14 +4678,14 @@ export namespace Prisma {
 
   export type ParticipantsAvgAggregateOutputType = {
     id: number | null
-    price: number | null
     master_categoryId: number | null
+    price: number | null
   }
 
   export type ParticipantsSumAggregateOutputType = {
     id: number | null
-    price: number | null
     master_categoryId: number | null
+    price: number | null
   }
 
   export type ParticipantsMinAggregateOutputType = {
@@ -4716,23 +4697,23 @@ export namespace Prisma {
     identityId: string | null
     birthplace: string | null
     birthdate: Date | null
-    gender: string | null
     phone: string | null
     address: string | null
     zipcode: string | null
     country: string | null
-    province: string | null
     city: string | null
     bloodType: string | null
-    size: string | null
-    price: number | null
-    condition: string | null
-    master_categoryId: number | null
     transactionsId: string | null
-    racePack: boolean | null
-    registrationDate: Date | null
     createdAt: Date | null
     updatedAt: Date | null
+    master_categoryId: number | null
+    size: string | null
+    gender: string | null
+    price: number | null
+    province: string | null
+    condition: string | null
+    racePack: boolean | null
+    registration: boolean | null
   }
 
   export type ParticipantsMaxAggregateOutputType = {
@@ -4744,23 +4725,23 @@ export namespace Prisma {
     identityId: string | null
     birthplace: string | null
     birthdate: Date | null
-    gender: string | null
     phone: string | null
     address: string | null
     zipcode: string | null
     country: string | null
-    province: string | null
     city: string | null
     bloodType: string | null
-    size: string | null
-    price: number | null
-    condition: string | null
-    master_categoryId: number | null
     transactionsId: string | null
-    racePack: boolean | null
-    registrationDate: Date | null
     createdAt: Date | null
     updatedAt: Date | null
+    master_categoryId: number | null
+    size: string | null
+    gender: string | null
+    price: number | null
+    province: string | null
+    condition: string | null
+    racePack: boolean | null
+    registration: boolean | null
   }
 
   export type ParticipantsCountAggregateOutputType = {
@@ -4772,37 +4753,37 @@ export namespace Prisma {
     identityId: number
     birthplace: number
     birthdate: number
-    gender: number
     phone: number
     address: number
     zipcode: number
     country: number
-    province: number
     city: number
     bloodType: number
-    size: number
-    price: number
-    condition: number
-    master_categoryId: number
     transactionsId: number
-    racePack: number
-    registrationDate: number
     createdAt: number
     updatedAt: number
+    master_categoryId: number
+    size: number
+    gender: number
+    price: number
+    province: number
+    condition: number
+    racePack: number
+    registration: number
     _all: number
   }
 
 
   export type ParticipantsAvgAggregateInputType = {
     id?: true
-    price?: true
     master_categoryId?: true
+    price?: true
   }
 
   export type ParticipantsSumAggregateInputType = {
     id?: true
-    price?: true
     master_categoryId?: true
+    price?: true
   }
 
   export type ParticipantsMinAggregateInputType = {
@@ -4814,23 +4795,23 @@ export namespace Prisma {
     identityId?: true
     birthplace?: true
     birthdate?: true
-    gender?: true
     phone?: true
     address?: true
     zipcode?: true
     country?: true
-    province?: true
     city?: true
     bloodType?: true
-    size?: true
-    price?: true
-    condition?: true
-    master_categoryId?: true
     transactionsId?: true
-    racePack?: true
-    registrationDate?: true
     createdAt?: true
     updatedAt?: true
+    master_categoryId?: true
+    size?: true
+    gender?: true
+    price?: true
+    province?: true
+    condition?: true
+    racePack?: true
+    registration?: true
   }
 
   export type ParticipantsMaxAggregateInputType = {
@@ -4842,23 +4823,23 @@ export namespace Prisma {
     identityId?: true
     birthplace?: true
     birthdate?: true
-    gender?: true
     phone?: true
     address?: true
     zipcode?: true
     country?: true
-    province?: true
     city?: true
     bloodType?: true
-    size?: true
-    price?: true
-    condition?: true
-    master_categoryId?: true
     transactionsId?: true
-    racePack?: true
-    registrationDate?: true
     createdAt?: true
     updatedAt?: true
+    master_categoryId?: true
+    size?: true
+    gender?: true
+    price?: true
+    province?: true
+    condition?: true
+    racePack?: true
+    registration?: true
   }
 
   export type ParticipantsCountAggregateInputType = {
@@ -4870,23 +4851,23 @@ export namespace Prisma {
     identityId?: true
     birthplace?: true
     birthdate?: true
-    gender?: true
     phone?: true
     address?: true
     zipcode?: true
     country?: true
-    province?: true
     city?: true
     bloodType?: true
-    size?: true
-    price?: true
-    condition?: true
-    master_categoryId?: true
     transactionsId?: true
-    racePack?: true
-    registrationDate?: true
     createdAt?: true
     updatedAt?: true
+    master_categoryId?: true
+    size?: true
+    gender?: true
+    price?: true
+    province?: true
+    condition?: true
+    racePack?: true
+    registration?: true
     _all?: true
   }
 
@@ -4985,23 +4966,23 @@ export namespace Prisma {
     identityId: string
     birthplace: string
     birthdate: Date
-    gender: string
     phone: string
     address: string
     zipcode: string
     country: string
-    province: string
     city: string
     bloodType: string
-    size: string | null
-    price: number | null
-    condition: string | null
-    master_categoryId: number | null
     transactionsId: string | null
-    racePack: boolean | null
-    registrationDate: Date | null
     createdAt: Date
     updatedAt: Date
+    master_categoryId: number | null
+    size: string | null
+    gender: string
+    price: number | null
+    province: string
+    condition: string | null
+    racePack: boolean | null
+    registration: boolean | null
     _count: ParticipantsCountAggregateOutputType | null
     _avg: ParticipantsAvgAggregateOutputType | null
     _sum: ParticipantsSumAggregateOutputType | null
@@ -5032,25 +5013,25 @@ export namespace Prisma {
     identityId?: boolean
     birthplace?: boolean
     birthdate?: boolean
-    gender?: boolean
     phone?: boolean
     address?: boolean
     zipcode?: boolean
     country?: boolean
-    province?: boolean
     city?: boolean
     bloodType?: boolean
-    size?: boolean
-    price?: boolean
-    condition?: boolean
-    master_categoryId?: boolean
     transactionsId?: boolean
-    racePack?: boolean
-    registrationDate?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    transactions?: boolean | participants$transactionsArgs<ExtArgs>
+    master_categoryId?: boolean
+    size?: boolean
+    gender?: boolean
+    price?: boolean
+    province?: boolean
+    condition?: boolean
+    racePack?: boolean
+    registration?: boolean
     master_category?: boolean | participants$master_categoryArgs<ExtArgs>
+    transactions?: boolean | participants$transactionsArgs<ExtArgs>
   }, ExtArgs["result"]["participants"]>
 
 
@@ -5064,36 +5045,36 @@ export namespace Prisma {
     identityId?: boolean
     birthplace?: boolean
     birthdate?: boolean
-    gender?: boolean
     phone?: boolean
     address?: boolean
     zipcode?: boolean
     country?: boolean
-    province?: boolean
     city?: boolean
     bloodType?: boolean
-    size?: boolean
-    price?: boolean
-    condition?: boolean
-    master_categoryId?: boolean
     transactionsId?: boolean
-    racePack?: boolean
-    registrationDate?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    master_categoryId?: boolean
+    size?: boolean
+    gender?: boolean
+    price?: boolean
+    province?: boolean
+    condition?: boolean
+    racePack?: boolean
+    registration?: boolean
   }
 
-  export type participantsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "fname" | "lname" | "bibname" | "email" | "identityId" | "birthplace" | "birthdate" | "gender" | "phone" | "address" | "zipcode" | "country" | "province" | "city" | "bloodType" | "size" | "price" | "condition" | "master_categoryId" | "transactionsId" | "racePack" | "registrationDate" | "createdAt" | "updatedAt", ExtArgs["result"]["participants"]>
+  export type participantsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "fname" | "lname" | "bibname" | "email" | "identityId" | "birthplace" | "birthdate" | "phone" | "address" | "zipcode" | "country" | "city" | "bloodType" | "transactionsId" | "createdAt" | "updatedAt" | "master_categoryId" | "size" | "gender" | "price" | "province" | "condition" | "racePack" | "registration", ExtArgs["result"]["participants"]>
   export type participantsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    transactions?: boolean | participants$transactionsArgs<ExtArgs>
     master_category?: boolean | participants$master_categoryArgs<ExtArgs>
+    transactions?: boolean | participants$transactionsArgs<ExtArgs>
   }
 
   export type $participantsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "participants"
     objects: {
-      transactions: Prisma.$transactionsPayload<ExtArgs> | null
       master_category: Prisma.$master_categoryPayload<ExtArgs> | null
+      transactions: Prisma.$transactionsPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -5104,23 +5085,23 @@ export namespace Prisma {
       identityId: string
       birthplace: string
       birthdate: Date
-      gender: string
       phone: string
       address: string
       zipcode: string
       country: string
-      province: string
       city: string
       bloodType: string
-      size: string | null
-      price: number | null
-      condition: string | null
-      master_categoryId: number | null
       transactionsId: string | null
-      racePack: boolean | null
-      registrationDate: Date | null
       createdAt: Date
       updatedAt: Date
+      master_categoryId: number | null
+      size: string | null
+      gender: string
+      price: number | null
+      province: string
+      condition: string | null
+      racePack: boolean | null
+      registration: boolean | null
     }, ExtArgs["result"]["participants"]>
     composites: {}
   }
@@ -5461,8 +5442,8 @@ export namespace Prisma {
    */
   export interface Prisma__participantsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    transactions<T extends participants$transactionsArgs<ExtArgs> = {}>(args?: Subset<T, participants$transactionsArgs<ExtArgs>>): Prisma__transactionsClient<$Result.GetResult<Prisma.$transactionsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     master_category<T extends participants$master_categoryArgs<ExtArgs> = {}>(args?: Subset<T, participants$master_categoryArgs<ExtArgs>>): Prisma__master_categoryClient<$Result.GetResult<Prisma.$master_categoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    transactions<T extends participants$transactionsArgs<ExtArgs> = {}>(args?: Subset<T, participants$transactionsArgs<ExtArgs>>): Prisma__transactionsClient<$Result.GetResult<Prisma.$transactionsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -5500,23 +5481,23 @@ export namespace Prisma {
     readonly identityId: FieldRef<"participants", 'String'>
     readonly birthplace: FieldRef<"participants", 'String'>
     readonly birthdate: FieldRef<"participants", 'DateTime'>
-    readonly gender: FieldRef<"participants", 'String'>
     readonly phone: FieldRef<"participants", 'String'>
     readonly address: FieldRef<"participants", 'String'>
     readonly zipcode: FieldRef<"participants", 'String'>
     readonly country: FieldRef<"participants", 'String'>
-    readonly province: FieldRef<"participants", 'String'>
     readonly city: FieldRef<"participants", 'String'>
     readonly bloodType: FieldRef<"participants", 'String'>
-    readonly size: FieldRef<"participants", 'String'>
-    readonly price: FieldRef<"participants", 'Int'>
-    readonly condition: FieldRef<"participants", 'String'>
-    readonly master_categoryId: FieldRef<"participants", 'Int'>
     readonly transactionsId: FieldRef<"participants", 'String'>
-    readonly racePack: FieldRef<"participants", 'Boolean'>
-    readonly registrationDate: FieldRef<"participants", 'DateTime'>
     readonly createdAt: FieldRef<"participants", 'DateTime'>
     readonly updatedAt: FieldRef<"participants", 'DateTime'>
+    readonly master_categoryId: FieldRef<"participants", 'Int'>
+    readonly size: FieldRef<"participants", 'String'>
+    readonly gender: FieldRef<"participants", 'String'>
+    readonly price: FieldRef<"participants", 'Int'>
+    readonly province: FieldRef<"participants", 'String'>
+    readonly condition: FieldRef<"participants", 'String'>
+    readonly racePack: FieldRef<"participants", 'Boolean'>
+    readonly registration: FieldRef<"participants", 'Boolean'>
   }
     
 
@@ -5860,25 +5841,6 @@ export namespace Prisma {
   }
 
   /**
-   * participants.transactions
-   */
-  export type participants$transactionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the transactions
-     */
-    select?: transactionsSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the transactions
-     */
-    omit?: transactionsOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: transactionsInclude<ExtArgs> | null
-    where?: transactionsWhereInput
-  }
-
-  /**
    * participants.master_category
    */
   export type participants$master_categoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -5895,6 +5857,25 @@ export namespace Prisma {
      */
     include?: master_categoryInclude<ExtArgs> | null
     where?: master_categoryWhereInput
+  }
+
+  /**
+   * participants.transactions
+   */
+  export type participants$transactionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the transactions
+     */
+    select?: transactionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the transactions
+     */
+    omit?: transactionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: transactionsInclude<ExtArgs> | null
+    where?: transactionsWhereInput
   }
 
   /**
@@ -5929,13 +5910,13 @@ export namespace Prisma {
   }
 
   export type TransactionsAvgAggregateOutputType = {
-    total: number | null
     status: number | null
+    total: number | null
   }
 
   export type TransactionsSumAggregateOutputType = {
-    total: number | null
     status: number | null
+    total: number | null
   }
 
   export type TransactionsMinAggregateOutputType = {
@@ -5944,11 +5925,11 @@ export namespace Prisma {
     divisi: string | null
     emergencyName: string | null
     emergencyPhone: string | null
-    transferProof: string | null
-    total: number | null
     status: number | null
     createdAt: Date | null
     updatedAt: Date | null
+    total: number | null
+    transferProof: string | null
   }
 
   export type TransactionsMaxAggregateOutputType = {
@@ -5957,11 +5938,11 @@ export namespace Prisma {
     divisi: string | null
     emergencyName: string | null
     emergencyPhone: string | null
-    transferProof: string | null
-    total: number | null
     status: number | null
     createdAt: Date | null
     updatedAt: Date | null
+    total: number | null
+    transferProof: string | null
   }
 
   export type TransactionsCountAggregateOutputType = {
@@ -5970,23 +5951,23 @@ export namespace Prisma {
     divisi: number
     emergencyName: number
     emergencyPhone: number
-    transferProof: number
-    total: number
     status: number
     createdAt: number
     updatedAt: number
+    total: number
+    transferProof: number
     _all: number
   }
 
 
   export type TransactionsAvgAggregateInputType = {
-    total?: true
     status?: true
+    total?: true
   }
 
   export type TransactionsSumAggregateInputType = {
-    total?: true
     status?: true
+    total?: true
   }
 
   export type TransactionsMinAggregateInputType = {
@@ -5995,11 +5976,11 @@ export namespace Prisma {
     divisi?: true
     emergencyName?: true
     emergencyPhone?: true
-    transferProof?: true
-    total?: true
     status?: true
     createdAt?: true
     updatedAt?: true
+    total?: true
+    transferProof?: true
   }
 
   export type TransactionsMaxAggregateInputType = {
@@ -6008,11 +5989,11 @@ export namespace Prisma {
     divisi?: true
     emergencyName?: true
     emergencyPhone?: true
-    transferProof?: true
-    total?: true
     status?: true
     createdAt?: true
     updatedAt?: true
+    total?: true
+    transferProof?: true
   }
 
   export type TransactionsCountAggregateInputType = {
@@ -6021,11 +6002,11 @@ export namespace Prisma {
     divisi?: true
     emergencyName?: true
     emergencyPhone?: true
-    transferProof?: true
-    total?: true
     status?: true
     createdAt?: true
     updatedAt?: true
+    total?: true
+    transferProof?: true
     _all?: true
   }
 
@@ -6121,11 +6102,11 @@ export namespace Prisma {
     divisi: string
     emergencyName: string
     emergencyPhone: string
-    transferProof: string | null
-    total: number
     status: number
     createdAt: Date
     updatedAt: Date
+    total: number
+    transferProof: string | null
     _count: TransactionsCountAggregateOutputType | null
     _avg: TransactionsAvgAggregateOutputType | null
     _sum: TransactionsSumAggregateOutputType | null
@@ -6153,13 +6134,13 @@ export namespace Prisma {
     divisi?: boolean
     emergencyName?: boolean
     emergencyPhone?: boolean
-    transferProof?: boolean
-    total?: boolean
     status?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    users?: boolean | transactions$usersArgs<ExtArgs>
+    total?: boolean
+    transferProof?: boolean
     participants?: boolean | transactions$participantsArgs<ExtArgs>
+    users?: boolean | transactions$usersArgs<ExtArgs>
     _count?: boolean | TransactionsCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["transactions"]>
 
@@ -6171,25 +6152,25 @@ export namespace Prisma {
     divisi?: boolean
     emergencyName?: boolean
     emergencyPhone?: boolean
-    transferProof?: boolean
-    total?: boolean
     status?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    total?: boolean
+    transferProof?: boolean
   }
 
-  export type transactionsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "pt" | "divisi" | "emergencyName" | "emergencyPhone" | "transferProof" | "total" | "status" | "createdAt" | "updatedAt", ExtArgs["result"]["transactions"]>
+  export type transactionsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "pt" | "divisi" | "emergencyName" | "emergencyPhone" | "status" | "createdAt" | "updatedAt" | "total" | "transferProof", ExtArgs["result"]["transactions"]>
   export type transactionsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    users?: boolean | transactions$usersArgs<ExtArgs>
     participants?: boolean | transactions$participantsArgs<ExtArgs>
+    users?: boolean | transactions$usersArgs<ExtArgs>
     _count?: boolean | TransactionsCountOutputTypeDefaultArgs<ExtArgs>
   }
 
   export type $transactionsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "transactions"
     objects: {
-      users: Prisma.$usersPayload<ExtArgs> | null
       participants: Prisma.$participantsPayload<ExtArgs>[]
+      users: Prisma.$usersPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -6197,11 +6178,11 @@ export namespace Prisma {
       divisi: string
       emergencyName: string
       emergencyPhone: string
-      transferProof: string | null
-      total: number
       status: number
       createdAt: Date
       updatedAt: Date
+      total: number
+      transferProof: string | null
     }, ExtArgs["result"]["transactions"]>
     composites: {}
   }
@@ -6542,8 +6523,8 @@ export namespace Prisma {
    */
   export interface Prisma__transactionsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    users<T extends transactions$usersArgs<ExtArgs> = {}>(args?: Subset<T, transactions$usersArgs<ExtArgs>>): Prisma__usersClient<$Result.GetResult<Prisma.$usersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     participants<T extends transactions$participantsArgs<ExtArgs> = {}>(args?: Subset<T, transactions$participantsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$participantsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    users<T extends transactions$usersArgs<ExtArgs> = {}>(args?: Subset<T, transactions$usersArgs<ExtArgs>>): Prisma__usersClient<$Result.GetResult<Prisma.$usersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -6578,11 +6559,11 @@ export namespace Prisma {
     readonly divisi: FieldRef<"transactions", 'String'>
     readonly emergencyName: FieldRef<"transactions", 'String'>
     readonly emergencyPhone: FieldRef<"transactions", 'String'>
-    readonly transferProof: FieldRef<"transactions", 'String'>
-    readonly total: FieldRef<"transactions", 'Int'>
     readonly status: FieldRef<"transactions", 'Int'>
     readonly createdAt: FieldRef<"transactions", 'DateTime'>
     readonly updatedAt: FieldRef<"transactions", 'DateTime'>
+    readonly total: FieldRef<"transactions", 'Int'>
+    readonly transferProof: FieldRef<"transactions", 'String'>
   }
     
 
@@ -6926,25 +6907,6 @@ export namespace Prisma {
   }
 
   /**
-   * transactions.users
-   */
-  export type transactions$usersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the users
-     */
-    select?: usersSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the users
-     */
-    omit?: usersOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: usersInclude<ExtArgs> | null
-    where?: usersWhereInput
-  }
-
-  /**
    * transactions.participants
    */
   export type transactions$participantsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -6966,6 +6928,25 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: ParticipantsScalarFieldEnum | ParticipantsScalarFieldEnum[]
+  }
+
+  /**
+   * transactions.users
+   */
+  export type transactions$usersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the users
+     */
+    select?: usersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the users
+     */
+    omit?: usersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: usersInclude<ExtArgs> | null
+    where?: usersWhereInput
   }
 
   /**
@@ -8012,10 +7993,10 @@ export namespace Prisma {
     password: 'password',
     role: 'role',
     status: 'status',
-    users_refId: 'users_refId',
-    transactionId: 'transactionId',
     createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    updatedAt: 'updatedAt',
+    users_refId: 'users_refId',
+    transactionId: 'transactionId'
   };
 
   export type UsersScalarFieldEnum = (typeof UsersScalarFieldEnum)[keyof typeof UsersScalarFieldEnum]
@@ -8075,23 +8056,23 @@ export namespace Prisma {
     identityId: 'identityId',
     birthplace: 'birthplace',
     birthdate: 'birthdate',
-    gender: 'gender',
     phone: 'phone',
     address: 'address',
     zipcode: 'zipcode',
     country: 'country',
-    province: 'province',
     city: 'city',
     bloodType: 'bloodType',
-    size: 'size',
-    price: 'price',
-    condition: 'condition',
-    master_categoryId: 'master_categoryId',
     transactionsId: 'transactionsId',
-    racePack: 'racePack',
-    registrationDate: 'registrationDate',
     createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    updatedAt: 'updatedAt',
+    master_categoryId: 'master_categoryId',
+    size: 'size',
+    gender: 'gender',
+    price: 'price',
+    province: 'province',
+    condition: 'condition',
+    racePack: 'racePack',
+    registration: 'registration'
   };
 
   export type ParticipantsScalarFieldEnum = (typeof ParticipantsScalarFieldEnum)[keyof typeof ParticipantsScalarFieldEnum]
@@ -8103,11 +8084,11 @@ export namespace Prisma {
     divisi: 'divisi',
     emergencyName: 'emergencyName',
     emergencyPhone: 'emergencyPhone',
-    transferProof: 'transferProof',
-    total: 'total',
     status: 'status',
     createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    updatedAt: 'updatedAt',
+    total: 'total',
+    transferProof: 'transferProof'
   };
 
   export type TransactionsScalarFieldEnum = (typeof TransactionsScalarFieldEnum)[keyof typeof TransactionsScalarFieldEnum]
@@ -8199,17 +8180,17 @@ export namespace Prisma {
     email: 'email',
     identityId: 'identityId',
     birthplace: 'birthplace',
-    gender: 'gender',
     phone: 'phone',
     address: 'address',
     zipcode: 'zipcode',
     country: 'country',
-    province: 'province',
     city: 'city',
     bloodType: 'bloodType',
+    transactionsId: 'transactionsId',
     size: 'size',
-    condition: 'condition',
-    transactionsId: 'transactionsId'
+    gender: 'gender',
+    province: 'province',
+    condition: 'condition'
   };
 
   export type participantsOrderByRelevanceFieldEnum = (typeof participantsOrderByRelevanceFieldEnum)[keyof typeof participantsOrderByRelevanceFieldEnum]
@@ -8288,12 +8269,12 @@ export namespace Prisma {
     password?: StringFilter<"users"> | string
     role?: StringFilter<"users"> | string
     status?: IntFilter<"users"> | number
-    users_refId?: StringNullableFilter<"users"> | string | null
-    transactionId?: StringNullableFilter<"users"> | string | null
     createdAt?: DateTimeFilter<"users"> | Date | string
     updatedAt?: DateTimeFilter<"users"> | Date | string
-    users_ref?: XOR<Users_refNullableScalarRelationFilter, users_refWhereInput> | null
+    users_refId?: StringNullableFilter<"users"> | string | null
+    transactionId?: StringNullableFilter<"users"> | string | null
     transactions?: XOR<TransactionsNullableScalarRelationFilter, transactionsWhereInput> | null
+    users_ref?: XOR<Users_refNullableScalarRelationFilter, users_refWhereInput> | null
   }
 
   export type usersOrderByWithRelationInput = {
@@ -8303,12 +8284,12 @@ export namespace Prisma {
     password?: SortOrder
     role?: SortOrder
     status?: SortOrder
-    users_refId?: SortOrderInput | SortOrder
-    transactionId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    users_ref?: users_refOrderByWithRelationInput
+    users_refId?: SortOrderInput | SortOrder
+    transactionId?: SortOrderInput | SortOrder
     transactions?: transactionsOrderByWithRelationInput
+    users_ref?: users_refOrderByWithRelationInput
     _relevance?: usersOrderByRelevanceInput
   }
 
@@ -8326,8 +8307,8 @@ export namespace Prisma {
     status?: IntFilter<"users"> | number
     createdAt?: DateTimeFilter<"users"> | Date | string
     updatedAt?: DateTimeFilter<"users"> | Date | string
-    users_ref?: XOR<Users_refNullableScalarRelationFilter, users_refWhereInput> | null
     transactions?: XOR<TransactionsNullableScalarRelationFilter, transactionsWhereInput> | null
+    users_ref?: XOR<Users_refNullableScalarRelationFilter, users_refWhereInput> | null
   }, "id" | "username" | "users_refId" | "transactionId">
 
   export type usersOrderByWithAggregationInput = {
@@ -8337,10 +8318,10 @@ export namespace Prisma {
     password?: SortOrder
     role?: SortOrder
     status?: SortOrder
-    users_refId?: SortOrderInput | SortOrder
-    transactionId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    users_refId?: SortOrderInput | SortOrder
+    transactionId?: SortOrderInput | SortOrder
     _count?: usersCountOrderByAggregateInput
     _avg?: usersAvgOrderByAggregateInput
     _max?: usersMaxOrderByAggregateInput
@@ -8358,10 +8339,10 @@ export namespace Prisma {
     password?: StringWithAggregatesFilter<"users"> | string
     role?: StringWithAggregatesFilter<"users"> | string
     status?: IntWithAggregatesFilter<"users"> | number
-    users_refId?: StringNullableWithAggregatesFilter<"users"> | string | null
-    transactionId?: StringNullableWithAggregatesFilter<"users"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"users"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"users"> | Date | string
+    users_refId?: StringNullableWithAggregatesFilter<"users"> | string | null
+    transactionId?: StringNullableWithAggregatesFilter<"users"> | string | null
   }
 
   export type users_refWhereInput = {
@@ -8513,7 +8494,7 @@ export namespace Prisma {
     city?: StringNullableFilter<"family_ref"> | string | null
     phone?: StringNullableFilter<"family_ref"> | string | null
     email?: StringFilter<"family_ref"> | string
-    users_ref?: XOR<Users_refNullableScalarRelationFilter, users_refWhereInput> | null
+    users_ref?: XOR<Users_refScalarRelationFilter, users_refWhereInput>
   }
 
   export type family_refOrderByWithRelationInput = {
@@ -8553,7 +8534,7 @@ export namespace Prisma {
     city?: StringNullableFilter<"family_ref"> | string | null
     phone?: StringNullableFilter<"family_ref"> | string | null
     email?: StringFilter<"family_ref"> | string
-    users_ref?: XOR<Users_refNullableScalarRelationFilter, users_refWhereInput> | null
+    users_ref?: XOR<Users_refScalarRelationFilter, users_refWhereInput>
   }, "id">
 
   export type family_refOrderByWithAggregationInput = {
@@ -8610,25 +8591,25 @@ export namespace Prisma {
     identityId?: StringFilter<"participants"> | string
     birthplace?: StringFilter<"participants"> | string
     birthdate?: DateTimeFilter<"participants"> | Date | string
-    gender?: StringFilter<"participants"> | string
     phone?: StringFilter<"participants"> | string
     address?: StringFilter<"participants"> | string
     zipcode?: StringFilter<"participants"> | string
     country?: StringFilter<"participants"> | string
-    province?: StringFilter<"participants"> | string
     city?: StringFilter<"participants"> | string
     bloodType?: StringFilter<"participants"> | string
-    size?: StringNullableFilter<"participants"> | string | null
-    price?: IntNullableFilter<"participants"> | number | null
-    condition?: StringNullableFilter<"participants"> | string | null
-    master_categoryId?: IntNullableFilter<"participants"> | number | null
     transactionsId?: StringNullableFilter<"participants"> | string | null
-    racePack?: BoolNullableFilter<"participants"> | boolean | null
-    registrationDate?: DateTimeNullableFilter<"participants"> | Date | string | null
     createdAt?: DateTimeFilter<"participants"> | Date | string
     updatedAt?: DateTimeFilter<"participants"> | Date | string
-    transactions?: XOR<TransactionsNullableScalarRelationFilter, transactionsWhereInput> | null
+    master_categoryId?: IntNullableFilter<"participants"> | number | null
+    size?: StringNullableFilter<"participants"> | string | null
+    gender?: StringFilter<"participants"> | string
+    price?: IntNullableFilter<"participants"> | number | null
+    province?: StringFilter<"participants"> | string
+    condition?: StringNullableFilter<"participants"> | string | null
+    racePack?: BoolNullableFilter<"participants"> | boolean | null
+    registration?: BoolNullableFilter<"participants"> | boolean | null
     master_category?: XOR<Master_categoryNullableScalarRelationFilter, master_categoryWhereInput> | null
+    transactions?: XOR<TransactionsNullableScalarRelationFilter, transactionsWhereInput> | null
   }
 
   export type participantsOrderByWithRelationInput = {
@@ -8640,25 +8621,25 @@ export namespace Prisma {
     identityId?: SortOrder
     birthplace?: SortOrder
     birthdate?: SortOrder
-    gender?: SortOrder
     phone?: SortOrder
     address?: SortOrder
     zipcode?: SortOrder
     country?: SortOrder
-    province?: SortOrder
     city?: SortOrder
     bloodType?: SortOrder
-    size?: SortOrderInput | SortOrder
-    price?: SortOrderInput | SortOrder
-    condition?: SortOrderInput | SortOrder
-    master_categoryId?: SortOrderInput | SortOrder
     transactionsId?: SortOrderInput | SortOrder
-    racePack?: SortOrderInput | SortOrder
-    registrationDate?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    transactions?: transactionsOrderByWithRelationInput
+    master_categoryId?: SortOrderInput | SortOrder
+    size?: SortOrderInput | SortOrder
+    gender?: SortOrder
+    price?: SortOrderInput | SortOrder
+    province?: SortOrder
+    condition?: SortOrderInput | SortOrder
+    racePack?: SortOrderInput | SortOrder
+    registration?: SortOrderInput | SortOrder
     master_category?: master_categoryOrderByWithRelationInput
+    transactions?: transactionsOrderByWithRelationInput
     _relevance?: participantsOrderByRelevanceInput
   }
 
@@ -8674,25 +8655,25 @@ export namespace Prisma {
     identityId?: StringFilter<"participants"> | string
     birthplace?: StringFilter<"participants"> | string
     birthdate?: DateTimeFilter<"participants"> | Date | string
-    gender?: StringFilter<"participants"> | string
     phone?: StringFilter<"participants"> | string
     address?: StringFilter<"participants"> | string
     zipcode?: StringFilter<"participants"> | string
     country?: StringFilter<"participants"> | string
-    province?: StringFilter<"participants"> | string
     city?: StringFilter<"participants"> | string
     bloodType?: StringFilter<"participants"> | string
-    size?: StringNullableFilter<"participants"> | string | null
-    price?: IntNullableFilter<"participants"> | number | null
-    condition?: StringNullableFilter<"participants"> | string | null
-    master_categoryId?: IntNullableFilter<"participants"> | number | null
     transactionsId?: StringNullableFilter<"participants"> | string | null
-    racePack?: BoolNullableFilter<"participants"> | boolean | null
-    registrationDate?: DateTimeNullableFilter<"participants"> | Date | string | null
     createdAt?: DateTimeFilter<"participants"> | Date | string
     updatedAt?: DateTimeFilter<"participants"> | Date | string
-    transactions?: XOR<TransactionsNullableScalarRelationFilter, transactionsWhereInput> | null
+    master_categoryId?: IntNullableFilter<"participants"> | number | null
+    size?: StringNullableFilter<"participants"> | string | null
+    gender?: StringFilter<"participants"> | string
+    price?: IntNullableFilter<"participants"> | number | null
+    province?: StringFilter<"participants"> | string
+    condition?: StringNullableFilter<"participants"> | string | null
+    racePack?: BoolNullableFilter<"participants"> | boolean | null
+    registration?: BoolNullableFilter<"participants"> | boolean | null
     master_category?: XOR<Master_categoryNullableScalarRelationFilter, master_categoryWhereInput> | null
+    transactions?: XOR<TransactionsNullableScalarRelationFilter, transactionsWhereInput> | null
   }, "id">
 
   export type participantsOrderByWithAggregationInput = {
@@ -8704,23 +8685,23 @@ export namespace Prisma {
     identityId?: SortOrder
     birthplace?: SortOrder
     birthdate?: SortOrder
-    gender?: SortOrder
     phone?: SortOrder
     address?: SortOrder
     zipcode?: SortOrder
     country?: SortOrder
-    province?: SortOrder
     city?: SortOrder
     bloodType?: SortOrder
-    size?: SortOrderInput | SortOrder
-    price?: SortOrderInput | SortOrder
-    condition?: SortOrderInput | SortOrder
-    master_categoryId?: SortOrderInput | SortOrder
     transactionsId?: SortOrderInput | SortOrder
-    racePack?: SortOrderInput | SortOrder
-    registrationDate?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    master_categoryId?: SortOrderInput | SortOrder
+    size?: SortOrderInput | SortOrder
+    gender?: SortOrder
+    price?: SortOrderInput | SortOrder
+    province?: SortOrder
+    condition?: SortOrderInput | SortOrder
+    racePack?: SortOrderInput | SortOrder
+    registration?: SortOrderInput | SortOrder
     _count?: participantsCountOrderByAggregateInput
     _avg?: participantsAvgOrderByAggregateInput
     _max?: participantsMaxOrderByAggregateInput
@@ -8740,23 +8721,23 @@ export namespace Prisma {
     identityId?: StringWithAggregatesFilter<"participants"> | string
     birthplace?: StringWithAggregatesFilter<"participants"> | string
     birthdate?: DateTimeWithAggregatesFilter<"participants"> | Date | string
-    gender?: StringWithAggregatesFilter<"participants"> | string
     phone?: StringWithAggregatesFilter<"participants"> | string
     address?: StringWithAggregatesFilter<"participants"> | string
     zipcode?: StringWithAggregatesFilter<"participants"> | string
     country?: StringWithAggregatesFilter<"participants"> | string
-    province?: StringWithAggregatesFilter<"participants"> | string
     city?: StringWithAggregatesFilter<"participants"> | string
     bloodType?: StringWithAggregatesFilter<"participants"> | string
-    size?: StringNullableWithAggregatesFilter<"participants"> | string | null
-    price?: IntNullableWithAggregatesFilter<"participants"> | number | null
-    condition?: StringNullableWithAggregatesFilter<"participants"> | string | null
-    master_categoryId?: IntNullableWithAggregatesFilter<"participants"> | number | null
     transactionsId?: StringNullableWithAggregatesFilter<"participants"> | string | null
-    racePack?: BoolNullableWithAggregatesFilter<"participants"> | boolean | null
-    registrationDate?: DateTimeNullableWithAggregatesFilter<"participants"> | Date | string | null
     createdAt?: DateTimeWithAggregatesFilter<"participants"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"participants"> | Date | string
+    master_categoryId?: IntNullableWithAggregatesFilter<"participants"> | number | null
+    size?: StringNullableWithAggregatesFilter<"participants"> | string | null
+    gender?: StringWithAggregatesFilter<"participants"> | string
+    price?: IntNullableWithAggregatesFilter<"participants"> | number | null
+    province?: StringWithAggregatesFilter<"participants"> | string
+    condition?: StringNullableWithAggregatesFilter<"participants"> | string | null
+    racePack?: BoolNullableWithAggregatesFilter<"participants"> | boolean | null
+    registration?: BoolNullableWithAggregatesFilter<"participants"> | boolean | null
   }
 
   export type transactionsWhereInput = {
@@ -8768,13 +8749,13 @@ export namespace Prisma {
     divisi?: StringFilter<"transactions"> | string
     emergencyName?: StringFilter<"transactions"> | string
     emergencyPhone?: StringFilter<"transactions"> | string
-    transferProof?: StringNullableFilter<"transactions"> | string | null
-    total?: IntFilter<"transactions"> | number
     status?: IntFilter<"transactions"> | number
     createdAt?: DateTimeFilter<"transactions"> | Date | string
     updatedAt?: DateTimeFilter<"transactions"> | Date | string
-    users?: XOR<UsersNullableScalarRelationFilter, usersWhereInput> | null
+    total?: IntFilter<"transactions"> | number
+    transferProof?: StringNullableFilter<"transactions"> | string | null
     participants?: ParticipantsListRelationFilter
+    users?: XOR<UsersNullableScalarRelationFilter, usersWhereInput> | null
   }
 
   export type transactionsOrderByWithRelationInput = {
@@ -8783,13 +8764,13 @@ export namespace Prisma {
     divisi?: SortOrder
     emergencyName?: SortOrder
     emergencyPhone?: SortOrder
-    transferProof?: SortOrderInput | SortOrder
-    total?: SortOrder
     status?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    users?: usersOrderByWithRelationInput
+    total?: SortOrder
+    transferProof?: SortOrderInput | SortOrder
     participants?: participantsOrderByRelationAggregateInput
+    users?: usersOrderByWithRelationInput
     _relevance?: transactionsOrderByRelevanceInput
   }
 
@@ -8802,13 +8783,13 @@ export namespace Prisma {
     divisi?: StringFilter<"transactions"> | string
     emergencyName?: StringFilter<"transactions"> | string
     emergencyPhone?: StringFilter<"transactions"> | string
-    transferProof?: StringNullableFilter<"transactions"> | string | null
-    total?: IntFilter<"transactions"> | number
     status?: IntFilter<"transactions"> | number
     createdAt?: DateTimeFilter<"transactions"> | Date | string
     updatedAt?: DateTimeFilter<"transactions"> | Date | string
-    users?: XOR<UsersNullableScalarRelationFilter, usersWhereInput> | null
+    total?: IntFilter<"transactions"> | number
+    transferProof?: StringNullableFilter<"transactions"> | string | null
     participants?: ParticipantsListRelationFilter
+    users?: XOR<UsersNullableScalarRelationFilter, usersWhereInput> | null
   }, "id">
 
   export type transactionsOrderByWithAggregationInput = {
@@ -8817,11 +8798,11 @@ export namespace Prisma {
     divisi?: SortOrder
     emergencyName?: SortOrder
     emergencyPhone?: SortOrder
-    transferProof?: SortOrderInput | SortOrder
-    total?: SortOrder
     status?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    total?: SortOrder
+    transferProof?: SortOrderInput | SortOrder
     _count?: transactionsCountOrderByAggregateInput
     _avg?: transactionsAvgOrderByAggregateInput
     _max?: transactionsMaxOrderByAggregateInput
@@ -8838,11 +8819,11 @@ export namespace Prisma {
     divisi?: StringWithAggregatesFilter<"transactions"> | string
     emergencyName?: StringWithAggregatesFilter<"transactions"> | string
     emergencyPhone?: StringWithAggregatesFilter<"transactions"> | string
-    transferProof?: StringNullableWithAggregatesFilter<"transactions"> | string | null
-    total?: IntWithAggregatesFilter<"transactions"> | number
     status?: IntWithAggregatesFilter<"transactions"> | number
     createdAt?: DateTimeWithAggregatesFilter<"transactions"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"transactions"> | Date | string
+    total?: IntWithAggregatesFilter<"transactions"> | number
+    transferProof?: StringNullableWithAggregatesFilter<"transactions"> | string | null
   }
 
   export type master_categoryWhereInput = {
@@ -8916,8 +8897,8 @@ export namespace Prisma {
     status?: number
     createdAt?: Date | string
     updatedAt?: Date | string
-    users_ref?: users_refCreateNestedOneWithoutUsersInput
     transactions?: transactionsCreateNestedOneWithoutUsersInput
+    users_ref?: users_refCreateNestedOneWithoutUsersInput
   }
 
   export type usersUncheckedCreateInput = {
@@ -8927,10 +8908,10 @@ export namespace Prisma {
     password?: string
     role?: string
     status?: number
-    users_refId?: string | null
-    transactionId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    users_refId?: string | null
+    transactionId?: string | null
   }
 
   export type usersUpdateInput = {
@@ -8941,8 +8922,8 @@ export namespace Prisma {
     status?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    users_ref?: users_refUpdateOneWithoutUsersNestedInput
     transactions?: transactionsUpdateOneWithoutUsersNestedInput
+    users_ref?: users_refUpdateOneWithoutUsersNestedInput
   }
 
   export type usersUncheckedUpdateInput = {
@@ -8952,10 +8933,10 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
     status?: IntFieldUpdateOperationsInput | number
-    users_refId?: NullableStringFieldUpdateOperationsInput | string | null
-    transactionId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    users_refId?: NullableStringFieldUpdateOperationsInput | string | null
+    transactionId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type usersCreateManyInput = {
@@ -8965,10 +8946,10 @@ export namespace Prisma {
     password?: string
     role?: string
     status?: number
-    users_refId?: string | null
-    transactionId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    users_refId?: string | null
+    transactionId?: string | null
   }
 
   export type usersUpdateManyMutationInput = {
@@ -8988,10 +8969,10 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
     status?: IntFieldUpdateOperationsInput | number
-    users_refId?: NullableStringFieldUpdateOperationsInput | string | null
-    transactionId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    users_refId?: NullableStringFieldUpdateOperationsInput | string | null
+    transactionId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type users_refCreateInput = {
@@ -9169,7 +9150,7 @@ export namespace Prisma {
     city?: string | null
     phone?: string | null
     email: string
-    users_ref?: users_refCreateNestedOneWithoutFamily_refInput
+    users_ref: users_refCreateNestedOneWithoutFamily_refInput
   }
 
   export type family_refUncheckedCreateInput = {
@@ -9202,7 +9183,7 @@ export namespace Prisma {
     city?: NullableStringFieldUpdateOperationsInput | string | null
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
-    users_ref?: users_refUpdateOneWithoutFamily_refNestedInput
+    users_ref?: users_refUpdateOneRequiredWithoutFamily_refNestedInput
   }
 
   export type family_refUncheckedUpdateInput = {
@@ -9279,23 +9260,23 @@ export namespace Prisma {
     identityId: string
     birthplace: string
     birthdate: Date | string
-    gender: string
     phone: string
     address: string
     zipcode: string
     country: string
-    province: string
     city: string
     bloodType: string
-    size?: string | null
-    price?: number | null
-    condition?: string | null
-    racePack?: boolean | null
-    registrationDate?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    transactions?: transactionsCreateNestedOneWithoutParticipantsInput
+    size?: string | null
+    gender: string
+    price?: number | null
+    province: string
+    condition?: string | null
+    racePack?: boolean | null
+    registration?: boolean | null
     master_category?: master_categoryCreateNestedOneWithoutParticipantsInput
+    transactions?: transactionsCreateNestedOneWithoutParticipantsInput
   }
 
   export type participantsUncheckedCreateInput = {
@@ -9307,23 +9288,23 @@ export namespace Prisma {
     identityId: string
     birthplace: string
     birthdate: Date | string
-    gender: string
     phone: string
     address: string
     zipcode: string
     country: string
-    province: string
     city: string
     bloodType: string
-    size?: string | null
-    price?: number | null
-    condition?: string | null
-    master_categoryId?: number | null
     transactionsId?: string | null
-    racePack?: boolean | null
-    registrationDate?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    master_categoryId?: number | null
+    size?: string | null
+    gender: string
+    price?: number | null
+    province: string
+    condition?: string | null
+    racePack?: boolean | null
+    registration?: boolean | null
   }
 
   export type participantsUpdateInput = {
@@ -9334,23 +9315,23 @@ export namespace Prisma {
     identityId?: StringFieldUpdateOperationsInput | string
     birthplace?: StringFieldUpdateOperationsInput | string
     birthdate?: DateTimeFieldUpdateOperationsInput | Date | string
-    gender?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
     zipcode?: StringFieldUpdateOperationsInput | string
     country?: StringFieldUpdateOperationsInput | string
-    province?: StringFieldUpdateOperationsInput | string
     city?: StringFieldUpdateOperationsInput | string
     bloodType?: StringFieldUpdateOperationsInput | string
-    size?: NullableStringFieldUpdateOperationsInput | string | null
-    price?: NullableIntFieldUpdateOperationsInput | number | null
-    condition?: NullableStringFieldUpdateOperationsInput | string | null
-    racePack?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    registrationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    transactions?: transactionsUpdateOneWithoutParticipantsNestedInput
+    size?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: StringFieldUpdateOperationsInput | string
+    price?: NullableIntFieldUpdateOperationsInput | number | null
+    province?: StringFieldUpdateOperationsInput | string
+    condition?: NullableStringFieldUpdateOperationsInput | string | null
+    racePack?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    registration?: NullableBoolFieldUpdateOperationsInput | boolean | null
     master_category?: master_categoryUpdateOneWithoutParticipantsNestedInput
+    transactions?: transactionsUpdateOneWithoutParticipantsNestedInput
   }
 
   export type participantsUncheckedUpdateInput = {
@@ -9362,23 +9343,23 @@ export namespace Prisma {
     identityId?: StringFieldUpdateOperationsInput | string
     birthplace?: StringFieldUpdateOperationsInput | string
     birthdate?: DateTimeFieldUpdateOperationsInput | Date | string
-    gender?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
     zipcode?: StringFieldUpdateOperationsInput | string
     country?: StringFieldUpdateOperationsInput | string
-    province?: StringFieldUpdateOperationsInput | string
     city?: StringFieldUpdateOperationsInput | string
     bloodType?: StringFieldUpdateOperationsInput | string
-    size?: NullableStringFieldUpdateOperationsInput | string | null
-    price?: NullableIntFieldUpdateOperationsInput | number | null
-    condition?: NullableStringFieldUpdateOperationsInput | string | null
-    master_categoryId?: NullableIntFieldUpdateOperationsInput | number | null
     transactionsId?: NullableStringFieldUpdateOperationsInput | string | null
-    racePack?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    registrationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    master_categoryId?: NullableIntFieldUpdateOperationsInput | number | null
+    size?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: StringFieldUpdateOperationsInput | string
+    price?: NullableIntFieldUpdateOperationsInput | number | null
+    province?: StringFieldUpdateOperationsInput | string
+    condition?: NullableStringFieldUpdateOperationsInput | string | null
+    racePack?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    registration?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
 
   export type participantsCreateManyInput = {
@@ -9390,23 +9371,23 @@ export namespace Prisma {
     identityId: string
     birthplace: string
     birthdate: Date | string
-    gender: string
     phone: string
     address: string
     zipcode: string
     country: string
-    province: string
     city: string
     bloodType: string
-    size?: string | null
-    price?: number | null
-    condition?: string | null
-    master_categoryId?: number | null
     transactionsId?: string | null
-    racePack?: boolean | null
-    registrationDate?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    master_categoryId?: number | null
+    size?: string | null
+    gender: string
+    price?: number | null
+    province: string
+    condition?: string | null
+    racePack?: boolean | null
+    registration?: boolean | null
   }
 
   export type participantsUpdateManyMutationInput = {
@@ -9417,21 +9398,21 @@ export namespace Prisma {
     identityId?: StringFieldUpdateOperationsInput | string
     birthplace?: StringFieldUpdateOperationsInput | string
     birthdate?: DateTimeFieldUpdateOperationsInput | Date | string
-    gender?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
     zipcode?: StringFieldUpdateOperationsInput | string
     country?: StringFieldUpdateOperationsInput | string
-    province?: StringFieldUpdateOperationsInput | string
     city?: StringFieldUpdateOperationsInput | string
     bloodType?: StringFieldUpdateOperationsInput | string
-    size?: NullableStringFieldUpdateOperationsInput | string | null
-    price?: NullableIntFieldUpdateOperationsInput | number | null
-    condition?: NullableStringFieldUpdateOperationsInput | string | null
-    racePack?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    registrationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    size?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: StringFieldUpdateOperationsInput | string
+    price?: NullableIntFieldUpdateOperationsInput | number | null
+    province?: StringFieldUpdateOperationsInput | string
+    condition?: NullableStringFieldUpdateOperationsInput | string | null
+    racePack?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    registration?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
 
   export type participantsUncheckedUpdateManyInput = {
@@ -9443,23 +9424,23 @@ export namespace Prisma {
     identityId?: StringFieldUpdateOperationsInput | string
     birthplace?: StringFieldUpdateOperationsInput | string
     birthdate?: DateTimeFieldUpdateOperationsInput | Date | string
-    gender?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
     zipcode?: StringFieldUpdateOperationsInput | string
     country?: StringFieldUpdateOperationsInput | string
-    province?: StringFieldUpdateOperationsInput | string
     city?: StringFieldUpdateOperationsInput | string
     bloodType?: StringFieldUpdateOperationsInput | string
-    size?: NullableStringFieldUpdateOperationsInput | string | null
-    price?: NullableIntFieldUpdateOperationsInput | number | null
-    condition?: NullableStringFieldUpdateOperationsInput | string | null
-    master_categoryId?: NullableIntFieldUpdateOperationsInput | number | null
     transactionsId?: NullableStringFieldUpdateOperationsInput | string | null
-    racePack?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    registrationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    master_categoryId?: NullableIntFieldUpdateOperationsInput | number | null
+    size?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: StringFieldUpdateOperationsInput | string
+    price?: NullableIntFieldUpdateOperationsInput | number | null
+    province?: StringFieldUpdateOperationsInput | string
+    condition?: NullableStringFieldUpdateOperationsInput | string | null
+    racePack?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    registration?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
 
   export type transactionsCreateInput = {
@@ -9468,13 +9449,13 @@ export namespace Prisma {
     divisi: string
     emergencyName: string
     emergencyPhone: string
-    transferProof?: string | null
-    total: number
     status?: number
     createdAt?: Date | string
     updatedAt?: Date | string
-    users?: usersCreateNestedOneWithoutTransactionsInput
+    total: number
+    transferProof?: string | null
     participants?: participantsCreateNestedManyWithoutTransactionsInput
+    users?: usersCreateNestedOneWithoutTransactionsInput
   }
 
   export type transactionsUncheckedCreateInput = {
@@ -9483,13 +9464,13 @@ export namespace Prisma {
     divisi: string
     emergencyName: string
     emergencyPhone: string
-    transferProof?: string | null
-    total: number
     status?: number
     createdAt?: Date | string
     updatedAt?: Date | string
-    users?: usersUncheckedCreateNestedOneWithoutTransactionsInput
+    total: number
+    transferProof?: string | null
     participants?: participantsUncheckedCreateNestedManyWithoutTransactionsInput
+    users?: usersUncheckedCreateNestedOneWithoutTransactionsInput
   }
 
   export type transactionsUpdateInput = {
@@ -9498,13 +9479,13 @@ export namespace Prisma {
     divisi?: StringFieldUpdateOperationsInput | string
     emergencyName?: StringFieldUpdateOperationsInput | string
     emergencyPhone?: StringFieldUpdateOperationsInput | string
-    transferProof?: NullableStringFieldUpdateOperationsInput | string | null
-    total?: IntFieldUpdateOperationsInput | number
     status?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    users?: usersUpdateOneWithoutTransactionsNestedInput
+    total?: IntFieldUpdateOperationsInput | number
+    transferProof?: NullableStringFieldUpdateOperationsInput | string | null
     participants?: participantsUpdateManyWithoutTransactionsNestedInput
+    users?: usersUpdateOneWithoutTransactionsNestedInput
   }
 
   export type transactionsUncheckedUpdateInput = {
@@ -9513,13 +9494,13 @@ export namespace Prisma {
     divisi?: StringFieldUpdateOperationsInput | string
     emergencyName?: StringFieldUpdateOperationsInput | string
     emergencyPhone?: StringFieldUpdateOperationsInput | string
-    transferProof?: NullableStringFieldUpdateOperationsInput | string | null
-    total?: IntFieldUpdateOperationsInput | number
     status?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    users?: usersUncheckedUpdateOneWithoutTransactionsNestedInput
+    total?: IntFieldUpdateOperationsInput | number
+    transferProof?: NullableStringFieldUpdateOperationsInput | string | null
     participants?: participantsUncheckedUpdateManyWithoutTransactionsNestedInput
+    users?: usersUncheckedUpdateOneWithoutTransactionsNestedInput
   }
 
   export type transactionsCreateManyInput = {
@@ -9528,11 +9509,11 @@ export namespace Prisma {
     divisi: string
     emergencyName: string
     emergencyPhone: string
-    transferProof?: string | null
-    total: number
     status?: number
     createdAt?: Date | string
     updatedAt?: Date | string
+    total: number
+    transferProof?: string | null
   }
 
   export type transactionsUpdateManyMutationInput = {
@@ -9541,11 +9522,11 @@ export namespace Prisma {
     divisi?: StringFieldUpdateOperationsInput | string
     emergencyName?: StringFieldUpdateOperationsInput | string
     emergencyPhone?: StringFieldUpdateOperationsInput | string
-    transferProof?: NullableStringFieldUpdateOperationsInput | string | null
-    total?: IntFieldUpdateOperationsInput | number
     status?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    total?: IntFieldUpdateOperationsInput | number
+    transferProof?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type transactionsUncheckedUpdateManyInput = {
@@ -9554,11 +9535,11 @@ export namespace Prisma {
     divisi?: StringFieldUpdateOperationsInput | string
     emergencyName?: StringFieldUpdateOperationsInput | string
     emergencyPhone?: StringFieldUpdateOperationsInput | string
-    transferProof?: NullableStringFieldUpdateOperationsInput | string | null
-    total?: IntFieldUpdateOperationsInput | number
     status?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    total?: IntFieldUpdateOperationsInput | number
+    transferProof?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type master_categoryCreateInput = {
@@ -9651,6 +9632,17 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
+  export type DateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[]
+    notIn?: Date[] | string[]
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
   export type StringNullableFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
     in?: string[] | null
@@ -9666,25 +9658,14 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
-  export type DateTimeFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[]
-    notIn?: Date[] | string[]
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  export type TransactionsNullableScalarRelationFilter = {
+    is?: transactionsWhereInput | null
+    isNot?: transactionsWhereInput | null
   }
 
   export type Users_refNullableScalarRelationFilter = {
     is?: users_refWhereInput | null
     isNot?: users_refWhereInput | null
-  }
-
-  export type TransactionsNullableScalarRelationFilter = {
-    is?: transactionsWhereInput | null
-    isNot?: transactionsWhereInput | null
   }
 
   export type SortOrderInput = {
@@ -9705,10 +9686,10 @@ export namespace Prisma {
     password?: SortOrder
     role?: SortOrder
     status?: SortOrder
-    users_refId?: SortOrder
-    transactionId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    users_refId?: SortOrder
+    transactionId?: SortOrder
   }
 
   export type usersAvgOrderByAggregateInput = {
@@ -9723,10 +9704,10 @@ export namespace Prisma {
     password?: SortOrder
     role?: SortOrder
     status?: SortOrder
-    users_refId?: SortOrder
-    transactionId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    users_refId?: SortOrder
+    transactionId?: SortOrder
   }
 
   export type usersMinOrderByAggregateInput = {
@@ -9736,10 +9717,10 @@ export namespace Prisma {
     password?: SortOrder
     role?: SortOrder
     status?: SortOrder
-    users_refId?: SortOrder
-    transactionId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    users_refId?: SortOrder
+    transactionId?: SortOrder
   }
 
   export type usersSumOrderByAggregateInput = {
@@ -9781,6 +9762,20 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
+  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[]
+    notIn?: Date[] | string[]
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
   export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
     in?: string[] | null
@@ -9797,20 +9792,6 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedStringNullableFilter<$PrismaModel>
     _max?: NestedStringNullableFilter<$PrismaModel>
-  }
-
-  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[]
-    notIn?: Date[] | string[]
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedDateTimeFilter<$PrismaModel>
-    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
   export type DateTimeNullableFilter<$PrismaModel = never> = {
@@ -9975,6 +9956,11 @@ export namespace Prisma {
     _max?: NestedBoolNullableFilter<$PrismaModel>
   }
 
+  export type Users_refScalarRelationFilter = {
+    is?: users_refWhereInput
+    isNot?: users_refWhereInput
+  }
+
   export type family_refOrderByRelevanceInput = {
     fields: family_refOrderByRelevanceFieldEnum | family_refOrderByRelevanceFieldEnum[]
     sort: SortOrder
@@ -10060,29 +10046,29 @@ export namespace Prisma {
     identityId?: SortOrder
     birthplace?: SortOrder
     birthdate?: SortOrder
-    gender?: SortOrder
     phone?: SortOrder
     address?: SortOrder
     zipcode?: SortOrder
     country?: SortOrder
-    province?: SortOrder
     city?: SortOrder
     bloodType?: SortOrder
-    size?: SortOrder
-    price?: SortOrder
-    condition?: SortOrder
-    master_categoryId?: SortOrder
     transactionsId?: SortOrder
-    racePack?: SortOrder
-    registrationDate?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    master_categoryId?: SortOrder
+    size?: SortOrder
+    gender?: SortOrder
+    price?: SortOrder
+    province?: SortOrder
+    condition?: SortOrder
+    racePack?: SortOrder
+    registration?: SortOrder
   }
 
   export type participantsAvgOrderByAggregateInput = {
     id?: SortOrder
-    price?: SortOrder
     master_categoryId?: SortOrder
+    price?: SortOrder
   }
 
   export type participantsMaxOrderByAggregateInput = {
@@ -10094,23 +10080,23 @@ export namespace Prisma {
     identityId?: SortOrder
     birthplace?: SortOrder
     birthdate?: SortOrder
-    gender?: SortOrder
     phone?: SortOrder
     address?: SortOrder
     zipcode?: SortOrder
     country?: SortOrder
-    province?: SortOrder
     city?: SortOrder
     bloodType?: SortOrder
-    size?: SortOrder
-    price?: SortOrder
-    condition?: SortOrder
-    master_categoryId?: SortOrder
     transactionsId?: SortOrder
-    racePack?: SortOrder
-    registrationDate?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    master_categoryId?: SortOrder
+    size?: SortOrder
+    gender?: SortOrder
+    price?: SortOrder
+    province?: SortOrder
+    condition?: SortOrder
+    racePack?: SortOrder
+    registration?: SortOrder
   }
 
   export type participantsMinOrderByAggregateInput = {
@@ -10122,29 +10108,29 @@ export namespace Prisma {
     identityId?: SortOrder
     birthplace?: SortOrder
     birthdate?: SortOrder
-    gender?: SortOrder
     phone?: SortOrder
     address?: SortOrder
     zipcode?: SortOrder
     country?: SortOrder
-    province?: SortOrder
     city?: SortOrder
     bloodType?: SortOrder
-    size?: SortOrder
-    price?: SortOrder
-    condition?: SortOrder
-    master_categoryId?: SortOrder
     transactionsId?: SortOrder
-    racePack?: SortOrder
-    registrationDate?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    master_categoryId?: SortOrder
+    size?: SortOrder
+    gender?: SortOrder
+    price?: SortOrder
+    province?: SortOrder
+    condition?: SortOrder
+    racePack?: SortOrder
+    registration?: SortOrder
   }
 
   export type participantsSumOrderByAggregateInput = {
     id?: SortOrder
-    price?: SortOrder
     master_categoryId?: SortOrder
+    price?: SortOrder
   }
 
   export type ParticipantsListRelationFilter = {
@@ -10169,16 +10155,16 @@ export namespace Prisma {
     divisi?: SortOrder
     emergencyName?: SortOrder
     emergencyPhone?: SortOrder
-    transferProof?: SortOrder
-    total?: SortOrder
     status?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    total?: SortOrder
+    transferProof?: SortOrder
   }
 
   export type transactionsAvgOrderByAggregateInput = {
-    total?: SortOrder
     status?: SortOrder
+    total?: SortOrder
   }
 
   export type transactionsMaxOrderByAggregateInput = {
@@ -10187,11 +10173,11 @@ export namespace Prisma {
     divisi?: SortOrder
     emergencyName?: SortOrder
     emergencyPhone?: SortOrder
-    transferProof?: SortOrder
-    total?: SortOrder
     status?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    total?: SortOrder
+    transferProof?: SortOrder
   }
 
   export type transactionsMinOrderByAggregateInput = {
@@ -10200,16 +10186,16 @@ export namespace Prisma {
     divisi?: SortOrder
     emergencyName?: SortOrder
     emergencyPhone?: SortOrder
-    transferProof?: SortOrder
-    total?: SortOrder
     status?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    total?: SortOrder
+    transferProof?: SortOrder
   }
 
   export type transactionsSumOrderByAggregateInput = {
-    total?: SortOrder
     status?: SortOrder
+    total?: SortOrder
   }
 
   export type master_categoryOrderByRelevanceInput = {
@@ -10255,16 +10241,16 @@ export namespace Prisma {
     price?: SortOrder
   }
 
-  export type users_refCreateNestedOneWithoutUsersInput = {
-    create?: XOR<users_refCreateWithoutUsersInput, users_refUncheckedCreateWithoutUsersInput>
-    connectOrCreate?: users_refCreateOrConnectWithoutUsersInput
-    connect?: users_refWhereUniqueInput
-  }
-
   export type transactionsCreateNestedOneWithoutUsersInput = {
     create?: XOR<transactionsCreateWithoutUsersInput, transactionsUncheckedCreateWithoutUsersInput>
     connectOrCreate?: transactionsCreateOrConnectWithoutUsersInput
     connect?: transactionsWhereUniqueInput
+  }
+
+  export type users_refCreateNestedOneWithoutUsersInput = {
+    create?: XOR<users_refCreateWithoutUsersInput, users_refUncheckedCreateWithoutUsersInput>
+    connectOrCreate?: users_refCreateOrConnectWithoutUsersInput
+    connect?: users_refWhereUniqueInput
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -10283,16 +10269,6 @@ export namespace Prisma {
     set?: Date | string
   }
 
-  export type users_refUpdateOneWithoutUsersNestedInput = {
-    create?: XOR<users_refCreateWithoutUsersInput, users_refUncheckedCreateWithoutUsersInput>
-    connectOrCreate?: users_refCreateOrConnectWithoutUsersInput
-    upsert?: users_refUpsertWithoutUsersInput
-    disconnect?: users_refWhereInput | boolean
-    delete?: users_refWhereInput | boolean
-    connect?: users_refWhereUniqueInput
-    update?: XOR<XOR<users_refUpdateToOneWithWhereWithoutUsersInput, users_refUpdateWithoutUsersInput>, users_refUncheckedUpdateWithoutUsersInput>
-  }
-
   export type transactionsUpdateOneWithoutUsersNestedInput = {
     create?: XOR<transactionsCreateWithoutUsersInput, transactionsUncheckedCreateWithoutUsersInput>
     connectOrCreate?: transactionsCreateOrConnectWithoutUsersInput
@@ -10301,6 +10277,16 @@ export namespace Prisma {
     delete?: transactionsWhereInput | boolean
     connect?: transactionsWhereUniqueInput
     update?: XOR<XOR<transactionsUpdateToOneWithWhereWithoutUsersInput, transactionsUpdateWithoutUsersInput>, transactionsUncheckedUpdateWithoutUsersInput>
+  }
+
+  export type users_refUpdateOneWithoutUsersNestedInput = {
+    create?: XOR<users_refCreateWithoutUsersInput, users_refUncheckedCreateWithoutUsersInput>
+    connectOrCreate?: users_refCreateOrConnectWithoutUsersInput
+    upsert?: users_refUpsertWithoutUsersInput
+    disconnect?: users_refWhereInput | boolean
+    delete?: users_refWhereInput | boolean
+    connect?: users_refWhereUniqueInput
+    update?: XOR<XOR<users_refUpdateToOneWithWhereWithoutUsersInput, users_refUpdateWithoutUsersInput>, users_refUncheckedUpdateWithoutUsersInput>
   }
 
   export type NullableStringFieldUpdateOperationsInput = {
@@ -10403,20 +10389,12 @@ export namespace Prisma {
     connect?: users_refWhereUniqueInput
   }
 
-  export type users_refUpdateOneWithoutFamily_refNestedInput = {
+  export type users_refUpdateOneRequiredWithoutFamily_refNestedInput = {
     create?: XOR<users_refCreateWithoutFamily_refInput, users_refUncheckedCreateWithoutFamily_refInput>
     connectOrCreate?: users_refCreateOrConnectWithoutFamily_refInput
     upsert?: users_refUpsertWithoutFamily_refInput
-    disconnect?: users_refWhereInput | boolean
-    delete?: users_refWhereInput | boolean
     connect?: users_refWhereUniqueInput
     update?: XOR<XOR<users_refUpdateToOneWithWhereWithoutFamily_refInput, users_refUpdateWithoutFamily_refInput>, users_refUncheckedUpdateWithoutFamily_refInput>
-  }
-
-  export type transactionsCreateNestedOneWithoutParticipantsInput = {
-    create?: XOR<transactionsCreateWithoutParticipantsInput, transactionsUncheckedCreateWithoutParticipantsInput>
-    connectOrCreate?: transactionsCreateOrConnectWithoutParticipantsInput
-    connect?: transactionsWhereUniqueInput
   }
 
   export type master_categoryCreateNestedOneWithoutParticipantsInput = {
@@ -10425,14 +10403,10 @@ export namespace Prisma {
     connect?: master_categoryWhereUniqueInput
   }
 
-  export type transactionsUpdateOneWithoutParticipantsNestedInput = {
+  export type transactionsCreateNestedOneWithoutParticipantsInput = {
     create?: XOR<transactionsCreateWithoutParticipantsInput, transactionsUncheckedCreateWithoutParticipantsInput>
     connectOrCreate?: transactionsCreateOrConnectWithoutParticipantsInput
-    upsert?: transactionsUpsertWithoutParticipantsInput
-    disconnect?: transactionsWhereInput | boolean
-    delete?: transactionsWhereInput | boolean
     connect?: transactionsWhereUniqueInput
-    update?: XOR<XOR<transactionsUpdateToOneWithWhereWithoutParticipantsInput, transactionsUpdateWithoutParticipantsInput>, transactionsUncheckedUpdateWithoutParticipantsInput>
   }
 
   export type master_categoryUpdateOneWithoutParticipantsNestedInput = {
@@ -10445,10 +10419,14 @@ export namespace Prisma {
     update?: XOR<XOR<master_categoryUpdateToOneWithWhereWithoutParticipantsInput, master_categoryUpdateWithoutParticipantsInput>, master_categoryUncheckedUpdateWithoutParticipantsInput>
   }
 
-  export type usersCreateNestedOneWithoutTransactionsInput = {
-    create?: XOR<usersCreateWithoutTransactionsInput, usersUncheckedCreateWithoutTransactionsInput>
-    connectOrCreate?: usersCreateOrConnectWithoutTransactionsInput
-    connect?: usersWhereUniqueInput
+  export type transactionsUpdateOneWithoutParticipantsNestedInput = {
+    create?: XOR<transactionsCreateWithoutParticipantsInput, transactionsUncheckedCreateWithoutParticipantsInput>
+    connectOrCreate?: transactionsCreateOrConnectWithoutParticipantsInput
+    upsert?: transactionsUpsertWithoutParticipantsInput
+    disconnect?: transactionsWhereInput | boolean
+    delete?: transactionsWhereInput | boolean
+    connect?: transactionsWhereUniqueInput
+    update?: XOR<XOR<transactionsUpdateToOneWithWhereWithoutParticipantsInput, transactionsUpdateWithoutParticipantsInput>, transactionsUncheckedUpdateWithoutParticipantsInput>
   }
 
   export type participantsCreateNestedManyWithoutTransactionsInput = {
@@ -10458,7 +10436,7 @@ export namespace Prisma {
     connect?: participantsWhereUniqueInput | participantsWhereUniqueInput[]
   }
 
-  export type usersUncheckedCreateNestedOneWithoutTransactionsInput = {
+  export type usersCreateNestedOneWithoutTransactionsInput = {
     create?: XOR<usersCreateWithoutTransactionsInput, usersUncheckedCreateWithoutTransactionsInput>
     connectOrCreate?: usersCreateOrConnectWithoutTransactionsInput
     connect?: usersWhereUniqueInput
@@ -10471,14 +10449,10 @@ export namespace Prisma {
     connect?: participantsWhereUniqueInput | participantsWhereUniqueInput[]
   }
 
-  export type usersUpdateOneWithoutTransactionsNestedInput = {
+  export type usersUncheckedCreateNestedOneWithoutTransactionsInput = {
     create?: XOR<usersCreateWithoutTransactionsInput, usersUncheckedCreateWithoutTransactionsInput>
     connectOrCreate?: usersCreateOrConnectWithoutTransactionsInput
-    upsert?: usersUpsertWithoutTransactionsInput
-    disconnect?: usersWhereInput | boolean
-    delete?: usersWhereInput | boolean
     connect?: usersWhereUniqueInput
-    update?: XOR<XOR<usersUpdateToOneWithWhereWithoutTransactionsInput, usersUpdateWithoutTransactionsInput>, usersUncheckedUpdateWithoutTransactionsInput>
   }
 
   export type participantsUpdateManyWithoutTransactionsNestedInput = {
@@ -10495,7 +10469,7 @@ export namespace Prisma {
     deleteMany?: participantsScalarWhereInput | participantsScalarWhereInput[]
   }
 
-  export type usersUncheckedUpdateOneWithoutTransactionsNestedInput = {
+  export type usersUpdateOneWithoutTransactionsNestedInput = {
     create?: XOR<usersCreateWithoutTransactionsInput, usersUncheckedCreateWithoutTransactionsInput>
     connectOrCreate?: usersCreateOrConnectWithoutTransactionsInput
     upsert?: usersUpsertWithoutTransactionsInput
@@ -10517,6 +10491,16 @@ export namespace Prisma {
     update?: participantsUpdateWithWhereUniqueWithoutTransactionsInput | participantsUpdateWithWhereUniqueWithoutTransactionsInput[]
     updateMany?: participantsUpdateManyWithWhereWithoutTransactionsInput | participantsUpdateManyWithWhereWithoutTransactionsInput[]
     deleteMany?: participantsScalarWhereInput | participantsScalarWhereInput[]
+  }
+
+  export type usersUncheckedUpdateOneWithoutTransactionsNestedInput = {
+    create?: XOR<usersCreateWithoutTransactionsInput, usersUncheckedCreateWithoutTransactionsInput>
+    connectOrCreate?: usersCreateOrConnectWithoutTransactionsInput
+    upsert?: usersUpsertWithoutTransactionsInput
+    disconnect?: usersWhereInput | boolean
+    delete?: usersWhereInput | boolean
+    connect?: usersWhereUniqueInput
+    update?: XOR<XOR<usersUpdateToOneWithWhereWithoutTransactionsInput, usersUpdateWithoutTransactionsInput>, usersUncheckedUpdateWithoutTransactionsInput>
   }
 
   export type participantsCreateNestedManyWithoutMaster_categoryInput = {
@@ -10587,6 +10571,17 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
+  export type NestedDateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[]
+    notIn?: Date[] | string[]
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
   export type NestedStringNullableFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
     in?: string[] | null
@@ -10600,17 +10595,6 @@ export namespace Prisma {
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     search?: string
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
-  }
-
-  export type NestedDateTimeFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[]
-    notIn?: Date[] | string[]
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
@@ -10658,6 +10642,20 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
+  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[]
+    notIn?: Date[] | string[]
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
   export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
     in?: string[] | null
@@ -10685,20 +10683,6 @@ export namespace Prisma {
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
-  }
-
-  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[]
-    notIn?: Date[] | string[]
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedDateTimeFilter<$PrismaModel>
-    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
   export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
@@ -10766,6 +10750,39 @@ export namespace Prisma {
     _max?: NestedBoolNullableFilter<$PrismaModel>
   }
 
+  export type transactionsCreateWithoutUsersInput = {
+    id: string
+    pt: string
+    divisi: string
+    emergencyName: string
+    emergencyPhone: string
+    status?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    total: number
+    transferProof?: string | null
+    participants?: participantsCreateNestedManyWithoutTransactionsInput
+  }
+
+  export type transactionsUncheckedCreateWithoutUsersInput = {
+    id: string
+    pt: string
+    divisi: string
+    emergencyName: string
+    emergencyPhone: string
+    status?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    total: number
+    transferProof?: string | null
+    participants?: participantsUncheckedCreateNestedManyWithoutTransactionsInput
+  }
+
+  export type transactionsCreateOrConnectWithoutUsersInput = {
+    where: transactionsWhereUniqueInput
+    create: XOR<transactionsCreateWithoutUsersInput, transactionsUncheckedCreateWithoutUsersInput>
+  }
+
   export type users_refCreateWithoutUsersInput = {
     EKTP: string
     type: string
@@ -10817,37 +10834,43 @@ export namespace Prisma {
     create: XOR<users_refCreateWithoutUsersInput, users_refUncheckedCreateWithoutUsersInput>
   }
 
-  export type transactionsCreateWithoutUsersInput = {
-    id: string
-    pt: string
-    divisi: string
-    emergencyName: string
-    emergencyPhone: string
-    transferProof?: string | null
-    total: number
-    status?: number
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    participants?: participantsCreateNestedManyWithoutTransactionsInput
-  }
-
-  export type transactionsUncheckedCreateWithoutUsersInput = {
-    id: string
-    pt: string
-    divisi: string
-    emergencyName: string
-    emergencyPhone: string
-    transferProof?: string | null
-    total: number
-    status?: number
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    participants?: participantsUncheckedCreateNestedManyWithoutTransactionsInput
-  }
-
-  export type transactionsCreateOrConnectWithoutUsersInput = {
-    where: transactionsWhereUniqueInput
+  export type transactionsUpsertWithoutUsersInput = {
+    update: XOR<transactionsUpdateWithoutUsersInput, transactionsUncheckedUpdateWithoutUsersInput>
     create: XOR<transactionsCreateWithoutUsersInput, transactionsUncheckedCreateWithoutUsersInput>
+    where?: transactionsWhereInput
+  }
+
+  export type transactionsUpdateToOneWithWhereWithoutUsersInput = {
+    where?: transactionsWhereInput
+    data: XOR<transactionsUpdateWithoutUsersInput, transactionsUncheckedUpdateWithoutUsersInput>
+  }
+
+  export type transactionsUpdateWithoutUsersInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    pt?: StringFieldUpdateOperationsInput | string
+    divisi?: StringFieldUpdateOperationsInput | string
+    emergencyName?: StringFieldUpdateOperationsInput | string
+    emergencyPhone?: StringFieldUpdateOperationsInput | string
+    status?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    total?: IntFieldUpdateOperationsInput | number
+    transferProof?: NullableStringFieldUpdateOperationsInput | string | null
+    participants?: participantsUpdateManyWithoutTransactionsNestedInput
+  }
+
+  export type transactionsUncheckedUpdateWithoutUsersInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    pt?: StringFieldUpdateOperationsInput | string
+    divisi?: StringFieldUpdateOperationsInput | string
+    emergencyName?: StringFieldUpdateOperationsInput | string
+    emergencyPhone?: StringFieldUpdateOperationsInput | string
+    status?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    total?: IntFieldUpdateOperationsInput | number
+    transferProof?: NullableStringFieldUpdateOperationsInput | string | null
+    participants?: participantsUncheckedUpdateManyWithoutTransactionsNestedInput
   }
 
   export type users_refUpsertWithoutUsersInput = {
@@ -10905,45 +10928,6 @@ export namespace Prisma {
     company?: NullableStringFieldUpdateOperationsInput | string | null
     kabag?: NullableBoolFieldUpdateOperationsInput | boolean | null
     family_ref?: family_refUncheckedUpdateManyWithoutUsers_refNestedInput
-  }
-
-  export type transactionsUpsertWithoutUsersInput = {
-    update: XOR<transactionsUpdateWithoutUsersInput, transactionsUncheckedUpdateWithoutUsersInput>
-    create: XOR<transactionsCreateWithoutUsersInput, transactionsUncheckedCreateWithoutUsersInput>
-    where?: transactionsWhereInput
-  }
-
-  export type transactionsUpdateToOneWithWhereWithoutUsersInput = {
-    where?: transactionsWhereInput
-    data: XOR<transactionsUpdateWithoutUsersInput, transactionsUncheckedUpdateWithoutUsersInput>
-  }
-
-  export type transactionsUpdateWithoutUsersInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    pt?: StringFieldUpdateOperationsInput | string
-    divisi?: StringFieldUpdateOperationsInput | string
-    emergencyName?: StringFieldUpdateOperationsInput | string
-    emergencyPhone?: StringFieldUpdateOperationsInput | string
-    transferProof?: NullableStringFieldUpdateOperationsInput | string | null
-    total?: IntFieldUpdateOperationsInput | number
-    status?: IntFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    participants?: participantsUpdateManyWithoutTransactionsNestedInput
-  }
-
-  export type transactionsUncheckedUpdateWithoutUsersInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    pt?: StringFieldUpdateOperationsInput | string
-    divisi?: StringFieldUpdateOperationsInput | string
-    emergencyName?: StringFieldUpdateOperationsInput | string
-    emergencyPhone?: StringFieldUpdateOperationsInput | string
-    transferProof?: NullableStringFieldUpdateOperationsInput | string | null
-    total?: IntFieldUpdateOperationsInput | number
-    status?: IntFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    participants?: participantsUncheckedUpdateManyWithoutTransactionsNestedInput
   }
 
   export type family_refCreateWithoutUsers_refInput = {
@@ -11005,9 +10989,9 @@ export namespace Prisma {
     password?: string
     role?: string
     status?: number
-    transactionId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    transactionId?: string | null
   }
 
   export type usersCreateOrConnectWithoutUsers_refInput = {
@@ -11080,9 +11064,9 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
     status?: IntFieldUpdateOperationsInput | number
-    transactionId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    transactionId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type users_refCreateWithoutFamily_refInput = {
@@ -11193,39 +11177,6 @@ export namespace Prisma {
     users?: usersUncheckedUpdateOneWithoutUsers_refNestedInput
   }
 
-  export type transactionsCreateWithoutParticipantsInput = {
-    id: string
-    pt: string
-    divisi: string
-    emergencyName: string
-    emergencyPhone: string
-    transferProof?: string | null
-    total: number
-    status?: number
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    users?: usersCreateNestedOneWithoutTransactionsInput
-  }
-
-  export type transactionsUncheckedCreateWithoutParticipantsInput = {
-    id: string
-    pt: string
-    divisi: string
-    emergencyName: string
-    emergencyPhone: string
-    transferProof?: string | null
-    total: number
-    status?: number
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    users?: usersUncheckedCreateNestedOneWithoutTransactionsInput
-  }
-
-  export type transactionsCreateOrConnectWithoutParticipantsInput = {
-    where: transactionsWhereUniqueInput
-    create: XOR<transactionsCreateWithoutParticipantsInput, transactionsUncheckedCreateWithoutParticipantsInput>
-  }
-
   export type master_categoryCreateWithoutParticipantsInput = {
     name: string
     type: string
@@ -11248,43 +11199,37 @@ export namespace Prisma {
     create: XOR<master_categoryCreateWithoutParticipantsInput, master_categoryUncheckedCreateWithoutParticipantsInput>
   }
 
-  export type transactionsUpsertWithoutParticipantsInput = {
-    update: XOR<transactionsUpdateWithoutParticipantsInput, transactionsUncheckedUpdateWithoutParticipantsInput>
+  export type transactionsCreateWithoutParticipantsInput = {
+    id: string
+    pt: string
+    divisi: string
+    emergencyName: string
+    emergencyPhone: string
+    status?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    total: number
+    transferProof?: string | null
+    users?: usersCreateNestedOneWithoutTransactionsInput
+  }
+
+  export type transactionsUncheckedCreateWithoutParticipantsInput = {
+    id: string
+    pt: string
+    divisi: string
+    emergencyName: string
+    emergencyPhone: string
+    status?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    total: number
+    transferProof?: string | null
+    users?: usersUncheckedCreateNestedOneWithoutTransactionsInput
+  }
+
+  export type transactionsCreateOrConnectWithoutParticipantsInput = {
+    where: transactionsWhereUniqueInput
     create: XOR<transactionsCreateWithoutParticipantsInput, transactionsUncheckedCreateWithoutParticipantsInput>
-    where?: transactionsWhereInput
-  }
-
-  export type transactionsUpdateToOneWithWhereWithoutParticipantsInput = {
-    where?: transactionsWhereInput
-    data: XOR<transactionsUpdateWithoutParticipantsInput, transactionsUncheckedUpdateWithoutParticipantsInput>
-  }
-
-  export type transactionsUpdateWithoutParticipantsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    pt?: StringFieldUpdateOperationsInput | string
-    divisi?: StringFieldUpdateOperationsInput | string
-    emergencyName?: StringFieldUpdateOperationsInput | string
-    emergencyPhone?: StringFieldUpdateOperationsInput | string
-    transferProof?: NullableStringFieldUpdateOperationsInput | string | null
-    total?: IntFieldUpdateOperationsInput | number
-    status?: IntFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    users?: usersUpdateOneWithoutTransactionsNestedInput
-  }
-
-  export type transactionsUncheckedUpdateWithoutParticipantsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    pt?: StringFieldUpdateOperationsInput | string
-    divisi?: StringFieldUpdateOperationsInput | string
-    emergencyName?: StringFieldUpdateOperationsInput | string
-    emergencyPhone?: StringFieldUpdateOperationsInput | string
-    transferProof?: NullableStringFieldUpdateOperationsInput | string | null
-    total?: IntFieldUpdateOperationsInput | number
-    status?: IntFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    users?: usersUncheckedUpdateOneWithoutTransactionsNestedInput
   }
 
   export type master_categoryUpsertWithoutParticipantsInput = {
@@ -11315,6 +11260,108 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type transactionsUpsertWithoutParticipantsInput = {
+    update: XOR<transactionsUpdateWithoutParticipantsInput, transactionsUncheckedUpdateWithoutParticipantsInput>
+    create: XOR<transactionsCreateWithoutParticipantsInput, transactionsUncheckedCreateWithoutParticipantsInput>
+    where?: transactionsWhereInput
+  }
+
+  export type transactionsUpdateToOneWithWhereWithoutParticipantsInput = {
+    where?: transactionsWhereInput
+    data: XOR<transactionsUpdateWithoutParticipantsInput, transactionsUncheckedUpdateWithoutParticipantsInput>
+  }
+
+  export type transactionsUpdateWithoutParticipantsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    pt?: StringFieldUpdateOperationsInput | string
+    divisi?: StringFieldUpdateOperationsInput | string
+    emergencyName?: StringFieldUpdateOperationsInput | string
+    emergencyPhone?: StringFieldUpdateOperationsInput | string
+    status?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    total?: IntFieldUpdateOperationsInput | number
+    transferProof?: NullableStringFieldUpdateOperationsInput | string | null
+    users?: usersUpdateOneWithoutTransactionsNestedInput
+  }
+
+  export type transactionsUncheckedUpdateWithoutParticipantsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    pt?: StringFieldUpdateOperationsInput | string
+    divisi?: StringFieldUpdateOperationsInput | string
+    emergencyName?: StringFieldUpdateOperationsInput | string
+    emergencyPhone?: StringFieldUpdateOperationsInput | string
+    status?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    total?: IntFieldUpdateOperationsInput | number
+    transferProof?: NullableStringFieldUpdateOperationsInput | string | null
+    users?: usersUncheckedUpdateOneWithoutTransactionsNestedInput
+  }
+
+  export type participantsCreateWithoutTransactionsInput = {
+    fname: string
+    lname: string
+    bibname: string
+    email: string
+    identityId: string
+    birthplace: string
+    birthdate: Date | string
+    phone: string
+    address: string
+    zipcode: string
+    country: string
+    city: string
+    bloodType: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    size?: string | null
+    gender: string
+    price?: number | null
+    province: string
+    condition?: string | null
+    racePack?: boolean | null
+    registration?: boolean | null
+    master_category?: master_categoryCreateNestedOneWithoutParticipantsInput
+  }
+
+  export type participantsUncheckedCreateWithoutTransactionsInput = {
+    id?: number
+    fname: string
+    lname: string
+    bibname: string
+    email: string
+    identityId: string
+    birthplace: string
+    birthdate: Date | string
+    phone: string
+    address: string
+    zipcode: string
+    country: string
+    city: string
+    bloodType: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    master_categoryId?: number | null
+    size?: string | null
+    gender: string
+    price?: number | null
+    province: string
+    condition?: string | null
+    racePack?: boolean | null
+    registration?: boolean | null
+  }
+
+  export type participantsCreateOrConnectWithoutTransactionsInput = {
+    where: participantsWhereUniqueInput
+    create: XOR<participantsCreateWithoutTransactionsInput, participantsUncheckedCreateWithoutTransactionsInput>
+  }
+
+  export type participantsCreateManyTransactionsInputEnvelope = {
+    data: participantsCreateManyTransactionsInput | participantsCreateManyTransactionsInput[]
+    skipDuplicates?: boolean
+  }
+
   export type usersCreateWithoutTransactionsInput = {
     name: string
     username: string
@@ -11333,9 +11380,9 @@ export namespace Prisma {
     password?: string
     role?: string
     status?: number
-    users_refId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    users_refId?: string | null
   }
 
   export type usersCreateOrConnectWithoutTransactionsInput = {
@@ -11343,67 +11390,51 @@ export namespace Prisma {
     create: XOR<usersCreateWithoutTransactionsInput, usersUncheckedCreateWithoutTransactionsInput>
   }
 
-  export type participantsCreateWithoutTransactionsInput = {
-    fname: string
-    lname: string
-    bibname: string
-    email: string
-    identityId: string
-    birthplace: string
-    birthdate: Date | string
-    gender: string
-    phone: string
-    address: string
-    zipcode: string
-    country: string
-    province: string
-    city: string
-    bloodType: string
-    size?: string | null
-    price?: number | null
-    condition?: string | null
-    racePack?: boolean | null
-    registrationDate?: Date | string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    master_category?: master_categoryCreateNestedOneWithoutParticipantsInput
-  }
-
-  export type participantsUncheckedCreateWithoutTransactionsInput = {
-    id?: number
-    fname: string
-    lname: string
-    bibname: string
-    email: string
-    identityId: string
-    birthplace: string
-    birthdate: Date | string
-    gender: string
-    phone: string
-    address: string
-    zipcode: string
-    country: string
-    province: string
-    city: string
-    bloodType: string
-    size?: string | null
-    price?: number | null
-    condition?: string | null
-    master_categoryId?: number | null
-    racePack?: boolean | null
-    registrationDate?: Date | string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type participantsCreateOrConnectWithoutTransactionsInput = {
+  export type participantsUpsertWithWhereUniqueWithoutTransactionsInput = {
     where: participantsWhereUniqueInput
+    update: XOR<participantsUpdateWithoutTransactionsInput, participantsUncheckedUpdateWithoutTransactionsInput>
     create: XOR<participantsCreateWithoutTransactionsInput, participantsUncheckedCreateWithoutTransactionsInput>
   }
 
-  export type participantsCreateManyTransactionsInputEnvelope = {
-    data: participantsCreateManyTransactionsInput | participantsCreateManyTransactionsInput[]
-    skipDuplicates?: boolean
+  export type participantsUpdateWithWhereUniqueWithoutTransactionsInput = {
+    where: participantsWhereUniqueInput
+    data: XOR<participantsUpdateWithoutTransactionsInput, participantsUncheckedUpdateWithoutTransactionsInput>
+  }
+
+  export type participantsUpdateManyWithWhereWithoutTransactionsInput = {
+    where: participantsScalarWhereInput
+    data: XOR<participantsUpdateManyMutationInput, participantsUncheckedUpdateManyWithoutTransactionsInput>
+  }
+
+  export type participantsScalarWhereInput = {
+    AND?: participantsScalarWhereInput | participantsScalarWhereInput[]
+    OR?: participantsScalarWhereInput[]
+    NOT?: participantsScalarWhereInput | participantsScalarWhereInput[]
+    id?: IntFilter<"participants"> | number
+    fname?: StringFilter<"participants"> | string
+    lname?: StringFilter<"participants"> | string
+    bibname?: StringFilter<"participants"> | string
+    email?: StringFilter<"participants"> | string
+    identityId?: StringFilter<"participants"> | string
+    birthplace?: StringFilter<"participants"> | string
+    birthdate?: DateTimeFilter<"participants"> | Date | string
+    phone?: StringFilter<"participants"> | string
+    address?: StringFilter<"participants"> | string
+    zipcode?: StringFilter<"participants"> | string
+    country?: StringFilter<"participants"> | string
+    city?: StringFilter<"participants"> | string
+    bloodType?: StringFilter<"participants"> | string
+    transactionsId?: StringNullableFilter<"participants"> | string | null
+    createdAt?: DateTimeFilter<"participants"> | Date | string
+    updatedAt?: DateTimeFilter<"participants"> | Date | string
+    master_categoryId?: IntNullableFilter<"participants"> | number | null
+    size?: StringNullableFilter<"participants"> | string | null
+    gender?: StringFilter<"participants"> | string
+    price?: IntNullableFilter<"participants"> | number | null
+    province?: StringFilter<"participants"> | string
+    condition?: StringNullableFilter<"participants"> | string | null
+    racePack?: BoolNullableFilter<"participants"> | boolean | null
+    registration?: BoolNullableFilter<"participants"> | boolean | null
   }
 
   export type usersUpsertWithoutTransactionsInput = {
@@ -11435,56 +11466,9 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
     status?: IntFieldUpdateOperationsInput | number
-    users_refId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type participantsUpsertWithWhereUniqueWithoutTransactionsInput = {
-    where: participantsWhereUniqueInput
-    update: XOR<participantsUpdateWithoutTransactionsInput, participantsUncheckedUpdateWithoutTransactionsInput>
-    create: XOR<participantsCreateWithoutTransactionsInput, participantsUncheckedCreateWithoutTransactionsInput>
-  }
-
-  export type participantsUpdateWithWhereUniqueWithoutTransactionsInput = {
-    where: participantsWhereUniqueInput
-    data: XOR<participantsUpdateWithoutTransactionsInput, participantsUncheckedUpdateWithoutTransactionsInput>
-  }
-
-  export type participantsUpdateManyWithWhereWithoutTransactionsInput = {
-    where: participantsScalarWhereInput
-    data: XOR<participantsUpdateManyMutationInput, participantsUncheckedUpdateManyWithoutTransactionsInput>
-  }
-
-  export type participantsScalarWhereInput = {
-    AND?: participantsScalarWhereInput | participantsScalarWhereInput[]
-    OR?: participantsScalarWhereInput[]
-    NOT?: participantsScalarWhereInput | participantsScalarWhereInput[]
-    id?: IntFilter<"participants"> | number
-    fname?: StringFilter<"participants"> | string
-    lname?: StringFilter<"participants"> | string
-    bibname?: StringFilter<"participants"> | string
-    email?: StringFilter<"participants"> | string
-    identityId?: StringFilter<"participants"> | string
-    birthplace?: StringFilter<"participants"> | string
-    birthdate?: DateTimeFilter<"participants"> | Date | string
-    gender?: StringFilter<"participants"> | string
-    phone?: StringFilter<"participants"> | string
-    address?: StringFilter<"participants"> | string
-    zipcode?: StringFilter<"participants"> | string
-    country?: StringFilter<"participants"> | string
-    province?: StringFilter<"participants"> | string
-    city?: StringFilter<"participants"> | string
-    bloodType?: StringFilter<"participants"> | string
-    size?: StringNullableFilter<"participants"> | string | null
-    price?: IntNullableFilter<"participants"> | number | null
-    condition?: StringNullableFilter<"participants"> | string | null
-    master_categoryId?: IntNullableFilter<"participants"> | number | null
-    transactionsId?: StringNullableFilter<"participants"> | string | null
-    racePack?: BoolNullableFilter<"participants"> | boolean | null
-    registrationDate?: DateTimeNullableFilter<"participants"> | Date | string | null
-    createdAt?: DateTimeFilter<"participants"> | Date | string
-    updatedAt?: DateTimeFilter<"participants"> | Date | string
+    users_refId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type participantsCreateWithoutMaster_categoryInput = {
@@ -11495,21 +11479,21 @@ export namespace Prisma {
     identityId: string
     birthplace: string
     birthdate: Date | string
-    gender: string
     phone: string
     address: string
     zipcode: string
     country: string
-    province: string
     city: string
     bloodType: string
-    size?: string | null
-    price?: number | null
-    condition?: string | null
-    racePack?: boolean | null
-    registrationDate?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    size?: string | null
+    gender: string
+    price?: number | null
+    province: string
+    condition?: string | null
+    racePack?: boolean | null
+    registration?: boolean | null
     transactions?: transactionsCreateNestedOneWithoutParticipantsInput
   }
 
@@ -11522,22 +11506,22 @@ export namespace Prisma {
     identityId: string
     birthplace: string
     birthdate: Date | string
-    gender: string
     phone: string
     address: string
     zipcode: string
     country: string
-    province: string
     city: string
     bloodType: string
-    size?: string | null
-    price?: number | null
-    condition?: string | null
     transactionsId?: string | null
-    racePack?: boolean | null
-    registrationDate?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    size?: string | null
+    gender: string
+    price?: number | null
+    province: string
+    condition?: string | null
+    racePack?: boolean | null
+    registration?: boolean | null
   }
 
   export type participantsCreateOrConnectWithoutMaster_categoryInput = {
@@ -11638,22 +11622,22 @@ export namespace Prisma {
     identityId: string
     birthplace: string
     birthdate: Date | string
-    gender: string
     phone: string
     address: string
     zipcode: string
     country: string
-    province: string
     city: string
     bloodType: string
-    size?: string | null
-    price?: number | null
-    condition?: string | null
-    master_categoryId?: number | null
-    racePack?: boolean | null
-    registrationDate?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    master_categoryId?: number | null
+    size?: string | null
+    gender: string
+    price?: number | null
+    province: string
+    condition?: string | null
+    racePack?: boolean | null
+    registration?: boolean | null
   }
 
   export type participantsUpdateWithoutTransactionsInput = {
@@ -11664,21 +11648,21 @@ export namespace Prisma {
     identityId?: StringFieldUpdateOperationsInput | string
     birthplace?: StringFieldUpdateOperationsInput | string
     birthdate?: DateTimeFieldUpdateOperationsInput | Date | string
-    gender?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
     zipcode?: StringFieldUpdateOperationsInput | string
     country?: StringFieldUpdateOperationsInput | string
-    province?: StringFieldUpdateOperationsInput | string
     city?: StringFieldUpdateOperationsInput | string
     bloodType?: StringFieldUpdateOperationsInput | string
-    size?: NullableStringFieldUpdateOperationsInput | string | null
-    price?: NullableIntFieldUpdateOperationsInput | number | null
-    condition?: NullableStringFieldUpdateOperationsInput | string | null
-    racePack?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    registrationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    size?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: StringFieldUpdateOperationsInput | string
+    price?: NullableIntFieldUpdateOperationsInput | number | null
+    province?: StringFieldUpdateOperationsInput | string
+    condition?: NullableStringFieldUpdateOperationsInput | string | null
+    racePack?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    registration?: NullableBoolFieldUpdateOperationsInput | boolean | null
     master_category?: master_categoryUpdateOneWithoutParticipantsNestedInput
   }
 
@@ -11691,22 +11675,22 @@ export namespace Prisma {
     identityId?: StringFieldUpdateOperationsInput | string
     birthplace?: StringFieldUpdateOperationsInput | string
     birthdate?: DateTimeFieldUpdateOperationsInput | Date | string
-    gender?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
     zipcode?: StringFieldUpdateOperationsInput | string
     country?: StringFieldUpdateOperationsInput | string
-    province?: StringFieldUpdateOperationsInput | string
     city?: StringFieldUpdateOperationsInput | string
     bloodType?: StringFieldUpdateOperationsInput | string
-    size?: NullableStringFieldUpdateOperationsInput | string | null
-    price?: NullableIntFieldUpdateOperationsInput | number | null
-    condition?: NullableStringFieldUpdateOperationsInput | string | null
-    master_categoryId?: NullableIntFieldUpdateOperationsInput | number | null
-    racePack?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    registrationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    master_categoryId?: NullableIntFieldUpdateOperationsInput | number | null
+    size?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: StringFieldUpdateOperationsInput | string
+    price?: NullableIntFieldUpdateOperationsInput | number | null
+    province?: StringFieldUpdateOperationsInput | string
+    condition?: NullableStringFieldUpdateOperationsInput | string | null
+    racePack?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    registration?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
 
   export type participantsUncheckedUpdateManyWithoutTransactionsInput = {
@@ -11718,22 +11702,22 @@ export namespace Prisma {
     identityId?: StringFieldUpdateOperationsInput | string
     birthplace?: StringFieldUpdateOperationsInput | string
     birthdate?: DateTimeFieldUpdateOperationsInput | Date | string
-    gender?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
     zipcode?: StringFieldUpdateOperationsInput | string
     country?: StringFieldUpdateOperationsInput | string
-    province?: StringFieldUpdateOperationsInput | string
     city?: StringFieldUpdateOperationsInput | string
     bloodType?: StringFieldUpdateOperationsInput | string
-    size?: NullableStringFieldUpdateOperationsInput | string | null
-    price?: NullableIntFieldUpdateOperationsInput | number | null
-    condition?: NullableStringFieldUpdateOperationsInput | string | null
-    master_categoryId?: NullableIntFieldUpdateOperationsInput | number | null
-    racePack?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    registrationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    master_categoryId?: NullableIntFieldUpdateOperationsInput | number | null
+    size?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: StringFieldUpdateOperationsInput | string
+    price?: NullableIntFieldUpdateOperationsInput | number | null
+    province?: StringFieldUpdateOperationsInput | string
+    condition?: NullableStringFieldUpdateOperationsInput | string | null
+    racePack?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    registration?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
 
   export type participantsCreateManyMaster_categoryInput = {
@@ -11745,22 +11729,22 @@ export namespace Prisma {
     identityId: string
     birthplace: string
     birthdate: Date | string
-    gender: string
     phone: string
     address: string
     zipcode: string
     country: string
-    province: string
     city: string
     bloodType: string
-    size?: string | null
-    price?: number | null
-    condition?: string | null
     transactionsId?: string | null
-    racePack?: boolean | null
-    registrationDate?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    size?: string | null
+    gender: string
+    price?: number | null
+    province: string
+    condition?: string | null
+    racePack?: boolean | null
+    registration?: boolean | null
   }
 
   export type participantsUpdateWithoutMaster_categoryInput = {
@@ -11771,21 +11755,21 @@ export namespace Prisma {
     identityId?: StringFieldUpdateOperationsInput | string
     birthplace?: StringFieldUpdateOperationsInput | string
     birthdate?: DateTimeFieldUpdateOperationsInput | Date | string
-    gender?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
     zipcode?: StringFieldUpdateOperationsInput | string
     country?: StringFieldUpdateOperationsInput | string
-    province?: StringFieldUpdateOperationsInput | string
     city?: StringFieldUpdateOperationsInput | string
     bloodType?: StringFieldUpdateOperationsInput | string
-    size?: NullableStringFieldUpdateOperationsInput | string | null
-    price?: NullableIntFieldUpdateOperationsInput | number | null
-    condition?: NullableStringFieldUpdateOperationsInput | string | null
-    racePack?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    registrationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    size?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: StringFieldUpdateOperationsInput | string
+    price?: NullableIntFieldUpdateOperationsInput | number | null
+    province?: StringFieldUpdateOperationsInput | string
+    condition?: NullableStringFieldUpdateOperationsInput | string | null
+    racePack?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    registration?: NullableBoolFieldUpdateOperationsInput | boolean | null
     transactions?: transactionsUpdateOneWithoutParticipantsNestedInput
   }
 
@@ -11798,22 +11782,22 @@ export namespace Prisma {
     identityId?: StringFieldUpdateOperationsInput | string
     birthplace?: StringFieldUpdateOperationsInput | string
     birthdate?: DateTimeFieldUpdateOperationsInput | Date | string
-    gender?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
     zipcode?: StringFieldUpdateOperationsInput | string
     country?: StringFieldUpdateOperationsInput | string
-    province?: StringFieldUpdateOperationsInput | string
     city?: StringFieldUpdateOperationsInput | string
     bloodType?: StringFieldUpdateOperationsInput | string
-    size?: NullableStringFieldUpdateOperationsInput | string | null
-    price?: NullableIntFieldUpdateOperationsInput | number | null
-    condition?: NullableStringFieldUpdateOperationsInput | string | null
     transactionsId?: NullableStringFieldUpdateOperationsInput | string | null
-    racePack?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    registrationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    size?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: StringFieldUpdateOperationsInput | string
+    price?: NullableIntFieldUpdateOperationsInput | number | null
+    province?: StringFieldUpdateOperationsInput | string
+    condition?: NullableStringFieldUpdateOperationsInput | string | null
+    racePack?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    registration?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
 
   export type participantsUncheckedUpdateManyWithoutMaster_categoryInput = {
@@ -11825,22 +11809,22 @@ export namespace Prisma {
     identityId?: StringFieldUpdateOperationsInput | string
     birthplace?: StringFieldUpdateOperationsInput | string
     birthdate?: DateTimeFieldUpdateOperationsInput | Date | string
-    gender?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
     zipcode?: StringFieldUpdateOperationsInput | string
     country?: StringFieldUpdateOperationsInput | string
-    province?: StringFieldUpdateOperationsInput | string
     city?: StringFieldUpdateOperationsInput | string
     bloodType?: StringFieldUpdateOperationsInput | string
-    size?: NullableStringFieldUpdateOperationsInput | string | null
-    price?: NullableIntFieldUpdateOperationsInput | number | null
-    condition?: NullableStringFieldUpdateOperationsInput | string | null
     transactionsId?: NullableStringFieldUpdateOperationsInput | string | null
-    racePack?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    registrationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    size?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: StringFieldUpdateOperationsInput | string
+    price?: NullableIntFieldUpdateOperationsInput | number | null
+    province?: StringFieldUpdateOperationsInput | string
+    condition?: NullableStringFieldUpdateOperationsInput | string | null
+    racePack?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    registration?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
 
 

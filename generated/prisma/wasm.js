@@ -124,10 +124,10 @@ exports.Prisma.UsersScalarFieldEnum = {
   password: 'password',
   role: 'role',
   status: 'status',
-  users_refId: 'users_refId',
-  transactionId: 'transactionId',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  users_refId: 'users_refId',
+  transactionId: 'transactionId'
 };
 
 exports.Prisma.Users_refScalarFieldEnum = {
@@ -178,23 +178,23 @@ exports.Prisma.ParticipantsScalarFieldEnum = {
   identityId: 'identityId',
   birthplace: 'birthplace',
   birthdate: 'birthdate',
-  gender: 'gender',
   phone: 'phone',
   address: 'address',
   zipcode: 'zipcode',
   country: 'country',
-  province: 'province',
   city: 'city',
   bloodType: 'bloodType',
-  size: 'size',
-  price: 'price',
-  condition: 'condition',
-  master_categoryId: 'master_categoryId',
   transactionsId: 'transactionsId',
-  racePack: 'racePack',
-  registrationDate: 'registrationDate',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  master_categoryId: 'master_categoryId',
+  size: 'size',
+  gender: 'gender',
+  price: 'price',
+  province: 'province',
+  condition: 'condition',
+  racePack: 'racePack',
+  registration: 'registration'
 };
 
 exports.Prisma.TransactionsScalarFieldEnum = {
@@ -203,11 +203,11 @@ exports.Prisma.TransactionsScalarFieldEnum = {
   divisi: 'divisi',
   emergencyName: 'emergencyName',
   emergencyPhone: 'emergencyPhone',
-  transferProof: 'transferProof',
-  total: 'total',
   status: 'status',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  total: 'total',
+  transferProof: 'transferProof'
 };
 
 exports.Prisma.Master_categoryScalarFieldEnum = {
@@ -278,17 +278,17 @@ exports.Prisma.participantsOrderByRelevanceFieldEnum = {
   email: 'email',
   identityId: 'identityId',
   birthplace: 'birthplace',
-  gender: 'gender',
   phone: 'phone',
   address: 'address',
   zipcode: 'zipcode',
   country: 'country',
-  province: 'province',
   city: 'city',
   bloodType: 'bloodType',
+  transactionsId: 'transactionsId',
   size: 'size',
-  condition: 'condition',
-  transactionsId: 'transactionsId'
+  gender: 'gender',
+  province: 'province',
+  condition: 'condition'
 };
 
 exports.Prisma.transactionsOrderByRelevanceFieldEnum = {

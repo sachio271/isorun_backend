@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
   output   = "../generated/prisma"
@@ -21,16 +15,16 @@ model users {
   password      String        @default("123456")
   role          String        @default("user")
   status        Int           @default(1) @db.TinyInt
-  users_refId   String?       @unique
-  transactionId String?       @unique
   createdAt     DateTime      @default(now())
   updatedAt     DateTime      @updatedAt
-  users_ref     users_ref?    @relation(fields: [users_refId], references: [EKTP])
+  users_refId   String?       @unique
+  transactionId String?       @unique
   transactions  transactions? @relation(fields: [transactionId], references: [id])
+  users_ref     users_ref?    @relation(fields: [users_refId], references: [EKTP])
 }
 
 model users_ref {
-  EKTP        String    @id @unique
+  EKTP        String       @id @unique
   type        String
   name        String
   birthplace  String?
@@ -48,14 +42,13 @@ model users_ref {
   religion    String?
   struct      String?
   company     String?
-  kabag       Boolean?  @default(false)
-
-  family_ref family_ref[]
-  users      users?
+  kabag       Boolean?     @default(false)
+  family_ref  family_ref[]
+  users       users?
 }
 
 model family_ref {
-  id           Int        @id @default(autoincrement())
+  id           Int       @id @default(autoincrement())
   users_refKtp String
   name         String
   EKTP         String?
@@ -69,7 +62,9 @@ model family_ref {
   city         String?
   phone        String?
   email        String
-  users_ref    users_ref? @relation(fields: [users_refKtp], references: [EKTP])
+  users_ref    users_ref @relation(fields: [users_refKtp], references: [EKTP])
+
+  @@index([users_refKtp], map: "family_ref_users_refKtp_fkey")
 }
 
 model participants {
@@ -81,25 +76,28 @@ model participants {
   identityId        String
   birthplace        String
   birthdate         DateTime
-  gender            String
   phone             String
   address           String
   zipcode           String
   country           String
-  province          String
   city              String
   bloodType         String
-  size              String?
-  price             Int?
-  condition         String?          @db.LongText
-  master_categoryId Int?
   transactionsId    String?
-  racePack          Boolean?         @default(false)
-  registrationDate  DateTime?
   createdAt         DateTime         @default(now())
   updatedAt         DateTime         @updatedAt
-  transactions      transactions?    @relation(fields: [transactionsId], references: [id])
+  master_categoryId Int?
+  size              String?
+  gender            String
+  price             Int?
+  province          String
+  condition         String?          @db.LongText
+  racePack          Boolean?         @default(false)
+  registration      Boolean?         @default(false)
   master_category   master_category? @relation(fields: [master_categoryId], references: [id])
+  transactions      transactions?    @relation(fields: [transactionsId], references: [id])
+
+  @@index([master_categoryId], map: "participants_master_categoryId_fkey")
+  @@index([transactionsId], map: "participants_transactionsId_fkey")
 }
 
 model transactions {
@@ -108,13 +106,13 @@ model transactions {
   divisi         String
   emergencyName  String
   emergencyPhone String
-  transferProof  String?
-  total          Int
   status         Int            @default(0) @db.TinyInt
   createdAt      DateTime       @default(now())
   updatedAt      DateTime       @updatedAt
-  users          users?
+  total          Int
+  transferProof  String?
   participants   participants[]
+  users          users?
 }
 
 model master_category {

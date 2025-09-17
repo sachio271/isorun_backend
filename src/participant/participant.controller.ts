@@ -18,7 +18,7 @@ export class ParticipantController {
 
   @Put('registration/:id')
   updateRegistration(@Param('id') id: string) {
-    return this.participantService.updateParticipantRegistrationStatus(id);
+    return this.participantService.updateParticipantRegistrationStatus(+id);
   }
   
   @Get('registration')

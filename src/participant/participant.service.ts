@@ -82,7 +82,13 @@ export class ParticipantService {
       'XXL': { total: 0, claimed: 0 },
     };
 
-    data.forEach(current => {
+    const allData = await this.prismaService.transactions.findMany({
+      where: { status: 4 },
+      include: {
+        participants: true,
+      },
+    });
+    allData.forEach(current => {
       current.participants.forEach(participant => {
         const sizeKey = participant.size?.split(' ')[0] || 'Unknown';
         if (!recap[sizeKey]) {
@@ -157,13 +163,22 @@ export class ParticipantService {
       return acc;
     }, {} as Record<string, { total: number; present: number }>);
 
-    data.forEach(current => {
-      current.participants.forEach(participant => {
+    const allData = await this.prismaService.transactions.findMany({
+      include: {
+        participants: {
+          include: {
+            master_category: true,
+          },
+        },
+      },
+      where: { status: 4 },
+    });
+    allData.forEach(transaction => {
+      transaction.participants.forEach(participant => {
         const categoryKey = participant.master_category?.name || 'Unknown';
-        
         if (recap[categoryKey]) {
           recap[categoryKey].total += 1;
-          if (participant.registrationDate) {
+          if (participant.registration) {
             recap[categoryKey].present += 1;
           }
         }
@@ -183,24 +198,15 @@ export class ParticipantService {
     };
   }
 
-  async updateParticipantRegistrationStatus(id: string) {
-    const existingTransaction = await this.prismaService.transactions.findUnique({
-      where: { id },
-      include: { participants: true },
-    });
-    if (!existingTransaction) {
-      throw new Error('Transaction not found');
-    }
-    const updatedParticipants = await Promise.all(
-      existingTransaction.participants.map(async participant => {
-        return this.prismaService.participants.update({
-          where: { id: participant.id },
-          data: {
-            registrationDate: new Date(),
-          },
-        });
-      }),
-    ); 
+  async updateParticipantRegistrationStatus(id: number) {
+    const updatedParticipants = await this.prismaService.participants.update({
+      where: {
+        id: id,
+      },
+      data: {
+        registration: true,
+      }
+    })
     return updatedParticipants;
   }
 }

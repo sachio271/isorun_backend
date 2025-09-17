@@ -49,7 +49,10 @@ export class UserService {
 
   async createFamily(createFamilyDto: CreateFamilyDto) {
     return await this.prismaService.family_ref.create({
-      data: createFamilyDto,
+      data: {
+        ...createFamilyDto,
+        users_refKtp: createFamilyDto.users_refEktp,
+      },
     });
   }
 
