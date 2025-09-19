@@ -128,6 +128,7 @@ export class ParticipantService {
           { emergencyName: { contains: search } },
           { emergencyPhone: { contains: search } },
           { participants: { some: { fname: { contains: search } } } },
+          { participants: { some: { uuid: { contains: search } } } },
           { participants: { some: { lname: { contains: search } } } },
           { participants: { some: { email: { contains: search } } } },
           { participants: { some: { bibname: { contains: search } } } },
@@ -198,10 +199,10 @@ export class ParticipantService {
     };
   }
 
-  async updateParticipantRegistrationStatus(id: number) {
+  async updateParticipantRegistrationStatus(id: string) {
     const updatedParticipants = await this.prismaService.participants.update({
       where: {
-        id: id,
+        uuid: id,
       },
       data: {
         registration: true,

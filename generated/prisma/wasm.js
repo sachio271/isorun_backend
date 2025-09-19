@@ -194,7 +194,8 @@ exports.Prisma.ParticipantsScalarFieldEnum = {
   province: 'province',
   condition: 'condition',
   racePack: 'racePack',
-  registration: 'registration'
+  registration: 'registration',
+  uuid: 'uuid'
 };
 
 exports.Prisma.TransactionsScalarFieldEnum = {
@@ -288,7 +289,8 @@ exports.Prisma.participantsOrderByRelevanceFieldEnum = {
   size: 'size',
   gender: 'gender',
   province: 'province',
-  condition: 'condition'
+  condition: 'condition',
+  uuid: 'uuid'
 };
 
 exports.Prisma.transactionsOrderByRelevanceFieldEnum = {

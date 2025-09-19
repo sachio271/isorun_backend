@@ -4714,6 +4714,7 @@ export namespace Prisma {
     condition: string | null
     racePack: boolean | null
     registration: boolean | null
+    uuid: string | null
   }
 
   export type ParticipantsMaxAggregateOutputType = {
@@ -4742,6 +4743,7 @@ export namespace Prisma {
     condition: string | null
     racePack: boolean | null
     registration: boolean | null
+    uuid: string | null
   }
 
   export type ParticipantsCountAggregateOutputType = {
@@ -4770,6 +4772,7 @@ export namespace Prisma {
     condition: number
     racePack: number
     registration: number
+    uuid: number
     _all: number
   }
 
@@ -4812,6 +4815,7 @@ export namespace Prisma {
     condition?: true
     racePack?: true
     registration?: true
+    uuid?: true
   }
 
   export type ParticipantsMaxAggregateInputType = {
@@ -4840,6 +4844,7 @@ export namespace Prisma {
     condition?: true
     racePack?: true
     registration?: true
+    uuid?: true
   }
 
   export type ParticipantsCountAggregateInputType = {
@@ -4868,6 +4873,7 @@ export namespace Prisma {
     condition?: true
     racePack?: true
     registration?: true
+    uuid?: true
     _all?: true
   }
 
@@ -4983,6 +4989,7 @@ export namespace Prisma {
     condition: string | null
     racePack: boolean | null
     registration: boolean | null
+    uuid: string
     _count: ParticipantsCountAggregateOutputType | null
     _avg: ParticipantsAvgAggregateOutputType | null
     _sum: ParticipantsSumAggregateOutputType | null
@@ -5030,6 +5037,7 @@ export namespace Prisma {
     condition?: boolean
     racePack?: boolean
     registration?: boolean
+    uuid?: boolean
     master_category?: boolean | participants$master_categoryArgs<ExtArgs>
     transactions?: boolean | participants$transactionsArgs<ExtArgs>
   }, ExtArgs["result"]["participants"]>
@@ -5062,9 +5070,10 @@ export namespace Prisma {
     condition?: boolean
     racePack?: boolean
     registration?: boolean
+    uuid?: boolean
   }
 
-  export type participantsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "fname" | "lname" | "bibname" | "email" | "identityId" | "birthplace" | "birthdate" | "phone" | "address" | "zipcode" | "country" | "city" | "bloodType" | "transactionsId" | "createdAt" | "updatedAt" | "master_categoryId" | "size" | "gender" | "price" | "province" | "condition" | "racePack" | "registration", ExtArgs["result"]["participants"]>
+  export type participantsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "fname" | "lname" | "bibname" | "email" | "identityId" | "birthplace" | "birthdate" | "phone" | "address" | "zipcode" | "country" | "city" | "bloodType" | "transactionsId" | "createdAt" | "updatedAt" | "master_categoryId" | "size" | "gender" | "price" | "province" | "condition" | "racePack" | "registration" | "uuid", ExtArgs["result"]["participants"]>
   export type participantsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     master_category?: boolean | participants$master_categoryArgs<ExtArgs>
     transactions?: boolean | participants$transactionsArgs<ExtArgs>
@@ -5102,6 +5111,7 @@ export namespace Prisma {
       condition: string | null
       racePack: boolean | null
       registration: boolean | null
+      uuid: string
     }, ExtArgs["result"]["participants"]>
     composites: {}
   }
@@ -5498,6 +5508,7 @@ export namespace Prisma {
     readonly condition: FieldRef<"participants", 'String'>
     readonly racePack: FieldRef<"participants", 'Boolean'>
     readonly registration: FieldRef<"participants", 'Boolean'>
+    readonly uuid: FieldRef<"participants", 'String'>
   }
     
 
@@ -8072,7 +8083,8 @@ export namespace Prisma {
     province: 'province',
     condition: 'condition',
     racePack: 'racePack',
-    registration: 'registration'
+    registration: 'registration',
+    uuid: 'uuid'
   };
 
   export type ParticipantsScalarFieldEnum = (typeof ParticipantsScalarFieldEnum)[keyof typeof ParticipantsScalarFieldEnum]
@@ -8190,7 +8202,8 @@ export namespace Prisma {
     size: 'size',
     gender: 'gender',
     province: 'province',
-    condition: 'condition'
+    condition: 'condition',
+    uuid: 'uuid'
   };
 
   export type participantsOrderByRelevanceFieldEnum = (typeof participantsOrderByRelevanceFieldEnum)[keyof typeof participantsOrderByRelevanceFieldEnum]
@@ -8608,6 +8621,7 @@ export namespace Prisma {
     condition?: StringNullableFilter<"participants"> | string | null
     racePack?: BoolNullableFilter<"participants"> | boolean | null
     registration?: BoolNullableFilter<"participants"> | boolean | null
+    uuid?: StringFilter<"participants"> | string
     master_category?: XOR<Master_categoryNullableScalarRelationFilter, master_categoryWhereInput> | null
     transactions?: XOR<TransactionsNullableScalarRelationFilter, transactionsWhereInput> | null
   }
@@ -8638,6 +8652,7 @@ export namespace Prisma {
     condition?: SortOrderInput | SortOrder
     racePack?: SortOrderInput | SortOrder
     registration?: SortOrderInput | SortOrder
+    uuid?: SortOrder
     master_category?: master_categoryOrderByWithRelationInput
     transactions?: transactionsOrderByWithRelationInput
     _relevance?: participantsOrderByRelevanceInput
@@ -8645,6 +8660,7 @@ export namespace Prisma {
 
   export type participantsWhereUniqueInput = Prisma.AtLeast<{
     id?: number
+    uuid?: string
     AND?: participantsWhereInput | participantsWhereInput[]
     OR?: participantsWhereInput[]
     NOT?: participantsWhereInput | participantsWhereInput[]
@@ -8674,7 +8690,7 @@ export namespace Prisma {
     registration?: BoolNullableFilter<"participants"> | boolean | null
     master_category?: XOR<Master_categoryNullableScalarRelationFilter, master_categoryWhereInput> | null
     transactions?: XOR<TransactionsNullableScalarRelationFilter, transactionsWhereInput> | null
-  }, "id">
+  }, "id" | "uuid">
 
   export type participantsOrderByWithAggregationInput = {
     id?: SortOrder
@@ -8702,6 +8718,7 @@ export namespace Prisma {
     condition?: SortOrderInput | SortOrder
     racePack?: SortOrderInput | SortOrder
     registration?: SortOrderInput | SortOrder
+    uuid?: SortOrder
     _count?: participantsCountOrderByAggregateInput
     _avg?: participantsAvgOrderByAggregateInput
     _max?: participantsMaxOrderByAggregateInput
@@ -8738,6 +8755,7 @@ export namespace Prisma {
     condition?: StringNullableWithAggregatesFilter<"participants"> | string | null
     racePack?: BoolNullableWithAggregatesFilter<"participants"> | boolean | null
     registration?: BoolNullableWithAggregatesFilter<"participants"> | boolean | null
+    uuid?: StringWithAggregatesFilter<"participants"> | string
   }
 
   export type transactionsWhereInput = {
@@ -9275,6 +9293,7 @@ export namespace Prisma {
     condition?: string | null
     racePack?: boolean | null
     registration?: boolean | null
+    uuid?: string
     master_category?: master_categoryCreateNestedOneWithoutParticipantsInput
     transactions?: transactionsCreateNestedOneWithoutParticipantsInput
   }
@@ -9305,6 +9324,7 @@ export namespace Prisma {
     condition?: string | null
     racePack?: boolean | null
     registration?: boolean | null
+    uuid?: string
   }
 
   export type participantsUpdateInput = {
@@ -9330,6 +9350,7 @@ export namespace Prisma {
     condition?: NullableStringFieldUpdateOperationsInput | string | null
     racePack?: NullableBoolFieldUpdateOperationsInput | boolean | null
     registration?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    uuid?: StringFieldUpdateOperationsInput | string
     master_category?: master_categoryUpdateOneWithoutParticipantsNestedInput
     transactions?: transactionsUpdateOneWithoutParticipantsNestedInput
   }
@@ -9360,6 +9381,7 @@ export namespace Prisma {
     condition?: NullableStringFieldUpdateOperationsInput | string | null
     racePack?: NullableBoolFieldUpdateOperationsInput | boolean | null
     registration?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    uuid?: StringFieldUpdateOperationsInput | string
   }
 
   export type participantsCreateManyInput = {
@@ -9388,6 +9410,7 @@ export namespace Prisma {
     condition?: string | null
     racePack?: boolean | null
     registration?: boolean | null
+    uuid?: string
   }
 
   export type participantsUpdateManyMutationInput = {
@@ -9413,6 +9436,7 @@ export namespace Prisma {
     condition?: NullableStringFieldUpdateOperationsInput | string | null
     racePack?: NullableBoolFieldUpdateOperationsInput | boolean | null
     registration?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    uuid?: StringFieldUpdateOperationsInput | string
   }
 
   export type participantsUncheckedUpdateManyInput = {
@@ -9441,6 +9465,7 @@ export namespace Prisma {
     condition?: NullableStringFieldUpdateOperationsInput | string | null
     racePack?: NullableBoolFieldUpdateOperationsInput | boolean | null
     registration?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    uuid?: StringFieldUpdateOperationsInput | string
   }
 
   export type transactionsCreateInput = {
@@ -10063,6 +10088,7 @@ export namespace Prisma {
     condition?: SortOrder
     racePack?: SortOrder
     registration?: SortOrder
+    uuid?: SortOrder
   }
 
   export type participantsAvgOrderByAggregateInput = {
@@ -10097,6 +10123,7 @@ export namespace Prisma {
     condition?: SortOrder
     racePack?: SortOrder
     registration?: SortOrder
+    uuid?: SortOrder
   }
 
   export type participantsMinOrderByAggregateInput = {
@@ -10125,6 +10152,7 @@ export namespace Prisma {
     condition?: SortOrder
     racePack?: SortOrder
     registration?: SortOrder
+    uuid?: SortOrder
   }
 
   export type participantsSumOrderByAggregateInput = {
@@ -11322,6 +11350,7 @@ export namespace Prisma {
     condition?: string | null
     racePack?: boolean | null
     registration?: boolean | null
+    uuid?: string
     master_category?: master_categoryCreateNestedOneWithoutParticipantsInput
   }
 
@@ -11350,6 +11379,7 @@ export namespace Prisma {
     condition?: string | null
     racePack?: boolean | null
     registration?: boolean | null
+    uuid?: string
   }
 
   export type participantsCreateOrConnectWithoutTransactionsInput = {
@@ -11435,6 +11465,7 @@ export namespace Prisma {
     condition?: StringNullableFilter<"participants"> | string | null
     racePack?: BoolNullableFilter<"participants"> | boolean | null
     registration?: BoolNullableFilter<"participants"> | boolean | null
+    uuid?: StringFilter<"participants"> | string
   }
 
   export type usersUpsertWithoutTransactionsInput = {
@@ -11494,6 +11525,7 @@ export namespace Prisma {
     condition?: string | null
     racePack?: boolean | null
     registration?: boolean | null
+    uuid?: string
     transactions?: transactionsCreateNestedOneWithoutParticipantsInput
   }
 
@@ -11522,6 +11554,7 @@ export namespace Prisma {
     condition?: string | null
     racePack?: boolean | null
     registration?: boolean | null
+    uuid?: string
   }
 
   export type participantsCreateOrConnectWithoutMaster_categoryInput = {
@@ -11638,6 +11671,7 @@ export namespace Prisma {
     condition?: string | null
     racePack?: boolean | null
     registration?: boolean | null
+    uuid?: string
   }
 
   export type participantsUpdateWithoutTransactionsInput = {
@@ -11663,6 +11697,7 @@ export namespace Prisma {
     condition?: NullableStringFieldUpdateOperationsInput | string | null
     racePack?: NullableBoolFieldUpdateOperationsInput | boolean | null
     registration?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    uuid?: StringFieldUpdateOperationsInput | string
     master_category?: master_categoryUpdateOneWithoutParticipantsNestedInput
   }
 
@@ -11691,6 +11726,7 @@ export namespace Prisma {
     condition?: NullableStringFieldUpdateOperationsInput | string | null
     racePack?: NullableBoolFieldUpdateOperationsInput | boolean | null
     registration?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    uuid?: StringFieldUpdateOperationsInput | string
   }
 
   export type participantsUncheckedUpdateManyWithoutTransactionsInput = {
@@ -11718,6 +11754,7 @@ export namespace Prisma {
     condition?: NullableStringFieldUpdateOperationsInput | string | null
     racePack?: NullableBoolFieldUpdateOperationsInput | boolean | null
     registration?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    uuid?: StringFieldUpdateOperationsInput | string
   }
 
   export type participantsCreateManyMaster_categoryInput = {
@@ -11745,6 +11782,7 @@ export namespace Prisma {
     condition?: string | null
     racePack?: boolean | null
     registration?: boolean | null
+    uuid?: string
   }
 
   export type participantsUpdateWithoutMaster_categoryInput = {
@@ -11770,6 +11808,7 @@ export namespace Prisma {
     condition?: NullableStringFieldUpdateOperationsInput | string | null
     racePack?: NullableBoolFieldUpdateOperationsInput | boolean | null
     registration?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    uuid?: StringFieldUpdateOperationsInput | string
     transactions?: transactionsUpdateOneWithoutParticipantsNestedInput
   }
 
@@ -11798,6 +11837,7 @@ export namespace Prisma {
     condition?: NullableStringFieldUpdateOperationsInput | string | null
     racePack?: NullableBoolFieldUpdateOperationsInput | boolean | null
     registration?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    uuid?: StringFieldUpdateOperationsInput | string
   }
 
   export type participantsUncheckedUpdateManyWithoutMaster_categoryInput = {
@@ -11825,6 +11865,7 @@ export namespace Prisma {
     condition?: NullableStringFieldUpdateOperationsInput | string | null
     racePack?: NullableBoolFieldUpdateOperationsInput | boolean | null
     registration?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    uuid?: StringFieldUpdateOperationsInput | string
   }
 
 

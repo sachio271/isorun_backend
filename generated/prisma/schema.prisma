@@ -93,6 +93,7 @@ model participants {
   condition         String?          @db.LongText
   racePack          Boolean?         @default(false)
   registration      Boolean?         @default(false)
+  uuid              String           @unique(map: "participants_uuid") @default(dbgenerated("(uuid())")) @db.Char(36)
   master_category   master_category? @relation(fields: [master_categoryId], references: [id])
   transactions      transactions?    @relation(fields: [transactionsId], references: [id])
 
