@@ -19,7 +19,7 @@ export class TransactionService {
       divisi,
       emergencyName,
       emergencyPhone,
-    }
+    };
 
     const transactionId = 'WINGS-' + this.generateRandomTransactionCode();
 
@@ -40,14 +40,19 @@ export class TransactionService {
       },
     });
 
-    const createdTransaction = await this.prismaService.transactions.findUnique({
-      where: { id: transactionId },
-    });
+    const createdTransaction = await this.prismaService.transactions.findUnique(
+      {
+        where: { id: transactionId },
+      },
+    );
 
     return createdTransaction;
   }
 
-  async createParticipant(createParticipantDto: CreateParticipantDto, id: string) {
+  async createParticipant(
+    createParticipantDto: CreateParticipantDto,
+    id: string,
+  ) {
     const dataTransaction = await this.prismaService.transactions.findUnique({
       where: { id },
     });
@@ -81,8 +86,8 @@ export class TransactionService {
   }
 
   generateRandomTransactionCode(length = 8): string {
-    const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-    let result = "";
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    let result = '';
     for (let i = 0; i < length; i++) {
       const randomIndex = Math.floor(Math.random() * characters.length);
       result += characters[randomIndex];
@@ -115,14 +120,12 @@ export class TransactionService {
         },
         users: true,
       },
-      orderBy: [
-        { createdAt: 'desc' }, 
-        { status: 'asc' },  
-      ],
+      orderBy: [{ createdAt: 'desc' }, { status: 'asc' }],
     });
     let total_participant = 0;
 
-    const categories: Record<string, { count: number; participants: any[] }> = {};
+    const categories: Record<string, { count: number; participants: any[] }> =
+      {};
     for (const transaction of trans) {
       for (const participant of transaction.participants) {
         const category = participant.master_category?.name || 'Unknown';
@@ -170,7 +173,9 @@ export class TransactionService {
     }
     const participantsWithAge = data.participants.map((participant) => ({
       ...participant,
-      umur: participant.birthdate ? this.calculateAge(participant.birthdate.toString()) : null,
+      umur: participant.birthdate
+        ? this.calculateAge(participant.birthdate.toString())
+        : null,
     }));
     if (data?.transferProof === null) {
       return {
@@ -182,20 +187,18 @@ export class TransactionService {
     return {
       ...data,
       participants: participantsWithAge,
-      transferProof:
-        this.linkProd +
-        data?.transferProof.split('/').pop() ,
-    }
+      transferProof: this.linkProd + data?.transferProof.split('/').pop(),
+    };
   }
 
   async findByUserId(user: users) {
     const userData = await this.prismaService.users.findUnique({
       where: { id: user.id },
     });
-    if(!userData) {
+    if (!userData) {
       return new Error('User not found');
     }
-    if(!userData.transactionId) {
+    if (!userData.transactionId) {
       return new Error('Transaction not found');
     }
     const data = await this.prismaService.transactions.findFirst({
@@ -222,10 +225,8 @@ export class TransactionService {
     }
     return {
       ...data,
-      src:
-        this.linkProd +
-        data?.transferProof.split('/').pop() ,
-    }
+      src: this.linkProd + data?.transferProof.split('/').pop(),
+    };
   }
 
   async uploadFile(id: string, file: Express.Multer.File) {
@@ -263,7 +264,6 @@ export class TransactionService {
     });
   }
 
-
   async updateStatus(id: string, updateStatusDto: UpdateTransactionDto) {
     const dataTransaction = await this.prismaService.transactions.findUnique({
       where: { id },
@@ -271,7 +271,7 @@ export class TransactionService {
     if (!dataTransaction) {
       throw new Error('Transaction not found');
     }
-    if(updateStatusDto.status === "2" && dataTransaction.total === 0) {
+    if (updateStatusDto.status === '2' && dataTransaction.total === 0) {
       return await this.prismaService.transactions.update({
         where: { id },
         data: { status: 4 },
@@ -307,11 +307,11 @@ export class TransactionService {
     if (!dataParticipant) {
       throw new Error('Participant not found');
     }
-    if(!dataParticipant.price) {
+    if (!dataParticipant.price) {
       throw new Error('Transaction not found');
     }
     await this.prismaService.transactions.update({
-      where: { id: dataParticipant.transactionsId || "" },
+      where: { id: dataParticipant.transactionsId || '' },
       data: {
         total: {
           decrement: +dataParticipant.price,
@@ -320,6 +320,21 @@ export class TransactionService {
     });
     return await this.prismaService.participants.delete({
       where: { id },
+    });
+  }
+
+  async findSettings() {
+    return await this.prismaService.settings.findFirst();
+  }
+
+  async updateRegistrationSetting(open_registration: number) {
+    const settings = await this.prismaService.settings.findFirst();
+    if (!settings) {
+      throw new Error('Settings not found');
+    }
+    return await this.prismaService.settings.update({
+      where: { id: settings.id },
+      data: { OPEN_REGISTRATION: open_registration },
     });
   }
 }

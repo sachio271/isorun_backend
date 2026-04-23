@@ -12,7 +12,8 @@ export class CategoryService {
       data: {
         ...createCategoryDto,
         price: parseInt(createCategoryDto.price.toString()),
-      }
+        status: createCategoryDto.status ? +createCategoryDto.status : 1,
+      },
     });
   }
 
@@ -37,11 +38,25 @@ export class CategoryService {
   }
 
   async update(id: number, updateCategoryDto: UpdateCategoryDto) {
+    const existingCategory =
+      await this.prismaService.master_category.findUnique({
+        where: {
+          id: id,
+        },
+      });
+    if (!existingCategory) {
+      throw new Error('Category not found');
+    }
     return await this.prismaService.master_category.update({
       where: {
         id: id,
       },
-      data: updateCategoryDto,
+      data: {
+        ...updateCategoryDto,
+        status: updateCategoryDto.status
+          ? +updateCategoryDto.status
+          : existingCategory.status,
+      },
     });
   }
 

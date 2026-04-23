@@ -1,42 +1,42 @@
-import { IsString } from "class-validator";
+import { IsString } from 'class-validator';
 
 export class CreateFamilyDto {
-    @IsString()
-    users_refEktp: string;
+  @IsString()
+  users_refKtp!: string;
 
-    @IsString()
-    name: string;
+  @IsString()
+  name!: string;
 
-    @IsString()
-    ektp: string;
+  @IsString()
+  ektp!: string;
 
-    @IsString()
-    type: string;   
-    
-    @IsString()
-    relation: string;
-    
-    @IsString()
-    birthdate: string;
+  @IsString()
+  type!: string;
 
-    @IsString()
-    birthplace: string;
+  @IsString()
+  relation!: string;
 
-    @IsString()
-    address: string;
+  @IsString()
+  birthdate!: string;
 
-    @IsString()
-    subDistrict: string;
+  @IsString()
+  birthplace!: string;
 
-    @IsString()
-    district: string;
+  @IsString()
+  address!: string;
 
-    @IsString()
-    city: string;
-    
-    @IsString()
-    phone: string;
-    
-    @IsString()
-    email: string;
+  @IsString()
+  subDistrict!: string;
+
+  @IsString()
+  district!: string;
+
+  @IsString()
+  city!: string;
+
+  @IsString()
+  phone!: string;
+
+  @IsString()
+  email!: string;
 }

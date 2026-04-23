@@ -1,60 +1,60 @@
-import { IsDateString, IsEmail, IsString } from "class-validator";
+import { IsDateString, IsEmail, IsString } from 'class-validator';
 
 export class CreateParticipantDto {
-    @IsString()
-    fname: string;
+  @IsString()
+  fname: string;
 
-    @IsString()
-    lname: string;
+  @IsString()
+  lname: string;
 
-    @IsString()
-    bibname: string;
+  @IsString()
+  bibname: string;
 
-    @IsEmail()
-    email: string;
+  @IsEmail()
+  email: string;
 
-    @IsString()
-    identityId: string;
+  @IsString()
+  identityId: string;
 
-    @IsString()
-    birthplace: string;
+  @IsString()
+  birthplace: string;
 
-    @IsDateString()
-    birthdate: string;
+  @IsDateString()
+  birthdate: string;
 
-    @IsString()
-    phone: string;
+  @IsString()
+  phone: string;
 
-    @IsString()
-    address: string;
+  @IsString()
+  address: string;
 
-    @IsString()
-    zipcode: string;
+  @IsString()
+  zipcode: string;
 
-    @IsString()
-    country: string;
+  @IsString()
+  country: string;
 
-    @IsString()
-    city: string;
+  @IsString()
+  city: string;
 
-    @IsString()
-    bloodType: string;
+  @IsString()
+  bloodType: string;
 
-    @IsString()
-    category: number;
+  @IsString()
+  category: number;
 
-    @IsString()
-    size: string;
+  @IsString()
+  size: string;
 
-    @IsString()
-    gender: string;
+  @IsString()
+  gender: string;
 
-    @IsString()
-    province: string;
+  @IsString()
+  province: string;
 
-    @IsString()
-    price: string;
+  @IsString()
+  price: string;
 
-    @IsString()
-    condition: string;
+  @IsString()
+  condition: string;
 }

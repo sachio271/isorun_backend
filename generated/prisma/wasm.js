@@ -216,8 +216,14 @@ exports.Prisma.Master_categoryScalarFieldEnum = {
   name: 'name',
   type: 'type',
   price: 'price',
+  status: 'status',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
+};
+
+exports.Prisma.SettingsScalarFieldEnum = {
+  id: 'id',
+  OPEN_REGISTRATION: 'OPEN_REGISTRATION'
 };
 
 exports.Prisma.SortOrder = {
@@ -314,7 +320,8 @@ exports.Prisma.ModelName = {
   family_ref: 'family_ref',
   participants: 'participants',
   transactions: 'transactions',
-  master_category: 'master_category'
+  master_category: 'master_category',
+  settings: 'settings'
 };
 
 /**

@@ -1,4 +1,14 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post, UploadedFile, UseInterceptors } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Patch,
+  Post,
+  UploadedFile,
+  UseInterceptors,
+} from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { users } from 'generated/prisma';
 import { AuthWithRoles } from 'src/auth/auth.decorator';
@@ -14,12 +24,18 @@ export class TransactionController {
   constructor(private readonly transactionService: TransactionService) {}
 
   @Post()
-  create(@Body() createTransactionDto: CreateTransactionDto, @CurrentUser() user: users) {
+  create(
+    @Body() createTransactionDto: CreateTransactionDto,
+    @CurrentUser() user: users,
+  ) {
     return this.transactionService.create(createTransactionDto, user);
   }
 
   @Post('participant/:id')
-  createParticipant(@Body() createParticipantDto: CreateParticipantDto, @Param('id') id: string) {  
+  createParticipant(
+    @Body() createParticipantDto: CreateParticipantDto,
+    @Param('id') id: string,
+  ) {
     return this.transactionService.createParticipant(createParticipantDto, id);
   }
 
@@ -33,6 +49,11 @@ export class TransactionController {
     return this.transactionService.findByUserId(user);
   }
 
+  @Get('settings')
+  findSettings() {
+    return this.transactionService.findSettings();
+  }
+
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.transactionService.findOne(id);
@@ -40,15 +61,22 @@ export class TransactionController {
 
   @Post(':id')
   @UseInterceptors(FileInterceptor('src'))
-  upload(
-    @Param('id') id: string,
-    @UploadedFile() file: Express.Multer.File,
-  ) {
+  upload(@Param('id') id: string, @UploadedFile() file: Express.Multer.File) {
     return this.transactionService.uploadFile(id, file);
   }
 
+  @Patch('registration')
+  updateRegistration(@Body() updateStatusDto: UpdateTransactionDto) {
+    return this.transactionService.updateRegistrationSetting(
+      +updateStatusDto.status,
+    );
+  }
+
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateTransactionDto: UpdateTransactionDto) {
+  update(
+    @Param('id') id: string,
+    @Body() updateTransactionDto: UpdateTransactionDto,
+  ) {
     return this.transactionService.update(+id, updateTransactionDto);
   }
 
@@ -58,7 +86,10 @@ export class TransactionController {
   }
 
   @Patch('status/:id')
-  updateStatus(@Param('id') id: string, @Body() updateStatusDto: UpdateTransactionDto) {
+  updateStatus(
+    @Param('id') id: string,
+    @Body() updateStatusDto: UpdateTransactionDto,
+  ) {
     return this.transactionService.updateStatus(id, updateStatusDto);
   }
 

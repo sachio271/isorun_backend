@@ -51,7 +51,7 @@ model family_ref {
   id           Int       @id @default(autoincrement())
   users_refKtp String
   name         String
-  EKTP         String?
+  EKTP         String?   @unique
   type         String
   relation     String
   birthplace   String?
@@ -121,7 +121,13 @@ model master_category {
   name         String
   type         String
   price        Int
+  status       Int            @default(1) @db.TinyInt
   createdAt    DateTime       @default(now())
   updatedAt    DateTime       @updatedAt
   participants participants[]
+}
+
+model settings {
+  id                Int  @id @default(autoincrement())
+  OPEN_REGISTRATION Int?
 }

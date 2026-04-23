@@ -1,6 +1,8 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post, Query } from '@nestjs/common';
+import { CreateFamilyDto } from './dto/create-family.dto';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
+import { PaginationQueryDto } from './dto/pagination.dto';
 import { UserService } from './user.service';
 
 @Controller('user')
@@ -12,14 +14,19 @@ export class UserController {
     return this.userService.create(createUserDto);
   }
 
+  @Post('familyRef')
+  createFamily(@Body() createFamilyDto: CreateFamilyDto) {
+    return this.userService.createFamily(createFamilyDto);
+  }
+
   @Get()
-  findAll() {
-    return this.userService.findAll();
+  findAll(@Query() query: PaginationQueryDto) {
+    return this.userService.findAll(query);
   }
 
   @Get('userRef')
-  findAllUserRef() {
-    return this.userService.findAllUserRef();
+  findAllUserRef(@Query() query: PaginationQueryDto) {
+    return this.userService.findAllUserRef(query);
   }
 
   @Get('userRef/:id')
