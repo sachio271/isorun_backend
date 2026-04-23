@@ -47,6 +47,17 @@ jobs:
           username: ${{ secrets.SERVER_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
+            # --- 1. LOAD ENVIRONMENT PATHS ---
+            # This ensures npm, npx, and pm2 can be found
+            source ~/.profile || true
+            source ~/.bashrc || true
+            export PATH=$PATH:/usr/local/bin:/usr/bin
+
+            # (If you installed Node via NVM, this loads it)
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+            # --- 2. RUN DEPLOYMENT COMMANDS ---
             cd /var/www/backend
 
             # Install production dependencies
