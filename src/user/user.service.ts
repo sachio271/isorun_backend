@@ -29,6 +29,7 @@ export class UserService {
         height: +createUserDto.height,
         bloodType: createUserDto.bloodType,
         religion: createUserDto.religion,
+        kabag: createUserDto.kabag === '1' ? true : false,
       },
       update: {
         type: createUserDto.type,
@@ -46,6 +47,7 @@ export class UserService {
         height: +createUserDto.height,
         bloodType: createUserDto.bloodType,
         religion: createUserDto.religion,
+        kabag: createUserDto.kabag === '1' ? true : false,
       },
     });
   }
