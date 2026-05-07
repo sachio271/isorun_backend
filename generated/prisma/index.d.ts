@@ -1438,37 +1438,6 @@ export namespace Prisma {
 
 
   /**
-   * Count Type UsersCountOutputType
-   */
-
-  export type UsersCountOutputType = {
-    troubleReports: number
-  }
-
-  export type UsersCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    troubleReports?: boolean | UsersCountOutputTypeCountTroubleReportsArgs
-  }
-
-  // Custom InputTypes
-  /**
-   * UsersCountOutputType without action
-   */
-  export type UsersCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the UsersCountOutputType
-     */
-    select?: UsersCountOutputTypeSelect<ExtArgs> | null
-  }
-
-  /**
-   * UsersCountOutputType without action
-   */
-  export type UsersCountOutputTypeCountTroubleReportsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: troubleReportWhereInput
-  }
-
-
-  /**
    * Count Type Users_refCountOutputType
    */
 
@@ -1809,8 +1778,6 @@ export namespace Prisma {
     transactionId?: boolean
     transactions?: boolean | users$transactionsArgs<ExtArgs>
     users_ref?: boolean | users$users_refArgs<ExtArgs>
-    troubleReports?: boolean | users$troubleReportsArgs<ExtArgs>
-    _count?: boolean | UsersCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["users"]>
 
 
@@ -1832,8 +1799,6 @@ export namespace Prisma {
   export type usersInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     transactions?: boolean | users$transactionsArgs<ExtArgs>
     users_ref?: boolean | users$users_refArgs<ExtArgs>
-    troubleReports?: boolean | users$troubleReportsArgs<ExtArgs>
-    _count?: boolean | UsersCountOutputTypeDefaultArgs<ExtArgs>
   }
 
   export type $usersPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -1841,7 +1806,6 @@ export namespace Prisma {
     objects: {
       transactions: Prisma.$transactionsPayload<ExtArgs> | null
       users_ref: Prisma.$users_refPayload<ExtArgs> | null
-      troubleReports: Prisma.$troubleReportPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -2196,7 +2160,6 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     transactions<T extends users$transactionsArgs<ExtArgs> = {}>(args?: Subset<T, users$transactionsArgs<ExtArgs>>): Prisma__transactionsClient<$Result.GetResult<Prisma.$transactionsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     users_ref<T extends users$users_refArgs<ExtArgs> = {}>(args?: Subset<T, users$users_refArgs<ExtArgs>>): Prisma__users_refClient<$Result.GetResult<Prisma.$users_refPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    troubleReports<T extends users$troubleReportsArgs<ExtArgs> = {}>(args?: Subset<T, users$troubleReportsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$troubleReportPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2614,30 +2577,6 @@ export namespace Prisma {
      */
     include?: users_refInclude<ExtArgs> | null
     where?: users_refWhereInput
-  }
-
-  /**
-   * users.troubleReports
-   */
-  export type users$troubleReportsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the troubleReport
-     */
-    select?: troubleReportSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the troubleReport
-     */
-    omit?: troubleReportOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: troubleReportInclude<ExtArgs> | null
-    where?: troubleReportWhereInput
-    orderBy?: troubleReportOrderByWithRelationInput | troubleReportOrderByWithRelationInput[]
-    cursor?: troubleReportWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: TroubleReportScalarFieldEnum | TroubleReportScalarFieldEnum[]
   }
 
   /**
@@ -9126,72 +9065,86 @@ export namespace Prisma {
 
   export type TroubleReportAvgAggregateOutputType = {
     id: number | null
-    createdBy: number | null
   }
 
   export type TroubleReportSumAggregateOutputType = {
     id: number | null
-    createdBy: number | null
   }
 
   export type TroubleReportMinAggregateOutputType = {
     id: number | null
+    name: string | null
+    wa: string | null
+    email: string | null
+    nik: string | null
     title: string | null
     description: string | null
     createdAt: Date | null
-    createdBy: number | null
   }
 
   export type TroubleReportMaxAggregateOutputType = {
     id: number | null
+    name: string | null
+    wa: string | null
+    email: string | null
+    nik: string | null
     title: string | null
     description: string | null
     createdAt: Date | null
-    createdBy: number | null
   }
 
   export type TroubleReportCountAggregateOutputType = {
     id: number
+    name: number
+    wa: number
+    email: number
+    nik: number
     title: number
     description: number
     createdAt: number
-    createdBy: number
     _all: number
   }
 
 
   export type TroubleReportAvgAggregateInputType = {
     id?: true
-    createdBy?: true
   }
 
   export type TroubleReportSumAggregateInputType = {
     id?: true
-    createdBy?: true
   }
 
   export type TroubleReportMinAggregateInputType = {
     id?: true
+    name?: true
+    wa?: true
+    email?: true
+    nik?: true
     title?: true
     description?: true
     createdAt?: true
-    createdBy?: true
   }
 
   export type TroubleReportMaxAggregateInputType = {
     id?: true
+    name?: true
+    wa?: true
+    email?: true
+    nik?: true
     title?: true
     description?: true
     createdAt?: true
-    createdBy?: true
   }
 
   export type TroubleReportCountAggregateInputType = {
     id?: true
+    name?: true
+    wa?: true
+    email?: true
+    nik?: true
     title?: true
     description?: true
     createdAt?: true
-    createdBy?: true
     _all?: true
   }
 
@@ -9283,10 +9236,13 @@ export namespace Prisma {
 
   export type TroubleReportGroupByOutputType = {
     id: number
+    name: string
+    wa: string
+    email: string
+    nik: string
     title: string
     description: string
     createdAt: Date
-    createdBy: number
     _count: TroubleReportCountAggregateOutputType | null
     _avg: TroubleReportAvgAggregateOutputType | null
     _sum: TroubleReportSumAggregateOutputType | null
@@ -9310,39 +9266,42 @@ export namespace Prisma {
 
   export type troubleReportSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    name?: boolean
+    wa?: boolean
+    email?: boolean
+    nik?: boolean
     title?: boolean
     description?: boolean
     createdAt?: boolean
-    createdBy?: boolean
-    user?: boolean | troubleReport$userArgs<ExtArgs>
   }, ExtArgs["result"]["troubleReport"]>
 
 
 
   export type troubleReportSelectScalar = {
     id?: boolean
+    name?: boolean
+    wa?: boolean
+    email?: boolean
+    nik?: boolean
     title?: boolean
     description?: boolean
     createdAt?: boolean
-    createdBy?: boolean
   }
 
-  export type troubleReportOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "createdAt" | "createdBy", ExtArgs["result"]["troubleReport"]>
-  export type troubleReportInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | troubleReport$userArgs<ExtArgs>
-  }
+  export type troubleReportOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "wa" | "email" | "nik" | "title" | "description" | "createdAt", ExtArgs["result"]["troubleReport"]>
 
   export type $troubleReportPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "troubleReport"
-    objects: {
-      user: Prisma.$usersPayload<ExtArgs> | null
-    }
+    objects: {}
     scalars: $Extensions.GetPayloadResult<{
       id: number
+      name: string
+      wa: string
+      email: string
+      nik: string
       title: string
       description: string
       createdAt: Date
-      createdBy: number
     }, ExtArgs["result"]["troubleReport"]>
     composites: {}
   }
@@ -9683,7 +9642,6 @@ export namespace Prisma {
    */
   export interface Prisma__troubleReportClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    user<T extends troubleReport$userArgs<ExtArgs> = {}>(args?: Subset<T, troubleReport$userArgs<ExtArgs>>): Prisma__usersClient<$Result.GetResult<Prisma.$usersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -9714,10 +9672,13 @@ export namespace Prisma {
    */
   interface troubleReportFieldRefs {
     readonly id: FieldRef<"troubleReport", 'Int'>
+    readonly name: FieldRef<"troubleReport", 'String'>
+    readonly wa: FieldRef<"troubleReport", 'String'>
+    readonly email: FieldRef<"troubleReport", 'String'>
+    readonly nik: FieldRef<"troubleReport", 'String'>
     readonly title: FieldRef<"troubleReport", 'String'>
     readonly description: FieldRef<"troubleReport", 'String'>
     readonly createdAt: FieldRef<"troubleReport", 'DateTime'>
-    readonly createdBy: FieldRef<"troubleReport", 'Int'>
   }
     
 
@@ -9734,10 +9695,6 @@ export namespace Prisma {
      * Omit specific fields from the troubleReport
      */
     omit?: troubleReportOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: troubleReportInclude<ExtArgs> | null
     /**
      * Filter, which troubleReport to fetch.
      */
@@ -9757,10 +9714,6 @@ export namespace Prisma {
      */
     omit?: troubleReportOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: troubleReportInclude<ExtArgs> | null
-    /**
      * Filter, which troubleReport to fetch.
      */
     where: troubleReportWhereUniqueInput
@@ -9778,10 +9731,6 @@ export namespace Prisma {
      * Omit specific fields from the troubleReport
      */
     omit?: troubleReportOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: troubleReportInclude<ExtArgs> | null
     /**
      * Filter, which troubleReport to fetch.
      */
@@ -9831,10 +9780,6 @@ export namespace Prisma {
      */
     omit?: troubleReportOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: troubleReportInclude<ExtArgs> | null
-    /**
      * Filter, which troubleReport to fetch.
      */
     where?: troubleReportWhereInput
@@ -9883,10 +9828,6 @@ export namespace Prisma {
      */
     omit?: troubleReportOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: troubleReportInclude<ExtArgs> | null
-    /**
      * Filter, which troubleReports to fetch.
      */
     where?: troubleReportWhereInput
@@ -9930,10 +9871,6 @@ export namespace Prisma {
      */
     omit?: troubleReportOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: troubleReportInclude<ExtArgs> | null
-    /**
      * The data needed to create a troubleReport.
      */
     data: XOR<troubleReportCreateInput, troubleReportUncheckedCreateInput>
@@ -9962,10 +9899,6 @@ export namespace Prisma {
      * Omit specific fields from the troubleReport
      */
     omit?: troubleReportOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: troubleReportInclude<ExtArgs> | null
     /**
      * The data needed to update a troubleReport.
      */
@@ -10007,10 +9940,6 @@ export namespace Prisma {
      */
     omit?: troubleReportOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: troubleReportInclude<ExtArgs> | null
-    /**
      * The filter to search for the troubleReport to update in case it exists.
      */
     where: troubleReportWhereUniqueInput
@@ -10037,10 +9966,6 @@ export namespace Prisma {
      */
     omit?: troubleReportOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: troubleReportInclude<ExtArgs> | null
-    /**
      * Filter which troubleReport to delete.
      */
     where: troubleReportWhereUniqueInput
@@ -10061,25 +9986,6 @@ export namespace Prisma {
   }
 
   /**
-   * troubleReport.user
-   */
-  export type troubleReport$userArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the users
-     */
-    select?: usersSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the users
-     */
-    omit?: usersOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: usersInclude<ExtArgs> | null
-    where?: usersWhereInput
-  }
-
-  /**
    * troubleReport without action
    */
   export type troubleReportDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -10091,10 +9997,6 @@ export namespace Prisma {
      * Omit specific fields from the troubleReport
      */
     omit?: troubleReportOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: troubleReportInclude<ExtArgs> | null
   }
 
 
@@ -10244,10 +10146,13 @@ export namespace Prisma {
 
   export const TroubleReportScalarFieldEnum: {
     id: 'id',
+    name: 'name',
+    wa: 'wa',
+    email: 'email',
+    nik: 'nik',
     title: 'title',
     description: 'description',
-    createdAt: 'createdAt',
-    createdBy: 'createdBy'
+    createdAt: 'createdAt'
   };
 
   export type TroubleReportScalarFieldEnum = (typeof TroubleReportScalarFieldEnum)[keyof typeof TroubleReportScalarFieldEnum]
@@ -10365,6 +10270,10 @@ export namespace Prisma {
 
 
   export const troubleReportOrderByRelevanceFieldEnum: {
+    name: 'name',
+    wa: 'wa',
+    email: 'email',
+    nik: 'nik',
     title: 'title',
     description: 'description'
   };
@@ -10431,7 +10340,6 @@ export namespace Prisma {
     transactionId?: StringNullableFilter<"users"> | string | null
     transactions?: XOR<TransactionsNullableScalarRelationFilter, transactionsWhereInput> | null
     users_ref?: XOR<Users_refNullableScalarRelationFilter, users_refWhereInput> | null
-    troubleReports?: TroubleReportListRelationFilter
   }
 
   export type usersOrderByWithRelationInput = {
@@ -10447,7 +10355,6 @@ export namespace Prisma {
     transactionId?: SortOrderInput | SortOrder
     transactions?: transactionsOrderByWithRelationInput
     users_ref?: users_refOrderByWithRelationInput
-    troubleReports?: troubleReportOrderByRelationAggregateInput
     _relevance?: usersOrderByRelevanceInput
   }
 
@@ -10467,7 +10374,6 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"users"> | Date | string
     transactions?: XOR<TransactionsNullableScalarRelationFilter, transactionsWhereInput> | null
     users_ref?: XOR<Users_refNullableScalarRelationFilter, users_refWhereInput> | null
-    troubleReports?: TroubleReportListRelationFilter
   }, "id" | "username" | "users_refId" | "transactionId">
 
   export type usersOrderByWithAggregationInput = {
@@ -11102,20 +11008,24 @@ export namespace Prisma {
     OR?: troubleReportWhereInput[]
     NOT?: troubleReportWhereInput | troubleReportWhereInput[]
     id?: IntFilter<"troubleReport"> | number
+    name?: StringFilter<"troubleReport"> | string
+    wa?: StringFilter<"troubleReport"> | string
+    email?: StringFilter<"troubleReport"> | string
+    nik?: StringFilter<"troubleReport"> | string
     title?: StringFilter<"troubleReport"> | string
     description?: StringFilter<"troubleReport"> | string
     createdAt?: DateTimeFilter<"troubleReport"> | Date | string
-    createdBy?: IntFilter<"troubleReport"> | number
-    user?: XOR<UsersNullableScalarRelationFilter, usersWhereInput> | null
   }
 
   export type troubleReportOrderByWithRelationInput = {
     id?: SortOrder
+    name?: SortOrder
+    wa?: SortOrder
+    email?: SortOrder
+    nik?: SortOrder
     title?: SortOrder
     description?: SortOrder
     createdAt?: SortOrder
-    createdBy?: SortOrder
-    user?: usersOrderByWithRelationInput
     _relevance?: troubleReportOrderByRelevanceInput
   }
 
@@ -11124,19 +11034,24 @@ export namespace Prisma {
     AND?: troubleReportWhereInput | troubleReportWhereInput[]
     OR?: troubleReportWhereInput[]
     NOT?: troubleReportWhereInput | troubleReportWhereInput[]
+    name?: StringFilter<"troubleReport"> | string
+    wa?: StringFilter<"troubleReport"> | string
+    email?: StringFilter<"troubleReport"> | string
+    nik?: StringFilter<"troubleReport"> | string
     title?: StringFilter<"troubleReport"> | string
     description?: StringFilter<"troubleReport"> | string
     createdAt?: DateTimeFilter<"troubleReport"> | Date | string
-    createdBy?: IntFilter<"troubleReport"> | number
-    user?: XOR<UsersNullableScalarRelationFilter, usersWhereInput> | null
   }, "id">
 
   export type troubleReportOrderByWithAggregationInput = {
     id?: SortOrder
+    name?: SortOrder
+    wa?: SortOrder
+    email?: SortOrder
+    nik?: SortOrder
     title?: SortOrder
     description?: SortOrder
     createdAt?: SortOrder
-    createdBy?: SortOrder
     _count?: troubleReportCountOrderByAggregateInput
     _avg?: troubleReportAvgOrderByAggregateInput
     _max?: troubleReportMaxOrderByAggregateInput
@@ -11149,10 +11064,13 @@ export namespace Prisma {
     OR?: troubleReportScalarWhereWithAggregatesInput[]
     NOT?: troubleReportScalarWhereWithAggregatesInput | troubleReportScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"troubleReport"> | number
+    name?: StringWithAggregatesFilter<"troubleReport"> | string
+    wa?: StringWithAggregatesFilter<"troubleReport"> | string
+    email?: StringWithAggregatesFilter<"troubleReport"> | string
+    nik?: StringWithAggregatesFilter<"troubleReport"> | string
     title?: StringWithAggregatesFilter<"troubleReport"> | string
     description?: StringWithAggregatesFilter<"troubleReport"> | string
     createdAt?: DateTimeWithAggregatesFilter<"troubleReport"> | Date | string
-    createdBy?: IntWithAggregatesFilter<"troubleReport"> | number
   }
 
   export type usersCreateInput = {
@@ -11165,7 +11083,6 @@ export namespace Prisma {
     updatedAt?: Date | string
     transactions?: transactionsCreateNestedOneWithoutUsersInput
     users_ref?: users_refCreateNestedOneWithoutUsersInput
-    troubleReports?: troubleReportCreateNestedManyWithoutUserInput
   }
 
   export type usersUncheckedCreateInput = {
@@ -11179,7 +11096,6 @@ export namespace Prisma {
     updatedAt?: Date | string
     users_refId?: string | null
     transactionId?: string | null
-    troubleReports?: troubleReportUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type usersUpdateInput = {
@@ -11192,7 +11108,6 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     transactions?: transactionsUpdateOneWithoutUsersNestedInput
     users_ref?: users_refUpdateOneWithoutUsersNestedInput
-    troubleReports?: troubleReportUpdateManyWithoutUserNestedInput
   }
 
   export type usersUncheckedUpdateInput = {
@@ -11206,7 +11121,6 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     users_refId?: NullableStringFieldUpdateOperationsInput | string | null
     transactionId?: NullableStringFieldUpdateOperationsInput | string | null
-    troubleReports?: troubleReportUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type usersCreateManyInput = {
@@ -11923,44 +11837,63 @@ export namespace Prisma {
   }
 
   export type troubleReportCreateInput = {
+    name: string
+    wa: string
+    email: string
+    nik: string
     title: string
     description: string
     createdAt?: Date | string
-    user?: usersCreateNestedOneWithoutTroubleReportsInput
   }
 
   export type troubleReportUncheckedCreateInput = {
     id?: number
+    name: string
+    wa: string
+    email: string
+    nik: string
     title: string
     description: string
     createdAt?: Date | string
-    createdBy: number
   }
 
   export type troubleReportUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    wa?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    nik?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: usersUpdateOneWithoutTroubleReportsNestedInput
   }
 
   export type troubleReportUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    wa?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    nik?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdBy?: IntFieldUpdateOperationsInput | number
   }
 
   export type troubleReportCreateManyInput = {
     id?: number
+    name: string
+    wa: string
+    email: string
+    nik: string
     title: string
     description: string
     createdAt?: Date | string
-    createdBy: number
   }
 
   export type troubleReportUpdateManyMutationInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    wa?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    nik?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11968,10 +11901,13 @@ export namespace Prisma {
 
   export type troubleReportUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    wa?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    nik?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdBy?: IntFieldUpdateOperationsInput | number
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -12036,19 +11972,9 @@ export namespace Prisma {
     isNot?: users_refWhereInput | null
   }
 
-  export type TroubleReportListRelationFilter = {
-    every?: troubleReportWhereInput
-    some?: troubleReportWhereInput
-    none?: troubleReportWhereInput
-  }
-
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
-  }
-
-  export type troubleReportOrderByRelationAggregateInput = {
-    _count?: SortOrder
   }
 
   export type usersOrderByRelevanceInput = {
@@ -12660,36 +12586,43 @@ export namespace Prisma {
 
   export type troubleReportCountOrderByAggregateInput = {
     id?: SortOrder
+    name?: SortOrder
+    wa?: SortOrder
+    email?: SortOrder
+    nik?: SortOrder
     title?: SortOrder
     description?: SortOrder
     createdAt?: SortOrder
-    createdBy?: SortOrder
   }
 
   export type troubleReportAvgOrderByAggregateInput = {
     id?: SortOrder
-    createdBy?: SortOrder
   }
 
   export type troubleReportMaxOrderByAggregateInput = {
     id?: SortOrder
+    name?: SortOrder
+    wa?: SortOrder
+    email?: SortOrder
+    nik?: SortOrder
     title?: SortOrder
     description?: SortOrder
     createdAt?: SortOrder
-    createdBy?: SortOrder
   }
 
   export type troubleReportMinOrderByAggregateInput = {
     id?: SortOrder
+    name?: SortOrder
+    wa?: SortOrder
+    email?: SortOrder
+    nik?: SortOrder
     title?: SortOrder
     description?: SortOrder
     createdAt?: SortOrder
-    createdBy?: SortOrder
   }
 
   export type troubleReportSumOrderByAggregateInput = {
     id?: SortOrder
-    createdBy?: SortOrder
   }
 
   export type transactionsCreateNestedOneWithoutUsersInput = {
@@ -12702,20 +12635,6 @@ export namespace Prisma {
     create?: XOR<users_refCreateWithoutUsersInput, users_refUncheckedCreateWithoutUsersInput>
     connectOrCreate?: users_refCreateOrConnectWithoutUsersInput
     connect?: users_refWhereUniqueInput
-  }
-
-  export type troubleReportCreateNestedManyWithoutUserInput = {
-    create?: XOR<troubleReportCreateWithoutUserInput, troubleReportUncheckedCreateWithoutUserInput> | troubleReportCreateWithoutUserInput[] | troubleReportUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: troubleReportCreateOrConnectWithoutUserInput | troubleReportCreateOrConnectWithoutUserInput[]
-    createMany?: troubleReportCreateManyUserInputEnvelope
-    connect?: troubleReportWhereUniqueInput | troubleReportWhereUniqueInput[]
-  }
-
-  export type troubleReportUncheckedCreateNestedManyWithoutUserInput = {
-    create?: XOR<troubleReportCreateWithoutUserInput, troubleReportUncheckedCreateWithoutUserInput> | troubleReportCreateWithoutUserInput[] | troubleReportUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: troubleReportCreateOrConnectWithoutUserInput | troubleReportCreateOrConnectWithoutUserInput[]
-    createMany?: troubleReportCreateManyUserInputEnvelope
-    connect?: troubleReportWhereUniqueInput | troubleReportWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -12754,36 +12673,8 @@ export namespace Prisma {
     update?: XOR<XOR<users_refUpdateToOneWithWhereWithoutUsersInput, users_refUpdateWithoutUsersInput>, users_refUncheckedUpdateWithoutUsersInput>
   }
 
-  export type troubleReportUpdateManyWithoutUserNestedInput = {
-    create?: XOR<troubleReportCreateWithoutUserInput, troubleReportUncheckedCreateWithoutUserInput> | troubleReportCreateWithoutUserInput[] | troubleReportUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: troubleReportCreateOrConnectWithoutUserInput | troubleReportCreateOrConnectWithoutUserInput[]
-    upsert?: troubleReportUpsertWithWhereUniqueWithoutUserInput | troubleReportUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: troubleReportCreateManyUserInputEnvelope
-    set?: troubleReportWhereUniqueInput | troubleReportWhereUniqueInput[]
-    disconnect?: troubleReportWhereUniqueInput | troubleReportWhereUniqueInput[]
-    delete?: troubleReportWhereUniqueInput | troubleReportWhereUniqueInput[]
-    connect?: troubleReportWhereUniqueInput | troubleReportWhereUniqueInput[]
-    update?: troubleReportUpdateWithWhereUniqueWithoutUserInput | troubleReportUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: troubleReportUpdateManyWithWhereWithoutUserInput | troubleReportUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: troubleReportScalarWhereInput | troubleReportScalarWhereInput[]
-  }
-
   export type NullableStringFieldUpdateOperationsInput = {
     set?: string | null
-  }
-
-  export type troubleReportUncheckedUpdateManyWithoutUserNestedInput = {
-    create?: XOR<troubleReportCreateWithoutUserInput, troubleReportUncheckedCreateWithoutUserInput> | troubleReportCreateWithoutUserInput[] | troubleReportUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: troubleReportCreateOrConnectWithoutUserInput | troubleReportCreateOrConnectWithoutUserInput[]
-    upsert?: troubleReportUpsertWithWhereUniqueWithoutUserInput | troubleReportUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: troubleReportCreateManyUserInputEnvelope
-    set?: troubleReportWhereUniqueInput | troubleReportWhereUniqueInput[]
-    disconnect?: troubleReportWhereUniqueInput | troubleReportWhereUniqueInput[]
-    delete?: troubleReportWhereUniqueInput | troubleReportWhereUniqueInput[]
-    connect?: troubleReportWhereUniqueInput | troubleReportWhereUniqueInput[]
-    update?: troubleReportUpdateWithWhereUniqueWithoutUserInput | troubleReportUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: troubleReportUpdateManyWithWhereWithoutUserInput | troubleReportUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: troubleReportScalarWhereInput | troubleReportScalarWhereInput[]
   }
 
   export type family_refCreateNestedManyWithoutUsers_refInput = {
@@ -13036,22 +12927,6 @@ export namespace Prisma {
     update?: participantsUpdateWithWhereUniqueWithoutMaster_categoryInput | participantsUpdateWithWhereUniqueWithoutMaster_categoryInput[]
     updateMany?: participantsUpdateManyWithWhereWithoutMaster_categoryInput | participantsUpdateManyWithWhereWithoutMaster_categoryInput[]
     deleteMany?: participantsScalarWhereInput | participantsScalarWhereInput[]
-  }
-
-  export type usersCreateNestedOneWithoutTroubleReportsInput = {
-    create?: XOR<usersCreateWithoutTroubleReportsInput, usersUncheckedCreateWithoutTroubleReportsInput>
-    connectOrCreate?: usersCreateOrConnectWithoutTroubleReportsInput
-    connect?: usersWhereUniqueInput
-  }
-
-  export type usersUpdateOneWithoutTroubleReportsNestedInput = {
-    create?: XOR<usersCreateWithoutTroubleReportsInput, usersUncheckedCreateWithoutTroubleReportsInput>
-    connectOrCreate?: usersCreateOrConnectWithoutTroubleReportsInput
-    upsert?: usersUpsertWithoutTroubleReportsInput
-    disconnect?: usersWhereInput | boolean
-    delete?: usersWhereInput | boolean
-    connect?: usersWhereUniqueInput
-    update?: XOR<XOR<usersUpdateToOneWithWhereWithoutTroubleReportsInput, usersUpdateWithoutTroubleReportsInput>, usersUncheckedUpdateWithoutTroubleReportsInput>
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -13343,29 +13218,6 @@ export namespace Prisma {
     create: XOR<users_refCreateWithoutUsersInput, users_refUncheckedCreateWithoutUsersInput>
   }
 
-  export type troubleReportCreateWithoutUserInput = {
-    title: string
-    description: string
-    createdAt?: Date | string
-  }
-
-  export type troubleReportUncheckedCreateWithoutUserInput = {
-    id?: number
-    title: string
-    description: string
-    createdAt?: Date | string
-  }
-
-  export type troubleReportCreateOrConnectWithoutUserInput = {
-    where: troubleReportWhereUniqueInput
-    create: XOR<troubleReportCreateWithoutUserInput, troubleReportUncheckedCreateWithoutUserInput>
-  }
-
-  export type troubleReportCreateManyUserInputEnvelope = {
-    data: troubleReportCreateManyUserInput | troubleReportCreateManyUserInput[]
-    skipDuplicates?: boolean
-  }
-
   export type transactionsUpsertWithoutUsersInput = {
     update: XOR<transactionsUpdateWithoutUsersInput, transactionsUncheckedUpdateWithoutUsersInput>
     create: XOR<transactionsCreateWithoutUsersInput, transactionsUncheckedCreateWithoutUsersInput>
@@ -13462,33 +13314,6 @@ export namespace Prisma {
     family_ref?: family_refUncheckedUpdateManyWithoutUsers_refNestedInput
   }
 
-  export type troubleReportUpsertWithWhereUniqueWithoutUserInput = {
-    where: troubleReportWhereUniqueInput
-    update: XOR<troubleReportUpdateWithoutUserInput, troubleReportUncheckedUpdateWithoutUserInput>
-    create: XOR<troubleReportCreateWithoutUserInput, troubleReportUncheckedCreateWithoutUserInput>
-  }
-
-  export type troubleReportUpdateWithWhereUniqueWithoutUserInput = {
-    where: troubleReportWhereUniqueInput
-    data: XOR<troubleReportUpdateWithoutUserInput, troubleReportUncheckedUpdateWithoutUserInput>
-  }
-
-  export type troubleReportUpdateManyWithWhereWithoutUserInput = {
-    where: troubleReportScalarWhereInput
-    data: XOR<troubleReportUpdateManyMutationInput, troubleReportUncheckedUpdateManyWithoutUserInput>
-  }
-
-  export type troubleReportScalarWhereInput = {
-    AND?: troubleReportScalarWhereInput | troubleReportScalarWhereInput[]
-    OR?: troubleReportScalarWhereInput[]
-    NOT?: troubleReportScalarWhereInput | troubleReportScalarWhereInput[]
-    id?: IntFilter<"troubleReport"> | number
-    title?: StringFilter<"troubleReport"> | string
-    description?: StringFilter<"troubleReport"> | string
-    createdAt?: DateTimeFilter<"troubleReport"> | Date | string
-    createdBy?: IntFilter<"troubleReport"> | number
-  }
-
   export type family_refCreateWithoutUsers_refInput = {
     name: string
     EKTP?: string | null
@@ -13539,7 +13364,6 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     transactions?: transactionsCreateNestedOneWithoutUsersInput
-    troubleReports?: troubleReportCreateNestedManyWithoutUserInput
   }
 
   export type usersUncheckedCreateWithoutUsers_refInput = {
@@ -13552,7 +13376,6 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     transactionId?: string | null
-    troubleReports?: troubleReportUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type usersCreateOrConnectWithoutUsers_refInput = {
@@ -13616,7 +13439,6 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     transactions?: transactionsUpdateOneWithoutUsersNestedInput
-    troubleReports?: troubleReportUpdateManyWithoutUserNestedInput
   }
 
   export type usersUncheckedUpdateWithoutUsers_refInput = {
@@ -13629,7 +13451,6 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     transactionId?: NullableStringFieldUpdateOperationsInput | string | null
-    troubleReports?: troubleReportUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type users_refCreateWithoutFamily_refInput = {
@@ -13940,7 +13761,6 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     users_ref?: users_refCreateNestedOneWithoutUsersInput
-    troubleReports?: troubleReportCreateNestedManyWithoutUserInput
   }
 
   export type usersUncheckedCreateWithoutTransactionsInput = {
@@ -13953,7 +13773,6 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     users_refId?: string | null
-    troubleReports?: troubleReportUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type usersCreateOrConnectWithoutTransactionsInput = {
@@ -14029,7 +13848,6 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     users_ref?: users_refUpdateOneWithoutUsersNestedInput
-    troubleReports?: troubleReportUpdateManyWithoutUserNestedInput
   }
 
   export type usersUncheckedUpdateWithoutTransactionsInput = {
@@ -14042,7 +13860,6 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     users_refId?: NullableStringFieldUpdateOperationsInput | string | null
-    troubleReports?: troubleReportUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type participantsCreateWithoutMaster_categoryInput = {
@@ -14124,99 +13941,6 @@ export namespace Prisma {
   export type participantsUpdateManyWithWhereWithoutMaster_categoryInput = {
     where: participantsScalarWhereInput
     data: XOR<participantsUpdateManyMutationInput, participantsUncheckedUpdateManyWithoutMaster_categoryInput>
-  }
-
-  export type usersCreateWithoutTroubleReportsInput = {
-    name: string
-    username: string
-    password?: string
-    role?: string
-    status?: number
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    transactions?: transactionsCreateNestedOneWithoutUsersInput
-    users_ref?: users_refCreateNestedOneWithoutUsersInput
-  }
-
-  export type usersUncheckedCreateWithoutTroubleReportsInput = {
-    id?: number
-    name: string
-    username: string
-    password?: string
-    role?: string
-    status?: number
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    users_refId?: string | null
-    transactionId?: string | null
-  }
-
-  export type usersCreateOrConnectWithoutTroubleReportsInput = {
-    where: usersWhereUniqueInput
-    create: XOR<usersCreateWithoutTroubleReportsInput, usersUncheckedCreateWithoutTroubleReportsInput>
-  }
-
-  export type usersUpsertWithoutTroubleReportsInput = {
-    update: XOR<usersUpdateWithoutTroubleReportsInput, usersUncheckedUpdateWithoutTroubleReportsInput>
-    create: XOR<usersCreateWithoutTroubleReportsInput, usersUncheckedCreateWithoutTroubleReportsInput>
-    where?: usersWhereInput
-  }
-
-  export type usersUpdateToOneWithWhereWithoutTroubleReportsInput = {
-    where?: usersWhereInput
-    data: XOR<usersUpdateWithoutTroubleReportsInput, usersUncheckedUpdateWithoutTroubleReportsInput>
-  }
-
-  export type usersUpdateWithoutTroubleReportsInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    username?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    role?: StringFieldUpdateOperationsInput | string
-    status?: IntFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    transactions?: transactionsUpdateOneWithoutUsersNestedInput
-    users_ref?: users_refUpdateOneWithoutUsersNestedInput
-  }
-
-  export type usersUncheckedUpdateWithoutTroubleReportsInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
-    username?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    role?: StringFieldUpdateOperationsInput | string
-    status?: IntFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    users_refId?: NullableStringFieldUpdateOperationsInput | string | null
-    transactionId?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type troubleReportCreateManyUserInput = {
-    id?: number
-    title: string
-    description: string
-    createdAt?: Date | string
-  }
-
-  export type troubleReportUpdateWithoutUserInput = {
-    title?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type troubleReportUncheckedUpdateWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    title?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type troubleReportUncheckedUpdateManyWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    title?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type family_refCreateManyUsers_refInput = {

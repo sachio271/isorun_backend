@@ -14,7 +14,10 @@ export class TroubleReportService {
         title: createTroubleReportDto.title,
         description: createTroubleReportDto.description,
         createdAt: new Date(),
-        createdBy: +createTroubleReportDto.participantId,
+        name: createTroubleReportDto.name,
+        wa: createTroubleReportDto.wa,
+        email: createTroubleReportDto.email,
+        nik: createTroubleReportDto.nik,
       },
     });
     return data;
@@ -30,7 +33,10 @@ export class TroubleReportService {
         OR: [
           { title: { contains: search } },
           { description: { contains: search } },
-          { user: { name: { contains: search } } },
+          { name: { contains: search } },
+          { wa: { contains: search } },
+          { email: { contains: search } },
+          { nik: { contains: search } },
         ],
       });
     }
@@ -44,9 +50,6 @@ export class TroubleReportService {
         take,
         orderBy: {
           createdAt: 'desc',
-        },
-        include: {
-          user: true,
         },
       }),
     ]);

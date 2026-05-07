@@ -9,19 +9,18 @@ datasource db {
 }
 
 model users {
-  id             Int             @id @default(autoincrement())
-  name           String
-  username       String          @unique
-  password       String          @default("123456")
-  role           String          @default("user")
-  status         Int             @default(1) @db.TinyInt
-  createdAt      DateTime        @default(now())
-  updatedAt      DateTime        @updatedAt
-  users_refId    String?         @unique
-  transactionId  String?         @unique
-  transactions   transactions?   @relation(fields: [transactionId], references: [id])
-  users_ref      users_ref?      @relation(fields: [users_refId], references: [EKTP])
-  troubleReports troubleReport[]
+  id            Int           @id @default(autoincrement())
+  name          String
+  username      String        @unique
+  password      String        @default("123456")
+  role          String        @default("user")
+  status        Int           @default(1) @db.TinyInt
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+  users_refId   String?       @unique
+  transactionId String?       @unique
+  transactions  transactions? @relation(fields: [transactionId], references: [id])
+  users_ref     users_ref?    @relation(fields: [users_refId], references: [EKTP])
 }
 
 model users_ref {
@@ -135,9 +134,11 @@ model settings {
 
 model troubleReport {
   id          Int      @id @default(autoincrement())
+  name        String
+  wa          String
+  email       String
+  nik         String
   title       String
   description String   @db.LongText
   createdAt   DateTime @default(now())
-  createdBy   Int
-  user        users?   @relation(fields: [createdBy], references: [id])
 }

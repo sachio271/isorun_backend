@@ -2,7 +2,13 @@ import { IsNotEmpty } from 'class-validator';
 
 export class CreateTroubleReportDto {
   @IsNotEmpty()
-  participantId!: string;
+  name!: string;
+  @IsNotEmpty()
+  wa!: string;
+  @IsNotEmpty()
+  email!: string;
+  @IsNotEmpty()
+  nik!: string;
   @IsNotEmpty()
   title!: string;
   @IsNotEmpty()

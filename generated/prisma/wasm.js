@@ -228,10 +228,13 @@ exports.Prisma.SettingsScalarFieldEnum = {
 
 exports.Prisma.TroubleReportScalarFieldEnum = {
   id: 'id',
+  name: 'name',
+  wa: 'wa',
+  email: 'email',
+  nik: 'nik',
   title: 'title',
   description: 'description',
-  createdAt: 'createdAt',
-  createdBy: 'createdBy'
+  createdAt: 'createdAt'
 };
 
 exports.Prisma.SortOrder = {
@@ -322,6 +325,10 @@ exports.Prisma.master_categoryOrderByRelevanceFieldEnum = {
 };
 
 exports.Prisma.troubleReportOrderByRelevanceFieldEnum = {
+  name: 'name',
+  wa: 'wa',
+  email: 'email',
+  nik: 'nik',
   title: 'title',
   description: 'description'
 };
