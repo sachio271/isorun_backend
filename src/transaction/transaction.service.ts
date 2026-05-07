@@ -120,7 +120,7 @@ export class TransactionService {
         },
         users: true,
       },
-      orderBy: [{ createdAt: 'desc' }, { status: 'asc' }],
+      orderBy: [{ createdAt: 'asc' }, { status: 'asc' }],
     });
     let total_participant = 0;
 
@@ -230,8 +230,6 @@ export class TransactionService {
   }
 
   async uploadFile(id: string, file: Express.Multer.File) {
-    console.log(file);
-
     const dataTransaction = await this.prismaService.transactions.findUnique({
       where: { id },
     });
@@ -241,17 +239,19 @@ export class TransactionService {
     }
 
     const uploadDir = './uploads';
-    const extension = file.originalname.split('.').pop();
-    const name = `bukti-${dataTransaction.id}.${extension}`;
-    const filePath = join(uploadDir, name);
 
     if (!existsSync(uploadDir)) {
       mkdirSync(uploadDir);
     }
 
-    if (existsSync(filePath)) {
-      unlinkSync(filePath);
+    // Delete the previously stored file regardless of extension
+    if (dataTransaction.transferProof && existsSync(dataTransaction.transferProof)) {
+      unlinkSync(dataTransaction.transferProof);
     }
+
+    const extension = file.originalname.split('.').pop();
+    const name = `bukti-${dataTransaction.id}.${extension}`;
+    const filePath = join(uploadDir, name);
 
     writeFileSync(filePath, file.buffer);
 
