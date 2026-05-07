@@ -66,6 +66,9 @@ jobs:
             # Generate the Prisma Client
             npx prisma generate
 
+            # Ensure the uploads directory exists (if your app uses it)
+            mkdir -p uploads
+
             # Restart or start the PM2 process
             pm2 restart backend || pm2 start dist/main.js --name "backend"
             pm2 save

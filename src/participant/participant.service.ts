@@ -22,9 +22,10 @@ export class ParticipantService {
   }
 
   async updateRacePackStatus(id: number) {
-    const existingParticipant = await this.prismaService.participants.findUnique({
-      where: { id },
-    });
+    const existingParticipant =
+      await this.prismaService.participants.findUnique({
+        where: { id },
+      });
     if (!existingParticipant) {
       throw new Error('Participant not found');
     }
@@ -59,7 +60,8 @@ export class ParticipantService {
     conditions.push({
       status: 4,
     });
-    const whereClause: Prisma.transactionsWhereInput = conditions.length > 0 ? { AND: conditions } : {};
+    const whereClause: Prisma.transactionsWhereInput =
+      conditions.length > 0 ? { AND: conditions } : {};
     const [totalItems, data] = await this.prismaService.$transaction([
       this.prismaService.transactions.count({ where: whereClause }),
       this.prismaService.transactions.findMany({
@@ -75,11 +77,11 @@ export class ParticipantService {
       }),
     ]);
     const recap: Record<string, { total: number; claimed: number }> = {
-      'S': { total: 0, claimed: 0 },
-      'M': { total: 0, claimed: 0 },
-      'L': { total: 0, claimed: 0 },
-      'XL': { total: 0, claimed: 0 },
-      'XXL': { total: 0, claimed: 0 },
+      S: { total: 0, claimed: 0 },
+      M: { total: 0, claimed: 0 },
+      L: { total: 0, claimed: 0 },
+      XL: { total: 0, claimed: 0 },
+      XXL: { total: 0, claimed: 0 },
     };
 
     const allData = await this.prismaService.transactions.findMany({
@@ -88,8 +90,8 @@ export class ParticipantService {
         participants: true,
       },
     });
-    allData.forEach(current => {
-      current.participants.forEach(participant => {
+    allData.forEach((current) => {
+      current.participants.forEach((participant) => {
         const sizeKey = participant.size?.split(' ')[0] || 'Unknown';
         if (!recap[sizeKey]) {
           recap[sizeKey] = { total: 0, claimed: 0 };
@@ -138,7 +140,8 @@ export class ParticipantService {
     conditions.push({
       status: 4,
     });
-    const whereClause: Prisma.transactionsWhereInput = conditions.length > 0 ? { AND: conditions } : {};
+    const whereClause: Prisma.transactionsWhereInput =
+      conditions.length > 0 ? { AND: conditions } : {};
     const [totalItems, data] = await this.prismaService.$transaction([
       this.prismaService.transactions.count({ where: whereClause }),
       this.prismaService.transactions.findMany({
@@ -158,11 +161,14 @@ export class ParticipantService {
       }),
     ]);
     const category = await this.prismaService.master_category.findMany();
-    const recap: Record<string, { total: number; present: number }> = 
-    category.reduce((acc, cat) => {
-      acc[cat.name] = { total: 0, present: 0 };
-      return acc;
-    }, {} as Record<string, { total: number; present: number }>);
+    const recap: Record<string, { total: number; present: number }> =
+      category.reduce(
+        (acc, cat) => {
+          acc[cat.name] = { total: 0, present: 0 };
+          return acc;
+        },
+        {} as Record<string, { total: number; present: number }>,
+      );
 
     const allData = await this.prismaService.transactions.findMany({
       include: {
@@ -174,8 +180,8 @@ export class ParticipantService {
       },
       where: { status: 4 },
     });
-    allData.forEach(transaction => {
-      transaction.participants.forEach(participant => {
+    allData.forEach((transaction) => {
+      transaction.participants.forEach((participant) => {
         const categoryKey = participant.master_category?.name || 'Unknown';
         if (recap[categoryKey]) {
           recap[categoryKey].total += 1;
@@ -206,8 +212,38 @@ export class ParticipantService {
       },
       data: {
         registration: true,
-      }
-    })
+      },
+    });
+    return updatedParticipants;
+  }
+
+  async setFreeParticipant(id: string) {
+    const existingParticipant =
+      await this.prismaService.participants.findUnique({
+        where: { id: +id },
+        include: {
+          transactions: true,
+        },
+      });
+    if (!existingParticipant) {
+      throw new Error('Participant not found');
+    }
+    const updatedParticipants = await this.prismaService.participants.update({
+      where: {
+        id: +id,
+      },
+      data: {
+        price: 0,
+      },
+    });
+    await this.prismaService.transactions.update({
+      where: { id: existingParticipant.transactionsId || '' },
+      data: {
+        total: {
+          decrement: existingParticipant.price || 0,
+        },
+      },
+    });
     return updatedParticipants;
   }
 }

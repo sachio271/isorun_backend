@@ -1,7 +1,7 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { existsSync, mkdirSync, unlinkSync, writeFileSync } from 'fs';
 import { users } from 'generated/prisma';
-import { join } from 'path';
+import { basename, join } from 'path';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { CreateParticipantDto } from './dto/create-participant.dto';
 import { CreateTransactionDto } from './dto/create-transaction.dto';
@@ -10,8 +10,8 @@ import { UpdateTransactionDto } from './dto/update-transaction.dto';
 @Injectable()
 export class TransactionService {
   constructor(private readonly prismaService: PrismaService) {}
-  link = 'http://localhost:8000/api/file/';
-  linkProd = 'https://isoplusrun.wingssurya.com/apis/file/';
+  //get from env
+  private link = process.env.LINK_PROD || 'http://localhost:3000/';
   async create(createTransactionDto: CreateTransactionDto, user: users) {
     const { pt, divisi, emergencyName, emergencyPhone } = createTransactionDto;
     const dataTransaction = {
@@ -187,7 +187,7 @@ export class TransactionService {
     return {
       ...data,
       participants: participantsWithAge,
-      transferProof: this.linkProd + data?.transferProof.split('/').pop(),
+      transferProof: this.link + basename(data.transferProof),
     };
   }
 
@@ -225,7 +225,7 @@ export class TransactionService {
     }
     return {
       ...data,
-      src: this.linkProd + data?.transferProof.split('/').pop(),
+      src: this.link + basename(data.transferProof),
     };
   }
 
