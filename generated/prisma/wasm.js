@@ -226,6 +226,14 @@ exports.Prisma.SettingsScalarFieldEnum = {
   OPEN_REGISTRATION: 'OPEN_REGISTRATION'
 };
 
+exports.Prisma.TroubleReportScalarFieldEnum = {
+  id: 'id',
+  title: 'title',
+  description: 'description',
+  createdAt: 'createdAt',
+  createdBy: 'createdBy'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -313,6 +321,11 @@ exports.Prisma.master_categoryOrderByRelevanceFieldEnum = {
   type: 'type'
 };
 
+exports.Prisma.troubleReportOrderByRelevanceFieldEnum = {
+  title: 'title',
+  description: 'description'
+};
+
 
 exports.Prisma.ModelName = {
   users: 'users',
@@ -321,7 +334,8 @@ exports.Prisma.ModelName = {
   participants: 'participants',
   transactions: 'transactions',
   master_category: 'master_category',
-  settings: 'settings'
+  settings: 'settings',
+  troubleReport: 'troubleReport'
 };
 
 /**
